@@ -1,14 +1,25 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-    'ngRoute',
-    'ui.bootstrap',
-    'myApp.view1',
-    'myApp.view2',
-    'myApp.version'
-]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('!');
+angular.module('myApp', ['ngRoute', 'ui.bootstrap'])
 
-    $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+    .controller('timeController', function ($scope) {
+        var updateClock = function () {
+            $scope.time = new Date();
+        };
+
+        setInterval(function () {
+            $scope.$apply(updateClock());
+        }, 1000);
+
+        $scope.counter = 0;
+        $scope.add = function () {
+            $scope.counter += 1;
+        }
+    })
+
+    .run(function ($rootScope, $http) {
+        $rootScope.name = 'zai';
+        $http.get('http://edoo.dev/list').then(function (response) {
+            $rootScope.list = response.data;
+        })
+    })
