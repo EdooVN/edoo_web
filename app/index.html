@@ -1,48 +1,108 @@
 <!DOCTYPE html>
 <!--[if lt IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<html lang="en" ng-app="edooApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<html lang="en" ng-app="edooApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<html lang="en" ng-app="edooApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="edooApp" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My AngularJS App</title>
+    <title>Edoo app</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="bower_components/bootswatch-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body ng-controller="MainController as main">
+
+<header id="header" ng-controller="NavbarController as navbar">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Edoo</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" ng-click="navbar.login()" ng-hide="main.inAuthenticated">Login</a></li>
+                    <li class="dropdown" ng-show="main.inAuthenticated">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello {{main.user.name}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" ng-click="navbar.logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
 <div id="page">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <div class="time" ng-controller="timeController">
-                    Now: {{ time.getSeconds() }}
-                    <div class="click" ng-click="add()">
-                        {{ counter }}
-                    </div>
+            <div class="col-md-10 col-md-offset-1">
+                <h1 class="text-center">Slogan</h1>
+                <p>Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description.</p>
+                <div class="text-center">
+                    <button class="btn btn-primary">Get start</button>
+                    <button class="btn btn-default">Learn more</button>
                 </div>
             </div>
-            <div class="col-md-8" ng-repeat="x in list">{{ x.name }} - {{ x.email }}</div>
         </div>
     </div>
-
-
 </div>
+
+<footer id="footer">
+
+</footer>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modalFormLogin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Sign In</h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" ng-controller="LoginController as login">
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" ng-model="login.email" placeholder="Email">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" ng-model="login.password" placeholder="Password">
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary" ng-click="login.signIn()">Sign in</button>
+                        <a href="#">Forget password?</a>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
