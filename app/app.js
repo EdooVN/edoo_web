@@ -1,35 +1,55 @@
 (function ($) {
     'use strict';
 
-    const host_API = 'http://128.199.226.234:2344';
+    const host_API = 'http://api.uetf.me';
 
-    var app = angular.module('edooApp', ['ngRoute', 'ngCookies']);
+    var app = angular.module('edooApp', ['ngRoute', 'ngCookies', 'LocalStorageModule']);
 
-    app.controller('MainController', function ($rootScope, $cookies) {
+    app.factory('myCache', function ($cacheFactory) {
+        return $cacheFactory('myData');
+    });
+
+    app.config(function (localStorageServiceProvider) {
+        localStorageServiceProvider
+            .setPrefix('edoo_');
+    });
+
+    app.config(function (localStorageServiceProvider) {
+        localStorageServiceProvider
+            .setDefaultToCookie(false);
+    });
+
+    app.controller('MainController', function ($rootScope, myCache, localStorageService) {
+        var lsKeys = localStorageService.keys();
+        console.log(lsKeys);
+
         this.setAuthenticated = function () {
             this.inAuthenticated = true;
         };
 
         this.getUserData = function () {
-            return $cookies.getObject('user_data') || {name: ''};
+            return localStorageService.get('user_data') || {name: ''};
         };
 
         this.setUserData = function (user) {
             this.user = user;
-            $cookies.putObject('user_data', user);
+            localStorageService.set('user_data', user);
+
+            console.log(localStorageService.get('user_data'));
+
         };
 
         this.getToken = function () {
-            return this.token = $cookies.get('user_token') || false;
+            return this.token = localStorageService.get('user_token') || false;
         };
 
         this.setToken = function (token) {
             this.token = token;
-            $cookies.put('user_token', token);
+            localStorageService.set('user_token', token);
         };
 
         this.destroyToken = function () {
-            $cookies.put('user_token', null);
+            localStorageService.set('user_token', null);
         };
 
         this.logout = function () {
@@ -62,15 +82,14 @@
         }
     });
 
-    app.controller('NavbarController', function ($http, $cookies, $rootScope) {
+    app.controller('NavbarController', function ($http, myCache, $rootScope, localStorageService) {
         this.login = function () {
             $('#modalFormLogin').modal('show');
         };
 
         this.logout = function () {
             var api_url = host_API + '/logout';
-            var token = $cookies.get('user_token') || false;
-            console.log(token);
+            var token = localStorageService.get('user_token') || false;
             $http({
                 method: 'GET',
                 url: api_url,
@@ -91,8 +110,8 @@
     });
 
     app.controller('LoginController', function ($http, $rootScope) {
-        this.email = '';// To test
-        this.password = '';
+        this.email = 'tutv_58@vnu.edu.vn';// To test
+        this.password = '123456';
 
         this.signIn = function () {
             var data = {
