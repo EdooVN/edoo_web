@@ -122,7 +122,7 @@
         };
     });
 
-    app.controller('LoginController', function ($http, $rootScope) {
+    app.controller('LoginController', function ($http, $rootScope, $location) {
         this.email = 'quytm_58@vnu.edu.vn';// To test
         this.password = '123456';
 
@@ -143,6 +143,8 @@
 
                 if (200 === data.statusCode) {
                     $rootScope.$emit('loginSuccess', data.data);
+
+                    $location.path('/class');
                 }
             }, function (response) {
                 console.log(response);
