@@ -3,7 +3,21 @@
 
     const host_API = 'http://api.uetf.me';
 
-    var app = angular.module('edooApp', ['ngRoute', 'ngCookies', 'LocalStorageModule']);
+    var app = angular.module('edooApp', ['ngRoute', 'ngCookies', 'LocalStorageModule', 'edooClass']);
+
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                redirectTo: '/welcome'
+            })
+            .when('/welcome', {
+                templateUrl: 'templates/pages/welcome.html'
+            })
+            .when('/class', {
+                templateUrl: 'templates/class/index.html',
+                controller: 'ClassController'
+            })
+    });
 
     app.factory('myCache', function ($cacheFactory) {
         return $cacheFactory('myData');
@@ -110,7 +124,7 @@
     });
 
     app.controller('LoginController', function ($http, $rootScope) {
-        this.email = 'tutv_58@vnu.edu.vn';// To test
+        this.email = 'quytm_58@vnu.edu.vn';// To test
         this.password = '123456';
 
         this.signIn = function () {

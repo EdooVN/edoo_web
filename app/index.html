@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Edoo app</title>
-    <meta name="description" content="">
+    <link rel="icon" href="assets/images/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
@@ -53,50 +53,14 @@
 </header>
 
 <div id="page">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h1 class="text-center">Slogan</h1>
-                <p>Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description. Short description.</p>
-                <div class="text-center">
-                    <button class="btn btn-primary">Get start</button>
-                    <button class="btn btn-default">Learn more</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div ng-view></div>
 </div>
 
 <footer id="footer">
-
+    <div class="container">
+        <a href="#" class="pull-right">Copyright Fries</a>
+    </div>
 </footer>
-
-<div class="modal fade" tabindex="-1" role="dialog" id="modalFormLogin">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Sign In</h4>
-            </div>
-            <div class="modal-body">
-                <form id="loginForm" ng-controller="LoginController as login">
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="email" ng-model="login.email" placeholder="Email">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="password" ng-model="login.password" placeholder="Password">
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn btn-primary" ng-click="login.signIn()">Sign in</button>
-                        <a href="#">Forget password?</a>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -104,6 +68,7 @@
 <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="app.js"></script>
+<script src="assets/js/classController.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
