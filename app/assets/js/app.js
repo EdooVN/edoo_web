@@ -13,6 +13,9 @@
             .when('/welcome', {
                 templateUrl: 'templates/pages/welcome.html'
             })
+            .when('/login', {
+                templateUrl: 'templates/users/login.html'
+            })
             .when('/class', {
                 templateUrl: 'templates/class/index.html',
                 controller: 'ClassController'
@@ -97,10 +100,6 @@
     });
 
     app.controller('NavbarController', function ($http, myCache, $rootScope, localStorageService) {
-        this.login = function () {
-            $('#modalFormLogin').modal('show');
-        };
-
         this.logout = function () {
             var api_url = host_API + '/logout';
             var token = localStorageService.get('user_token') || false;
