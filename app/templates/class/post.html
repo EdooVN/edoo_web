@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+
+        <div class="col-md-9">
+            <div class="post">
+                <div class="left"></div>
+                <div class="right">
+                    <div class="header">
+                        <div class="media-left">
+                            <img src="assets/images/img.png" alt="">
+                        </div>
+                        <div class="media-body">
+                            <a class="title">{{postCtrl.post.title}}</a>
+                            <div class="time">Aug 1</div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {{postCtrl.post.content}}
+                    </div>
+
+                    <div class="footer">
+                        <div class="media-left"></div>
+                        <div class="media-body">
+                            <div class="author">{{postCtrl.post.author.name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments">
+                <h4>Comments</h4>
+                <div class="comment" ng-repeat="comment in postCtrl.post.comments">
+                    <div class="header">
+                        <div class="media-left">
+                            <img src="assets/images/img.png" alt="">
+                        </div>
+                        <div class="media-body">
+                            <span class="title">{{comment.author.name}}</span>
+                            <div class="time">Aug 1</div>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        {{comment.content}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-comment">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Comment">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

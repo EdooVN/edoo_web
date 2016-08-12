@@ -6,13 +6,15 @@
 
         <div class="col-md-9">
             <div class="listPost">
-                <div class="post" ng-repeat="post in postCtrl.listPost">
+                <div class="post" ng-repeat="post in postsCtrl.listPost">
                     <div class="left"></div>
                     <div class="right">
                         <div class="header">
-                            <div class="media-left"></div>
+                            <div class="media-left">
+                                <img src="assets/images/img.png" alt="">
+                            </div>
                             <div class="media-body">
-                                <a class="title" href="#/post/{{post.id}}">{{post.title}}</a>
+                                <a class="title" href="#/class/{{postsCtrl.class_id}}/post/{{post.id}}">{{post.title}}</a>
                                 <div class="time">Aug 1</div>
                             </div>
                         </div>
@@ -21,7 +23,9 @@
                         </div>
 
                         <div class="footer">
-                            <div class="media-left"></div>
+                            <div class="media-left">
+                                <img src="assets/images/img.png" alt="">
+                            </div>
                             <div class="media-body">
                                 <div class="author">{{post.author.name}}</div>
                             </div>

@@ -26,6 +26,11 @@
             })
             .when('/class/:id', {
                 templateUrl: 'templates/class/posts.html',
+                controller: 'PostsController',
+                controllerAs: 'postsCtrl'
+            })
+            .when('/class/:class/post/:post', {
+                templateUrl: 'templates/class/post.html',
                 controller: 'PostController',
                 controllerAs: 'postCtrl'
             })
@@ -193,27 +198,54 @@
         }
     });
 
-    app.controller('PostController', function ($scope, localStorageService, $location, $routeParams, $http) {
+    app.controller('PostsController', function ($scope, localStorageService, $location, $routeParams, $http) {
         var thisCtrl = this;
 
         var token = localStorageService.get('user_token');
 
         if (!token) {
-            $location.path('/class');
+            $location.path('/');
         }
 
         this.listPost = [];
-
-        var class_id = $routeParams.id;
+        this.class_id = $routeParams.id;
         $http({
             method: 'GET',
-            url: host_API + '/posts/' + class_id,
+            url: host_API + '/posts/' + this.class_id,
             headers: {'Authorization': token}
         }).then(function (response) {
             var data = response.data;
 
             if (200 === data.statusCode) {
                 thisCtrl.listPost = data.data.posts;
+            }
+        }, function (error) {
+            console.log(error);
+        });
+    });
+
+    app.controller('PostController', function ($scope, localStorageService, $location, $routeParams, $http) {
+        var thisCtrl = this;
+
+        var token = localStorageService.get('user_token');
+
+        if (!token) {
+            $location.path('/');
+        }
+
+        this.post = {};
+        this.class_id = $routeParams.class;
+        this.post_id = $routeParams.post;
+        $http({
+            method: 'GET',
+            url: host_API + '/post/' + this.post_id,
+            headers: {'Authorization': token}
+        }).then(function (response) {
+            var data = response.data;
+
+            if (200 === data.statusCode) {
+                console.log(data);
+                thisCtrl.post = data.data;
             }
         }, function (error) {
             console.log(error);
