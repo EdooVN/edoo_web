@@ -11,10 +11,13 @@
                 redirectTo: '/welcome'
             })
             .when('/welcome', {
-                templateUrl: 'templates/pages/welcome.html'
+                templateUrl: 'templates/pages/welcome.html',
+                controller: 'WelcomeController'
             })
             .when('/login', {
-                templateUrl: 'templates/users/login.html'
+                templateUrl: 'templates/users/login.html',
+                controller: 'LoginController',
+                controllerAs: 'login'
             })
             .when('/class', {
                 templateUrl: 'templates/class/index.html',
@@ -28,7 +31,7 @@
 
     app.config(function (localStorageServiceProvider) {
         localStorageServiceProvider
-            .setPrefix('edoo_');
+            .setPrefix('edoo');
     });
 
     app.config(function (localStorageServiceProvider) {
@@ -36,10 +39,7 @@
             .setDefaultToCookie(false);
     });
 
-    app.controller('MainController', function ($rootScope, myCache, localStorageService) {
-        var lsKeys = localStorageService.keys();
-        console.log(lsKeys);
-
+    app.controller('MainController', function ($rootScope, localStorageService) {
         this.setAuthenticated = function () {
             this.inAuthenticated = true;
         };
@@ -51,9 +51,6 @@
         this.setUserData = function (user) {
             this.user = user;
             localStorageService.set('user_data', user);
-
-            console.log(localStorageService.get('user_data'));
-
         };
 
         this.getToken = function () {
@@ -92,14 +89,12 @@
         this.user = this.getUserData();
         this.token = this.getToken();
 
-        console.log(this.token);
-
         if (this.token) {
             this.inAuthenticated = true;
         }
     });
 
-    app.controller('NavbarController', function ($http, myCache, $rootScope, localStorageService) {
+    app.controller('NavbarController', function ($http, $location, $rootScope, localStorageService) {
         this.logout = function () {
             var api_url = host_API + '/logout';
             var token = localStorageService.get('user_token') || false;
@@ -113,6 +108,7 @@
 
                     if (200 === data.statusCode) {
                         $rootScope.$emit('logoutSuccess');
+                        $location.path('/');
                     }
                 },
                 function (error) {
@@ -122,10 +118,7 @@
         };
     });
 
-    app.controller('LoginController', function ($http, $rootScope, $location) {
-        this.email = 'quytm_58@vnu.edu.vn';// To test
-        this.password = '123456';
-
+    app.controller('LoginController', function ($http, $rootScope, $location, localStorageService) {
         this.signIn = function () {
             var data = {
                 email: this.email,
@@ -150,5 +143,29 @@
                 console.log(response);
             });
         };
+
+        var token = localStorageService.get('user_token');
+
+        if (token) {
+            return $location.path('/');
+        }
+
+        this.email = 'quytm_58@vnu.edu.vn';// To test
+        this.password = '123456';
+    });
+
+    app.controller('ClassController', function ($scope, localStorageService, $location) {
+        var token = localStorageService.get('user_token');
+        if (!token) {
+            $location.path('/');
+        }
+    });
+
+    app.controller('WelcomeController', function ($scope, localStorageService, $location) {
+        var token = localStorageService.get('user_token');
+
+        if (token) {
+            $location.path('/class');
+        }
     });
 })(jQuery);
