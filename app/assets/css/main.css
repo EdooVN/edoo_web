@@ -1,0 +1,41 @@
+a[ng-click] {
+  cursor: pointer; }
+
+.vote {
+  text-align: center;
+  font-size: 1.2em; }
+  .vote i {
+    font-size: 1.5em; }
+
+.post {
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #ddd; }
+  .post .left {
+    width: 70px;
+    float: left; }
+  .post .right {
+    padding-left: 70px; }
+    .post .right .header .media-left img {
+      width: 70px; }
+    .post .right .content {
+      padding: 20px 0; }
+    .post .right .footer .media-left img {
+      width: 50px; }
+    .post .right .footer .author {
+      line-height: 50px; }
+
+.comments .comment {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  min-height: 100px; }
+  .comments .comment .left {
+    width: 80px;
+    float: left; }
+  .comments .comment .right {
+    padding-left: 70px; }
+    .comments .comment .right .header .media-left img {
+      width: 50px; }
+    .comments .comment .right .content {
+      padding: 10px 0; }

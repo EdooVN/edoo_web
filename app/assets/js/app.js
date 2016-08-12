@@ -244,7 +244,6 @@
             var data = response.data;
 
             if (200 === data.statusCode) {
-                console.log(data);
                 thisCtrl.post = data.data;
             }
         }, function (error) {
