@@ -3,7 +3,7 @@
 
     const host_API = 'http://api.uetf.me';
 
-    var app = angular.module('edooApp', ['ngRoute', 'ngCookies', 'LocalStorageModule', 'edooClass']);
+    var app = angular.module('edooApp', ['ngRoute', 'ngCookies', 'LocalStorageModule']);
 
     app.config(function ($routeProvider) {
         $routeProvider
@@ -21,8 +21,15 @@
             })
             .when('/class', {
                 templateUrl: 'templates/class/index.html',
-                controller: 'ClassController'
+                controller: 'ClassController',
+                controllerAs: 'classCtrl'
             })
+            .when('/class/:id', {
+                templateUrl: 'templates/class/posts.html',
+                controller: 'PostController',
+                controllerAs: 'postCtrl'
+            })
+
     });
 
     app.factory('myCache', function ($cacheFactory) {
@@ -154,11 +161,28 @@
         this.password = '123456';
     });
 
-    app.controller('ClassController', function ($scope, localStorageService, $location) {
+    app.controller('ClassController', function ($scope, localStorageService, $location, $http) {
         var token = localStorageService.get('user_token');
         if (!token) {
             $location.path('/');
         }
+
+        this.listClass = [];
+        var thisCtrl = this;
+
+        $http({
+            method: 'GET',
+            url: host_API + '/classes',
+            headers: {'Authorization': token}
+        }).then(function (response) {
+            var data = response.data;
+
+            if (200 === data.statusCode) {
+                thisCtrl.listClass = data.data.classes;
+            }
+        }, function (error) {
+            console.log(error);
+        });
     });
 
     app.controller('WelcomeController', function ($scope, localStorageService, $location) {
@@ -167,5 +191,32 @@
         if (token) {
             $location.path('/class');
         }
+    });
+
+    app.controller('PostController', function ($scope, localStorageService, $location, $routeParams, $http) {
+        var thisCtrl = this;
+
+        var token = localStorageService.get('user_token');
+
+        if (!token) {
+            $location.path('/class');
+        }
+
+        this.listPost = [];
+
+        var class_id = $routeParams.id;
+        $http({
+            method: 'GET',
+            url: host_API + '/posts/' + class_id,
+            headers: {'Authorization': token}
+        }).then(function (response) {
+            var data = response.data;
+
+            if (200 === data.statusCode) {
+                thisCtrl.listPost = data.data.posts;
+            }
+        }, function (error) {
+            console.log(error);
+        });
     });
 })(jQuery);

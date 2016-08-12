@@ -2,25 +2,13 @@
     <h2>Danh sách lớp môn học</h2>
 
     <ul class="list-group">
-        <li class="list-group-item">
-            <div class="nam">Co so du lieu - INT 2202 1
-                <span class="pull-right">T2 2-4<br>T3 4-6</span>
-            </div>
-            <div class="nam">Le Hong Hai</div>
-        </li>
-
-        <li class="list-group-item">
-            <div class="nam">Co so du lieu - INT 2202 1
-                <span class="pull-right">T2 2-4<br>T3 4-6</span>
-            </div>
-            <div class="nam">Le Hong Hai</div>
-        </li>
-
-        <li class="list-group-item">
-            <div class="nam">Co so du lieu - INT 2202 1
-                <span class="pull-right">T2 2-4<br>T3 4-6</span>
-            </div>
-            <div class="nam">Le Hong Hai</div>
+        <li class="list-group-item" ng-repeat="class in classCtrl.listClass">
+            <a href="#/class/{{class.id}}">
+                <div class="name">{{class.name}} - {{class.code}}
+                    <span class="pull-right">T2 2-4</span>
+                </div>
+                <div class="teacher">{{class.teacher_name}}</div>
+            </a>
         </li>
     </ul>
 </div>
