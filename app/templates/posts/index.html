@@ -1,7 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-
+            <ul class="list-group list-classes">
+                <li class="list-group-item" ng-repeat="class in postsCtrl.listClass" ng-class="postsCtrl.class_id == class.id ? 'active' : ''">
+                    <a href="#/class/{{class.id}}" class="name">{{class.name}} - {{class.code}}</a>
+                </li>
+            </ul>
         </div>
 
         <div class="col-md-9">

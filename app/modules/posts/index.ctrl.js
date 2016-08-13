@@ -3,30 +3,30 @@
 
     angular.module('app.core')
 
-        .controller('ListPostsController', function ($scope, localStorageService, $location, $routeParams, $http) {
+        .controller('ListPostsController', function ($location, $routeParams, StorageService, PostService, ClassService) {
             var thisCtrl = this;
 
-            var token = localStorageService.get('user_token');
+            var token = StorageService.getToken();
 
             if (!token) {
                 $location.path('/');
             }
-            const host_API = 'http://api.uetf.me';
+
             this.listPost = [];
             this.class_id = $routeParams.id;
-            $http({
-                method: 'GET',
-                url: host_API + '/posts/' + this.class_id,
-                headers: {'Authorization': token},
-                cache: true
-            }).then(function (response) {
-                var data = response.data;
-
-                if (200 === data.statusCode) {
-                    thisCtrl.listPost = data.data.posts;
-                }
+            this.listClass = [];
+            PostService.getListPost(this.class_id).then(function (data) {
+                thisCtrl.listPost = data.data.posts;
             }, function (error) {
                 console.log(error);
             });
+
+            ClassService.getClasses().then(
+                function (data) {
+                    thisCtrl.listClass = data.data.classes;
+                }, function (error) {
+                    console.log(error);
+                }
+            );
         });
 })();
