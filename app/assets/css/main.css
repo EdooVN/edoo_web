@@ -1,6 +1,9 @@
 a[ng-click] {
   cursor: pointer; }
 
+.post-wrapper .listPosts .post {
+  margin-bottom: 0; }
+
 .vote {
   text-align: center;
   font-size: 1.2em;
