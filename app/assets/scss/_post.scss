@@ -1,6 +1,7 @@
 .vote {
 	text-align: center;
 	font-size: 1.2em;
+	color: #888;
 
 	i {
 		font-size: 1.5em;
@@ -22,7 +23,11 @@
 
 		.header {
 			.title {
+				display: block;
 				font-size: 1.2em;
+				margin: 0;
+				min-height: 45px;
+				line-height: 25px;
 			}
 
 			.time {
@@ -74,8 +79,16 @@
 			.header {
 				.media-left {
 					img {
-						width: 50px;
+						width: 40px;
 					}
+				}
+
+				.title {
+					font-size: 0.9em;
+				}
+
+				.time {
+					font-size: 0.8em;
 				}
 			}
 
