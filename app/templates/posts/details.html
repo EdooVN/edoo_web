@@ -24,7 +24,7 @@
                         </div>
                         <div class="media-body">
                             <h1 class="title">{{postCtrl.post.title}}</h1>
-                            <div class="time">Aug 1</div>
+                            <div class="time">{{postCtrl.post.created_at | date }}</div>
                         </div>
                     </div>
                     <div class="content">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="media-body">
                                 <span class="title">{{comment.author.name}}</span>
-                                <div class="time">Aug 1</div>
+                                <div class="time">{{comment.created_at | date }}</div>
                             </div>
                         </div>
 
