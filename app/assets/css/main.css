@@ -7,6 +7,8 @@ a[ng-click] {
   color: #888; }
   .vote i {
     font-size: 1.5em; }
+  .vote .up, .vote .down {
+    cursor: pointer; }
 
 .post {
   padding-bottom: 20px;
@@ -64,3 +66,10 @@ a[ng-click] {
     .list-classes li .group a {
       display: block;
       line-height: 50px; }
+
+.sign-in-wrapper .errors .error {
+  color: red;
+  padding: 10px 20px; }
+
+.sign-in-wrapper .forget-password {
+  padding-left: 10px; }

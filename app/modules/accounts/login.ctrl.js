@@ -2,32 +2,20 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('LoginController', function ($http, $rootScope, $location, localStorageService) {
+        .controller('LoginController', function ($http, $rootScope, $location, localStorageService, LoginService) {
+            var thisCtrl = this;
+
             this.signIn = function () {
-                var data = {
-                    email: this.email,
-                    password: this.password
-                };
-
-                const host_API = 'http://api.uetf.me';
-
-                var api_url = host_API + '/login';
-
-                $http({
-                    method: 'POST',
-                    url: api_url,
-                    data: data
-                }).then(function (response) {
-                    var data = response.data;
-
-                    if (200 === data.statusCode) {
+                LoginService.login(this.email, this.password).then(
+                    function (data) {
                         $rootScope.$emit('loginSuccess', data.data);
-
                         $location.path('/class');
+                    },
+                    function (error) {
+                        var message = error.data.message;
+                        thisCtrl.errors = [message];
                     }
-                }, function (response) {
-                    console.log(response);
-                });
+                );
             };
 
             var token = localStorageService.get('user_token');
@@ -36,6 +24,7 @@
                 return $location.path('/');
             }
 
+            this.errors = [];
             this.email = 'quytm_58@vnu.edu.vn';// To test
             this.password = '123456';
         });
