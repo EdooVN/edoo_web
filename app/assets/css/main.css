@@ -33,7 +33,8 @@ a[ng-click] {
     .post .right .footer .media-left img {
       width: 50px; }
     .post .right .footer .author {
-      line-height: 50px; }
+      line-height: 50px;
+      color: #888; }
 
 .comments .comment {
   padding-bottom: 10px;
@@ -45,11 +46,21 @@ a[ng-click] {
     float: left; }
   .comments .comment .right {
     padding-left: 70px; }
-    .comments .comment .right .header .media-left img {
-      width: 40px; }
-    .comments .comment .right .header .title {
-      font-size: 0.9em; }
-    .comments .comment .right .header .time {
-      font-size: 0.8em; }
+    .comments .comment .right .header {
+      color: #888; }
+      .comments .comment .right .header .media-left img {
+        width: 40px; }
+      .comments .comment .right .header .title {
+        font-size: 0.9em; }
+      .comments .comment .right .header .time {
+        font-size: 0.8em; }
     .comments .comment .right .content {
       padding: 10px 0; }
+
+.list-classes li {
+  margin-bottom: 20px; }
+  .list-classes li .group {
+    padding: 10px 20px 20px 20px; }
+    .list-classes li .group a {
+      display: block;
+      line-height: 50px; }

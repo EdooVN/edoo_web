@@ -1,14 +1,13 @@
 <div class="container">
     <h2>Danh sách lớp môn học</h2>
 
-    <ul class="list-group">
+    <ul class="list-group list-classes">
         <li class="list-group-item" ng-repeat="class in classCtrl.listClass">
-            <a href="#/class/{{class.id}}">
-                <div class="name">{{class.name}} - {{class.code}}
-                    <span class="pull-right">T2 2-4</span>
-                </div>
-                <div class="teacher">{{class.teacher_name}}</div>
-            </a>
+            <div class="group">
+                <a href="#/class/{{class.id}}" class="name">{{class.name}} - {{class.code}}</a>
+                <span class="pull-right">T2 2-4</span>
+                <div class="teacher">{{"Lê Hồng Hải"}}</div>
+            </div>
         </li>
     </ul>
 </div>
