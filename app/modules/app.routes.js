@@ -19,6 +19,11 @@
                 controller: 'LoginController',
                 controllerAs: 'loginCtrl'
             })
+            .when('/logout', {
+                templateUrl: 'templates/accounts/logout.html',
+                controller: 'LogoutController',
+                controllerAs: 'logoutCtrl'
+            })
             .when('/class', {
                 templateUrl: 'templates/classes/index.html',
                 controller: 'ClassIndexController',

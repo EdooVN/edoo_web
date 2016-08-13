@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('LoginController', function ($http, $rootScope, $location, localStorageService, LoginService) {
+        .controller('LoginController', function ($http, $rootScope, $location, localStorageService, AccountService) {
             var thisCtrl = this;
 
             this.signIn = function () {
-                LoginService.login(this.email, this.password).then(
+                AccountService.login(this.email, this.password).then(
                     function (data) {
                         $rootScope.$emit('loginSuccess', data.data);
                         $location.path('/class');

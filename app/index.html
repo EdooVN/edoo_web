@@ -44,7 +44,7 @@
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Separated link</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a ng-click="navbar.logout()">Logout</a></li>
+                            <li><a href="#logout">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -82,13 +82,16 @@
 <!-- CONTROLLERS -->
 <script src="modules/pages/welcome.ctrl.js"></script>
 <script src="modules/accounts/login.ctrl.js"></script>
+<script src="modules/accounts/logout.ctrl.js"></script>
 <script src="modules/classes/index.ctrl.js"></script>
 <script src="modules/posts/index.ctrl.js"></script>
 <script src="modules/posts/details.ctrl.js"></script>
 <!-- / -->
 
 <!-- SERVICES -->
-<script src="modules/services/login.js"></script>
+<script src="modules/accounts/account.fct.js"></script>
+<script src="modules/classes/class.fct.js"></script>
+<script src="modules/services/storage.fct.js"></script>
 <!-- / -->
 
 </body>

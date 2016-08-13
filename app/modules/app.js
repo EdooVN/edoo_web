@@ -60,26 +60,6 @@
         })
 
         .controller('NavbarController', function ($http, $location, $rootScope, localStorageService) {
-            this.logout = function () {
-                var api_url = host_API + '/logout';
-                var token = localStorageService.get('user_token') || false;
-                $http({
-                    method: 'GET',
-                    url: api_url,
-                    headers: {'Authorization': token}
-                }).then(
-                    function (response) {
-                        var data = response.data;
 
-                        if (200 === data.statusCode) {
-                            $rootScope.$emit('logoutSuccess');
-                            $location.path('/');
-                        }
-                    },
-                    function (error) {
-                        console.log(error);
-                    }
-                );
-            };
         });
 })();

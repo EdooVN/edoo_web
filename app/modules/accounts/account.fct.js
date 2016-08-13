@@ -3,9 +3,10 @@
 
     angular.module('app.services')
         .constant('BASE_URL', 'http://api.uetf.me')
-        .factory('LoginService', loginService);
+        .factory('AccountService', accountService);
 
-    function loginService($http, BASE_URL, $q) {
+    function accountService($http, BASE_URL, $q, StorageService) {
+
         function login(email, password) {
             var deferred = $q.defer();
 
@@ -28,6 +29,27 @@
             return deferred.promise;
         }
 
+        function logout() {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            $http({
+                url: BASE_URL + '/logout',
+                method: 'GET',
+                headers: {'Authorization': token},
+                cache: true
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.resolve(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
         function makeRequest(url, data) {
             var requestUrl = BASE_URL + '/' + url;
 
@@ -40,7 +62,8 @@
         }
 
         return {
-            login: login
+            login: login,
+            logout: logout
         };
     }
 
