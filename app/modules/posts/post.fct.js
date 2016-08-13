@@ -27,8 +27,30 @@
             return deferred.promise;
         }
 
+        function getPost(post_id) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            $http({
+                url: BASE_URL + '/post/' + post_id,
+                method: 'GET',
+                headers: {'Authorization': token},
+                cache: true
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
         return {
-            getListPost: getListPost
+            getListPost: getListPost,
+            getPost: getPost
         };
     }
 

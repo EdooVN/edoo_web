@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-    const host_API = 'http://api.uetf.me';
     var app = angular.module('app', ['app.routes', 'app.localStorage', 'app.core', 'app.services'])
 
         .controller('MainController', function ($rootScope, localStorageService) {

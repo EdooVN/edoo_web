@@ -1,7 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-
+            <div class="listPost">
+                <div class="post" ng-repeat="post in postCtrl.listPosts">
+                    <a href="#class/{{postCtrl.class_id}}/post/{{post.id}}" class="title">{{post.title}}</a>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-9">
