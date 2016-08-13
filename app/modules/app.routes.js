@@ -15,7 +15,7 @@
                 controller: 'WelcomeController'
             })
             .when('/login', {
-                templateUrl: 'templates/users/login.html',
+                templateUrl: 'templates/accounts/login.html',
                 controller: 'LoginController',
                 controllerAs: 'loginCtrl'
             })

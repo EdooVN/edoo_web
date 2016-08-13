@@ -19,7 +19,8 @@
             $http({
                 method: 'GET',
                 url: host_API + '/post/' + this.post_id,
-                headers: {'Authorization': token}
+                headers: {'Authorization': token},
+                cache: true
             }).then(function (response) {
                 var data = response.data;
 
