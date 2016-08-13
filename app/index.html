@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!--[if lt IE 7]>
-<html lang="en" ng-app="edooApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>
-<html lang="en" ng-app="edooApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>
-<html lang="en" ng-app="edooApp" class="no-js lt-ie9"> <![endif]-->
+<html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="edooApp" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,8 +22,8 @@
 </head>
 <body ng-controller="MainController as main">
 
-<header id="header" ng-controller="NavbarController as navbar">
-    <nav class="navbar navbar-default">
+<header id="header">
+    <nav class="navbar navbar-default" ng-controller="NavbarController as navbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -63,12 +63,28 @@
     </div>
 </footer>
 
+<!-- ASSETS -->
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="assets/js/app.js"></script>
+<!-- / -->
+
+<!-- MODULES -->
+<script src="modules/app.routes.js"></script>
+<script src="modules/app.localStorage.js"></script>
+<script src="modules/app.core.js"></script>
+<script src="modules/app.js"></script>
+<!-- / -->
+
+<!-- CONTROLLERS -->
+<script src="modules/pages/welcome.ctrl.js"></script>
+<script src="modules/accounts/login.ctrl.js"></script>
+<script src="modules/classes/index.ctrl.js"></script>
+<script src="modules/posts/index.ctrl.js"></script>
+<script src="modules/posts/details.ctrl.js"></script>
+<!-- / -->
+
 </body>
 </html>

@@ -16,6 +16,11 @@ a[ng-click] {
     float: left; }
   .post .right {
     padding-left: 70px; }
+    .post .right .header .title {
+      font-size: 1.2em; }
+    .post .right .header .time {
+      font-size: 0.9em;
+      color: #b7b7b7; }
     .post .right .header .media-left img {
       width: 70px; }
     .post .right .content {
