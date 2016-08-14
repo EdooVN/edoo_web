@@ -11,6 +11,10 @@
         <div class="col-md-9">
             <div class="listPost">
                 <div class="post" ng-repeat="post in postsCtrl.listPost">
+                    <div class="header">
+                        <h2 class="title" ><a href="#/class/{{postsCtrl.class_id}}/post/{{post.id}}">{{post.title}}</a></h2>
+                    </div>
+
                     <div class="left">
                         <div class="vote">
                             <div class="up"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
@@ -19,15 +23,6 @@
                         </div>
                     </div>
                     <div class="right">
-                        <div class="header">
-                            <div class="media-left">
-                                <img src="assets/images/img.png" alt="">
-                            </div>
-                            <div class="media-body">
-                                <a class="title" href="#/class/{{postsCtrl.class_id}}/post/{{post.id}}">{{post.title}}</a>
-                                <div class="time">{{post.created_at | date }}</div>
-                            </div>
-                        </div>
                         <div class="content">
                             {{post.content}}
                         </div>
@@ -39,6 +34,7 @@
                             <div class="media-body">
                                 <div class="author">{{post.author.name}}</div>
                             </div>
+                            <div class="time">{{post.created_at | date }}</div>
                         </div>
                     </div>
                 </div>

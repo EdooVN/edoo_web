@@ -4,6 +4,30 @@ a[ng-click] {
 .post-wrapper .listPosts .post {
   margin-bottom: 0; }
 
+.post-wrapper .comments {
+  margin-bottom: 30px; }
+  .post-wrapper .comments .comment {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    min-height: 100px; }
+    .post-wrapper .comments .comment .left {
+      width: 80px;
+      float: left; }
+    .post-wrapper .comments .comment .right {
+      padding-left: 70px; }
+      .post-wrapper .comments .comment .right .header {
+        color: #888; }
+        .post-wrapper .comments .comment .right .header .media-left img {
+          width: 40px; }
+        .post-wrapper .comments .comment .right .header .title {
+          font-size: 0.9em; }
+        .post-wrapper .comments .comment .right .header .time {
+          font-size: 0.8em; }
+      .post-wrapper .comments .comment .right .content {
+        padding: 10px 0; }
+
 .vote {
   text-align: center;
   font-size: 1.2em;
@@ -16,23 +40,20 @@ a[ng-click] {
 .post {
   padding-bottom: 20px;
   margin-bottom: 40px;
-  border-bottom: 2px solid #ddd; }
+  border-bottom: 1px solid #ddd; }
+  .post .header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px; }
+    .post .header .title {
+      display: block;
+      margin: 0;
+      min-height: 45px;
+      line-height: 25px; }
   .post .left {
     width: 70px;
     float: left; }
   .post .right {
     padding-left: 70px; }
-    .post .right .header .title {
-      display: block;
-      font-size: 1.2em;
-      margin: 0;
-      min-height: 45px;
-      line-height: 25px; }
-    .post .right .header .time {
-      font-size: 0.9em;
-      color: #b7b7b7; }
-    .post .right .header .media-left img {
-      width: 70px; }
     .post .right .content {
       padding: 20px 0; }
     .post .right .footer .media-left img {
@@ -40,27 +61,9 @@ a[ng-click] {
     .post .right .footer .author {
       line-height: 50px;
       color: #888; }
-
-.comments .comment {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  min-height: 100px; }
-  .comments .comment .left {
-    width: 80px;
-    float: left; }
-  .comments .comment .right {
-    padding-left: 70px; }
-    .comments .comment .right .header {
-      color: #888; }
-      .comments .comment .right .header .media-left img {
-        width: 40px; }
-      .comments .comment .right .header .title {
-        font-size: 0.9em; }
-      .comments .comment .right .header .time {
-        font-size: 0.8em; }
-    .comments .comment .right .content {
-      padding: 10px 0; }
+    .post .right .footer .time {
+      font-size: 0.9em;
+      color: #b7b7b7; }
 
 .list-classes li {
   margin-bottom: 20px; }

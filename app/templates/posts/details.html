@@ -10,6 +10,10 @@
 
         <div class="col-md-9">
             <div class="post">
+                <div class="header">
+                    <h1 class="title">{{postCtrl.post.title}}</h1>
+                </div>
+
                 <div class="left">
                     <div class="vote">
                         <div class="up"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
@@ -18,15 +22,6 @@
                     </div>
                 </div>
                 <div class="right">
-                    <div class="header">
-                        <div class="media-left">
-                            <img src="assets/images/img.png" alt="">
-                        </div>
-                        <div class="media-body">
-                            <h1 class="title">{{postCtrl.post.title}}</h1>
-                            <div class="time">{{postCtrl.post.created_at | date }}</div>
-                        </div>
-                    </div>
                     <div class="content">
                         {{postCtrl.post.content}}
                     </div>
@@ -38,6 +33,7 @@
                         <div class="media-body">
                             <div class="author">{{postCtrl.post.author.name}}</div>
                         </div>
+                        <div class="time">{{postCtrl.post.created_at | date }}</div>
                     </div>
                 </div>
             </div>
@@ -71,6 +67,7 @@
             </div>
 
             <div class="form-comment">
+                <h4>Your reply</h4>
                 <form>
                     <div class="form-group">
                         <textarea class="form-control" placeholder="Comment"></textarea>

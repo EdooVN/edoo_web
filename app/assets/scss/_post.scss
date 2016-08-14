@@ -4,6 +4,55 @@
 			margin-bottom: 0;
 		}
 	}
+
+
+	.comments {
+		margin-bottom: 30px;
+
+		.comment {
+			padding-bottom: 10px;
+			padding-top: 10px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid #ddd;
+			min-height: 100px;
+
+			.left {
+				width: 80px;
+				float: left;
+
+			}
+
+			.right {
+				padding-left: 70px;
+
+				.header {
+					color: #888;
+
+					.media-left {
+						img {
+							width: 40px;
+						}
+					}
+
+					.title {
+						font-size: 0.9em;
+					}
+
+					.time {
+						font-size: 0.8em;
+					}
+				}
+
+				.content {
+					padding: 10px 0;
+				}
+			}
+		}
+	}
+
+	.form-comment {
+
+	}
 }
 
 .vote {
@@ -23,7 +72,19 @@
 .post {
 	padding-bottom: 20px;
 	margin-bottom: 40px;
-	border-bottom: 2px solid #ddd;
+	border-bottom: 1px solid #ddd;
+
+	.header {
+		.title {
+			display: block;
+			margin: 0;
+			min-height: 45px;
+			line-height: 25px;
+		}
+
+		border-bottom: 1px solid #eee;
+		margin-bottom: 20px;
+	}
 
 	.left {
 		width: 70px;
@@ -32,27 +93,6 @@
 
 	.right {
 		padding-left: 70px;
-
-		.header {
-			.title {
-				display: block;
-				font-size: 1.2em;
-				margin: 0;
-				min-height: 45px;
-				line-height: 25px;
-			}
-
-			.time {
-				font-size: 0.9em;
-				color: #b7b7b7;
-			}
-
-			.media-left {
-				img {
-					width: 70px;
-				}
-			}
-		}
 
 		.content {
 			padding: 20px 0;
@@ -69,46 +109,10 @@
 				line-height: 50px;
 				color: #888;
 			}
-		}
-	}
-}
 
-.comments {
-	.comment {
-		padding-bottom: 10px;
-		margin-bottom: 10px;
-		border-bottom: 1px solid #ddd;
-		min-height: 100px;
-
-		.left {
-			width: 80px;
-			float: left;
-
-		}
-
-		.right {
-			padding-left: 70px;
-
-			.header {
-				color: #888;
-
-				.media-left {
-					img {
-						width: 40px;
-					}
-				}
-
-				.title {
-					font-size: 0.9em;
-				}
-
-				.time {
-					font-size: 0.8em;
-				}
-			}
-
-			.content {
-				padding: 10px 0;
+			.time {
+				font-size: 0.9em;
+				color: #b7b7b7;
 			}
 		}
 	}
