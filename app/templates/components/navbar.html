@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" ng-controller="NavbarController as navbar">
+<nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -12,8 +12,8 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#login">Login</a></li>
-                <li class="dropdown">
+                <li><a href="#login" ng-hide="navbarCtrl.data.isAuthenticated">Login</a></li>
+                <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello {{main.user.name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Another action</a></li>
