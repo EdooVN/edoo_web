@@ -6,6 +6,10 @@
         .factory('ClassService', classService);
 
     function classService($http, BASE_URL, $q, StorageService) {
+        return {
+            getClasses: getClasses
+        };
+
         function getClasses() {
             var deferred = $q.defer();
             var request = makeRequest('classes');
@@ -33,10 +37,6 @@
                 cache: true
             });
         }
-
-        return {
-            getClasses: getClasses
-        };
     }
 
 })();

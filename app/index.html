@@ -22,46 +22,14 @@
 </head>
 <body ng-controller="MainController as main">
 
-<header id="header">
-    <nav class="navbar navbar-default" ng-controller="NavbarController as navbar">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#/">Edoo</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#login" ng-hide="main.inAuthenticated">Login</a></li>
-                    <li class="dropdown" ng-show="main.inAuthenticated">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello {{main.user.name}} <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#logout">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<header id="header" ng-include="'templates/components/navbar.html'">
 </header>
 
 <div id="page">
     <div ng-view></div>
 </div>
 
-<footer id="footer">
-    <div class="container">
-        <a href="#" class="pull-right">Copyright Fries</a>
-    </div>
-</footer>
+<footer id="footer" ed-footer></footer>
 
 <!-- ASSETS -->
 <script src="bower_components/angular/angular.min.js"></script>
@@ -80,6 +48,8 @@
 <!-- / -->
 
 <!-- CONTROLLERS -->
+<script src="modules/components/navbar.ctrl.js"></script>
+<script src="modules/components/footer.ctrl.js"></script>
 <script src="modules/pages/welcome.ctrl.js"></script>
 <script src="modules/accounts/login.ctrl.js"></script>
 <script src="modules/accounts/logout.ctrl.js"></script>
@@ -93,6 +63,10 @@
 <script src="modules/classes/class.fct.js"></script>
 <script src="modules/posts/post.fct.js"></script>
 <script src="modules/services/storage.fct.js"></script>
+<!-- / -->
+
+<!-- DIRECTIVES -->
+<script src="modules/components/footer.drct.js"></script>
 <!-- / -->
 
 </body>

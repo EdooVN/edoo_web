@@ -6,6 +6,10 @@
         .factory('AccountService', accountService);
 
     function accountService($http, BASE_URL, $q, StorageService) {
+        return {
+            login: login,
+            logout: logout
+        };
 
         function login(email, password) {
             var deferred = $q.defer();
@@ -60,11 +64,6 @@
                 cache: true
             });
         }
-
-        return {
-            login: login,
-            logout: logout
-        };
     }
 
 })();

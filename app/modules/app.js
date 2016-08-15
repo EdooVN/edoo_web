@@ -56,9 +56,5 @@
             if (this.token) {
                 this.inAuthenticated = true;
             }
-        })
-
-        .controller('NavbarController', function ($http, $location, $rootScope, localStorageService) {
-
         });
 })();

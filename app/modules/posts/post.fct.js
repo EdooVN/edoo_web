@@ -6,6 +6,11 @@
         .factory('PostService', postService);
 
     function postService($http, BASE_URL, $q, StorageService) {
+        return {
+            getListPost: getListPost,
+            getPost: getPost
+        };
+
         function getListPost(class_id) {
             var deferred = $q.defer();
             var token = StorageService.getToken();
@@ -47,11 +52,6 @@
 
             return deferred.promise;
         }
-
-        return {
-            getListPost: getListPost,
-            getPost: getPost
-        };
     }
 
 })();
