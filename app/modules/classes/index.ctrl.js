@@ -9,10 +9,10 @@
             }
 
             this.listClass = [];
-            var thisCtrl = this;
+            var mv = this;
 
             ClassService.getClasses().then(function (data) {
-                thisCtrl.listClass = data.data.classes;
+                mv.listClass = data.data.classes;
             }, function (error) {
                 console.log(error);
             });

@@ -4,7 +4,7 @@
     angular.module('app.core')
 
         .controller('PostDetailsController', function ($scope, localStorageService, $location, $routeParams, PostService) {
-            var thisCtrl = this;
+            var vm = this;
 
             var token = localStorageService.get('user_token');
 
@@ -18,13 +18,13 @@
             this.listPosts = [];
 
             PostService.getPost(this.post_id).then(function (data) {
-                thisCtrl.post = data.data;
+                vm.post = data.data;
             }, function (error) {
                 console.log(error);
             });
 
             PostService.getListPost(this.class_id).then(function (data) {
-                thisCtrl.listPosts = data.data.posts;
+                vm.listPosts = data.data.posts;
             }, function (error) {
                 console.log(error);
             });

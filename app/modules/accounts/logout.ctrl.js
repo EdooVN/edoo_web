@@ -2,19 +2,21 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('LogoutController', function ($rootScope, $location, AccountService) {
-            this.logout = function () {
-                AccountService.logout().then(
-                    function (data) {
-                        $rootScope.$emit('logoutSuccess');
-                        $location.path('/');
-                    },
-                    function (error) {
-                        console.log(error);
-                    }
-                );
-            };
+        .controller('LogoutController', LogoutController);
 
-            this.logout();
-        });
+    function LogoutController($rootScope, $location, AccountService) {
+        logout();
+
+        function logout() {
+            AccountService.logout().then(
+                function (data) {
+                    $rootScope.$emit('logoutSuccess');
+                    $location.path('/');
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        }
+    }
 })();
