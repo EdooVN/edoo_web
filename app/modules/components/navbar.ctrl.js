@@ -2,7 +2,9 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('NavbarController', function () {
+        .controller('NavbarController', NavbarController);
 
-        })
+    function NavbarController() {
+
+    }
 })();

@@ -2,7 +2,9 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('FooterController', function () {
+        .controller('FooterController', FooterController);
 
-        })
+    function FooterController() {
+
+    }
 })();
