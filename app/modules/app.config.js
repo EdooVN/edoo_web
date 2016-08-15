@@ -21,7 +21,7 @@
         });
 
         $rootScope.$on('logoutSuccess', function (event, data) {
-            StorageService.removeAll();
+            StorageService.clearAll();
             updateValues();
         });
 
@@ -34,9 +34,8 @@
 
         function updateValues() {
             var token = StorageService.getToken();
-            if (token) {
-                PageValues.isAuthenticated = true;
-            }
+
+            PageValues.isAuthenticated = Boolean(token);
             PageValues.token = token;
             PageValues.user = StorageService.getUserData();
         }
