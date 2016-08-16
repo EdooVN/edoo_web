@@ -23,8 +23,11 @@ a[ng-click] {
           width: 40px; }
         .post-wrapper .comments .comment .right .header .title {
           font-size: 0.9em; }
+        .post-wrapper .comments .comment .right .header .media-body {
+          vertical-align: middle; }
         .post-wrapper .comments .comment .right .header .time {
-          font-size: 0.8em; }
+          font-size: 0.8em;
+          float: right; }
       .post-wrapper .comments .comment .right .content {
         padding: 10px 0; }
 
