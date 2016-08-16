@@ -56,14 +56,23 @@ a[ng-click] {
     padding-left: 70px; }
     .post .right .content {
       padding: 20px 0; }
-    .post .right .footer .media-left img {
-      width: 50px; }
-    .post .right .footer .author {
-      line-height: 50px;
-      color: #888; }
-    .post .right .footer .time {
-      font-size: 0.9em;
-      color: #b7b7b7; }
+    .post .right .footer {
+      overflow: hidden; }
+      .post .right .footer .media-left {
+        float: left; }
+        .post .right .footer .media-left img {
+          width: 50px; }
+      .post .right .footer .author {
+        line-height: 50px;
+        color: #888; }
+      .post .right .footer .media-body {
+        float: left;
+        width: auto; }
+      .post .right .footer .time {
+        float: right;
+        font-size: 0.9em;
+        line-height: 50px;
+        color: #b7b7b7; }
 
 .list-classes li {
   margin-bottom: 20px; }

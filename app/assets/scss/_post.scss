@@ -99,7 +99,9 @@
 		}
 
 		.footer {
+			overflow: hidden;
 			.media-left {
+				float: left;
 				img {
 					width: 50px;
 				}
@@ -110,8 +112,15 @@
 				color: #888;
 			}
 
+			.media-body {
+				float: left;
+				width: auto;
+			}
+
 			.time {
+				float: right;
 				font-size: 0.9em;
+				line-height: 50px;
 				color: #b7b7b7;
 			}
 		}
