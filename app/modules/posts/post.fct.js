@@ -5,7 +5,7 @@
         .constant('BASE_URL', 'http://api.uetf.me')
         .factory('PostService', postService);
 
-    function postService($http, BASE_URL, $q, StorageService) {
+    function postService($http, $rootScope, BASE_URL, $q, StorageService) {
         return {
             getListPost: getListPost,
             getPost: getPost
@@ -15,6 +15,7 @@
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
+            $rootScope.$emit('http_start', null);
             $http({
                 url: BASE_URL + '/posts/' + class_id,
                 method: 'GET',
@@ -22,9 +23,11 @@
                 cache: true
             }).then(
                 function (response) {
+                    $rootScope.$emit('http_complete', response);
                     deferred.resolve(response.data);
                 },
                 function (error) {
+                    $rootScope.$emit('http_complete', error);
                     deferred.reject(error);
                 }
             );
@@ -36,6 +39,7 @@
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
+            $rootScope.$emit('http_start', null);
             $http({
                 url: BASE_URL + '/post/' + post_id,
                 method: 'GET',
@@ -43,9 +47,11 @@
                 cache: true
             }).then(
                 function (response) {
+                    $rootScope.$emit('http_complete', response);
                     deferred.resolve(response.data);
                 },
                 function (error) {
+                    $rootScope.$emit('http_complete', error);
                     deferred.reject(error);
                 }
             );

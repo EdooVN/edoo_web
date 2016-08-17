@@ -20,6 +20,14 @@
             PageValues.loading = false;
         });
 
+        $rootScope.$on('http_start', function (event, data) {
+            PageValues.loading = true;
+        });
+
+        $rootScope.$on('http_complete', function (event, data) {
+            PageValues.loading = false;
+        });
+
         $rootScope.$on('logoutSuccess', function (event, data) {
             StorageService.clearAll();
             updateValues();

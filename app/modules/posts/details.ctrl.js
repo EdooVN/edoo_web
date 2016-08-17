@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($scope, localStorageService, $location, $routeParams, PostService) {
+        .controller('PostDetailsController', function ($scope, localStorageService, $location, $routeParams, PostService, PageValues) {
             var vm = this;
 
             var token = localStorageService.get('user_token');
@@ -12,10 +12,12 @@
                 $location.path('/');
             }
 
-            this.post = {};
-            this.class_id = $routeParams.class;
-            this.post_id = $routeParams.post;
-            this.listPosts = [];
+            vm.data = PageValues;
+
+            vm.post = {};
+            vm.class_id = $routeParams.class;
+            vm.post_id = $routeParams.post;
+            vm.listPosts = [];
 
             PostService.getPost(this.post_id).then(function (data) {
                 vm.post = data.data;
