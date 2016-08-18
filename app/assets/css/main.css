@@ -84,6 +84,7 @@ a[ng-click] {
   left: 0;
   right: 0;
   background-color: #fff;
+  z-index: 999;
   text-align: center; }
   .pre-loading img {
     position: absolute;
