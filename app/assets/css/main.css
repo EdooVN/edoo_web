@@ -77,6 +77,23 @@ a[ng-click] {
         line-height: 50px;
         color: #b7b7b7; }
 
+.pre-loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  text-align: center; }
+  .pre-loading img {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%); }
+
 .list-classes li {
   margin-bottom: 20px; }
   .list-classes li .group {
