@@ -19,8 +19,7 @@
             $http({
                 url: BASE_URL + '/posts/' + class_id,
                 method: 'GET',
-                headers: {'Authorization': token},
-                cache: true
+                headers: {'Authorization': token}
             }).then(
                 function (response) {
                     $rootScope.$emit('http_complete', response);
@@ -43,8 +42,7 @@
             $http({
                 url: BASE_URL + '/post/' + post_id,
                 method: 'GET',
-                headers: {'Authorization': token},
-                cache: true
+                headers: {'Authorization': token}
             }).then(
                 function (response) {
                     $rootScope.$emit('http_complete', response);

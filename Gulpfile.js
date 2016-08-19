@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
     livereload = require('gulp-livereload'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps');
 
 // Default Task
 gulp.task('default', ['watch']);
@@ -25,7 +26,9 @@ gulp.task('js', function () {
 
 gulp.task('sass', function () {
     return gulp.src('app/assets/scss/main.scss')
+        .pipe(sourcemaps.init())
         .pipe(sass())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('app/assets/css'))
         .pipe(livereload());
 });

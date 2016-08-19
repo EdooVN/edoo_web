@@ -33,8 +33,7 @@
             return $http({
                 url: requestUrl,
                 method: 'GET',
-                headers: {'Authorization': token},
-                cache: true
+                headers: {'Authorization': token}
             });
         }
     }

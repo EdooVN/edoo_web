@@ -44,8 +44,7 @@
             $http({
                 url: BASE_URL + '/logout',
                 method: 'GET',
-                headers: {'Authorization': token},
-                cache: true
+                headers: {'Authorization': token}
             }).then(
                 function (response) {
                     $rootScope.$emit('http_complete', response);
@@ -66,8 +65,7 @@
             return $http({
                 url: requestUrl,
                 method: 'POST',
-                data: data,
-                cache: true
+                data: data
             });
         }
     }
