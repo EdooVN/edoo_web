@@ -10,6 +10,8 @@
             setToken: setToken,
             setUserData: setUserData,
             getUserData: getUserData,
+            setClasses: setClasses,
+            getClasses: getClasses,
             clearAll: clearAll
         };
 
@@ -30,6 +32,15 @@
         function getUserData() {
             return localStorageService.get('user_data');
         }
+
+        function setClasses(classes) {
+            return localStorageService.set('user_classes', classes);
+        }
+
+        function getClasses() {
+            return localStorageService.get('user_classes') || [];
+        }
+
 
         function clearAll() {
             return localStorageService.clearAll();

@@ -12,7 +12,9 @@
             var mv = this;
 
             ClassService.getClasses().then(function (data) {
-                mv.listClass = data.data.classes;
+                var classes = data.data.classes;
+                StorageService.setClasses(classes);
+                mv.listClass = classes;
             }, function (error) {
                 console.log(error);
             });

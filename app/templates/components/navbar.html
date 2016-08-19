@@ -11,10 +11,19 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lớp môn học <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="class in navbarCtrl.classes"><a href="#class/{{class.id}}">{{class.name }} - {{class.code}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#login" ng-hide="navbarCtrl.data.isAuthenticated">Login</a></li>
                 <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello {{navbarCtrl.data.user.name}} <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chào {{navbarCtrl.data.user.name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Another action</a></li>
                         <li><a href="#">Separated link</a></li>
