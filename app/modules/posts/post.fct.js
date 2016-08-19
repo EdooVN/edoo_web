@@ -8,7 +8,8 @@
     function postService($http, $rootScope, BASE_URL, $q, StorageService) {
         return {
             getListPost: getListPost,
-            getPost: getPost
+            getPost: getPost,
+            comment: comment,
         };
 
         function getListPost(class_id) {
@@ -50,6 +51,27 @@
                 },
                 function (error) {
                     $rootScope.$emit('http_complete', error);
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function comment(data) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            $http({
+                url: BASE_URL + '/cmt',
+                method: 'POST',
+                data: data,
+                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
                     deferred.reject(error);
                 }
             );
