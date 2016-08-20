@@ -39,5 +39,10 @@
                 controller: 'PostDetailsController',
                 controllerAs: 'postCtrl'
             })
+            .when('/class/:class/newPost', {
+                templateUrl: 'templates/posts/create.html',
+                controller: 'CreatePostController',
+                controllerAs: 'createPostCtrl'
+            })
     }
 })();
