@@ -22,7 +22,12 @@
             vm.vote = vote;
 
             PostService.getPost(this.post_id).then(function (data) {
-                vm.post = data.data;
+                var post = data.data;
+                var class_id = post.class_id;
+                if (class_id !== vm.class_id) {
+                    $location.path('/class/' + class_id + '/post/' + post.id);
+                }
+                vm.post = post;
             }, function (error) {
                 console.log(error);
             });
