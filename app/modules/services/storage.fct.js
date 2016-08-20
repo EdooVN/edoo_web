@@ -38,7 +38,7 @@
         }
 
         function getClasses() {
-            return localStorageService.get('user_classes') || [];
+            return localStorageService.get('user_classes') || false;
         }
 
 

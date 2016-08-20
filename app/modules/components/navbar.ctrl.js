@@ -4,9 +4,23 @@
     angular.module('app.core')
         .controller('NavbarController', NavbarController);
 
-    function NavbarController(PageValues, StorageService) {
+    function NavbarController(PageValues, ClassService, StorageService) {
         var mv = this;
         mv.data = PageValues;
-        mv.classes = StorageService.getClasses();
+        var classes = StorageService.getClasses();
+        if (!classes) {
+            ClassService.getClasses().then(
+                function (data) {
+                    var classes = data.data.classes;
+                    StorageService.setClasses(classes);
+                    mv.classes = classes;
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        } else {
+            mv.classes = classes;
+        }
     }
 })();
