@@ -9,6 +9,7 @@
         return {
             getListPost: getListPost,
             getPost: getPost,
+            createPost: createPost,
             comment: comment,
             vote: vote
         };
@@ -101,8 +102,25 @@
             return deferred.promise;
         }
 
-        function createPost() {
+        function createPost(data) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
 
+            $http({
+                url: BASE_URL + '/post',
+                method: 'POST',
+                data: data,
+                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
         }
     }
 

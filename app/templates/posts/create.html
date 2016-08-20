@@ -1,3 +1,24 @@
 <div class="container">
-    <textarea name="create-post-content" id="create-post-content" class="create-post-content" cols="30" rows="10"></textarea>
+    <form>
+        <div class="form-group">
+            <label for="type">Thể loại</label>
+            <div id="type">
+                <label class="radio-inline"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="question">Question</label>
+                <label class="radio-inline"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="note">Note</label>
+                <label class="radio-inline"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="poll">Poll</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="title">Tiêu đề</label>
+            <input type="text" id="title" ng-model="createPostCtrl.newPost.title" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="content">Nội dung</label>
+            <textarea id="content" ui-tinymce="createPostCtrl.tinymceOptions" ng-model="createPostCtrl.newPost.content"></textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="createPostCtrl.createPost()">Đăng bài</button>
+        </div>
+    </form>
+
 </div>
