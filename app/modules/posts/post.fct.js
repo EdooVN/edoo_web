@@ -10,6 +10,7 @@
             getListPost: getListPost,
             getPost: getPost,
             comment: comment,
+            vote: vote
         };
 
         function getListPost(class_id) {
@@ -64,6 +65,27 @@
 
             $http({
                 url: BASE_URL + '/cmt',
+                method: 'POST',
+                data: data,
+                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function vote(data) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            $http({
+                url: BASE_URL + '/votepost',
                 method: 'POST',
                 data: data,
                 headers: {'Authorization': token}

@@ -19,6 +19,7 @@
             vm.post_id = $routeParams.post;
             vm.listPosts = [];
             vm.comment = comment;
+            vm.vote = vote;
 
             PostService.getPost(this.post_id).then(function (data) {
                 vm.post = data.data;
@@ -44,6 +45,22 @@
                         vm.answer = '';
                         var new_comment = data.data;
                         vm.post.comments.push(new_comment);
+                    },
+                    function (error) {
+                        console.log(error);
+                    }
+                )
+            }
+
+            function vote(type) {
+                var data = {
+                    post_id: vm.post_id,
+                    content: type
+                };
+
+                PostService.vote(data).then(
+                    function (data) {
+                        var vote_count = data.data.vote_count;
                     },
                     function (error) {
                         console.log(error);
