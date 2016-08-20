@@ -42,7 +42,8 @@
                 PostService.comment(data).then(
                     function (data) {
                         vm.answer = '';
-                        console.log(data);
+                        var new_comment = data.data;
+                        vm.post.comments.push(new_comment);
                     },
                     function (error) {
                         console.log(error);
