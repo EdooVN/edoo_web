@@ -5,7 +5,7 @@
         .constant('BASE_URL', 'http://api.uetf.me')
         .factory('PostService', postService);
 
-    function postService($http, $rootScope, BASE_URL, $q, StorageService) {
+    function postService($http, $rootScope, $window, $q, BASE_URL, StorageService) {
         return {
             getListPost: getListPost,
             getPost: getPost,
@@ -18,6 +18,7 @@
             var token = StorageService.getToken();
 
             $rootScope.$emit('http_start', null);
+            angular.element($window).triggerHandler('http_start');
             $http({
                 url: BASE_URL + '/posts/' + class_id,
                 method: 'GET',
@@ -25,10 +26,12 @@
             }).then(
                 function (response) {
                     $rootScope.$emit('http_complete', response);
+                    angular.element($window).triggerHandler('http_complete');
                     deferred.resolve(response.data);
                 },
                 function (error) {
                     $rootScope.$emit('http_complete', error);
+                    angular.element($window).triggerHandler('http_complete');
                     deferred.reject(error);
                 }
             );
@@ -41,6 +44,7 @@
             var token = StorageService.getToken();
 
             $rootScope.$emit('http_start', null);
+            angular.element($window).triggerHandler('http_start');
             $http({
                 url: BASE_URL + '/post/' + post_id,
                 method: 'GET',
@@ -48,10 +52,12 @@
             }).then(
                 function (response) {
                     $rootScope.$emit('http_complete', response);
+                    angular.element($window).triggerHandler('http_complete');
                     deferred.resolve(response.data);
                 },
                 function (error) {
                     $rootScope.$emit('http_complete', error);
+                    angular.element($window).triggerHandler('http_complete');
                     deferred.reject(error);
                 }
             );
