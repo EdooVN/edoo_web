@@ -13,15 +13,15 @@
 
             var classes = StorageService.getClasses() || false;
             if (classes) {
-                return mv.listClass = classes;
-            }
-
-            ClassService.getClasses().then(function (data) {
-                var classes = data.data.classes;
-                StorageService.setClasses(classes);
                 mv.listClass = classes;
-            }, function (error) {
-                console.log(error);
-            });
+            } else {
+                ClassService.getClasses().then(function (data) {
+                    var classes = data.data.classes;
+                    StorageService.setClasses(classes);
+                    mv.listClass = classes;
+                }, function (error) {
+                    console.log(error);
+                });
+            }
         });
 })();
