@@ -6,16 +6,19 @@
         .config(configs)
         .run(runs);
 
-    function configs() {
-
+    function configs($httpProvider) {
+        $httpProvider.interceptors.push('HTTPInterceptor');
     }
 
-    function runs($rootScope, PageValues, StorageService) {
-        updateValues();
-
+    function runs($rootScope, PageValues, StorageService, AuthService, ClassService) {
         $rootScope.$on('$routeChangeStart', function () {
             PageValues.loading = true;
+
+            if (!AuthService.isAuthorized()) {
+                $rootScope.$emit('unauthorized', null);
+            }
         });
+
         $rootScope.$on('$routeChangeSuccess', function () {
             PageValues.loading = false;
         });
@@ -28,7 +31,7 @@
             PageValues.loading = false;
         });
 
-        $rootScope.$on('logoutSuccess', function (event, data) {
+        $rootScope.$on('unauthorized', function (event, data) {
             StorageService.clearAll();
             updateValues();
         });
@@ -40,12 +43,33 @@
             updateValues();
         });
 
+        function initData() {
+            if (!AuthService.isAuthorized()) {
+                return false;
+            }
+
+            var classes = StorageService.getClasses() || false;
+            if (!classes) {
+                ClassService.getClasses().then(
+                    function (data) {
+                        var classes = data.data.classes;
+                        StorageService.setClasses(classes);
+                    }
+                );
+            }
+
+            return true;
+        }
+
         function updateValues() {
             var token = StorageService.getToken();
 
-            PageValues.isAuthenticated = Boolean(token);
+            PageValues.isAuthenticated = AuthService.isAuthorized();
             PageValues.token = token;
             PageValues.user = StorageService.getUserData();
         }
+
+        initData();
+        updateValues();
     }
 })();
