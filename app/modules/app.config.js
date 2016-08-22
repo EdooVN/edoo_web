@@ -6,16 +6,21 @@
         .config(configs)
         .run(runs);
 
-    function configs() {
-
+    function configs($httpProvider) {
+        $httpProvider.interceptors.push('HTTPInterceptor');
     }
 
-    function runs($rootScope, PageValues, StorageService) {
+    function runs($rootScope, PageValues, StorageService, AuthService) {
         updateValues();
 
         $rootScope.$on('$routeChangeStart', function () {
             PageValues.loading = true;
+
+            if (!AuthService.isAuthorized()) {
+                $rootScope.$emit('unauthorized', null);
+            }
         });
+
         $rootScope.$on('$routeChangeSuccess', function () {
             PageValues.loading = false;
         });
@@ -28,7 +33,7 @@
             PageValues.loading = false;
         });
 
-        $rootScope.$on('logoutSuccess', function (event, data) {
+        $rootScope.$on('unauthorized', function (event, data) {
             StorageService.clearAll();
             updateValues();
         });

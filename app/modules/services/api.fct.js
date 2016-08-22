@@ -10,8 +10,11 @@
             makeRequest: makeRequest
         };
 
-        function makeRequest() {
+        function makeRequest(config) {
+            config = config || {};
+            config.url = BASE_URL + config.url;
 
+            $http(config).then();
         }
     }
 })();

@@ -10,7 +10,6 @@ gulp.task('default', ['watch']);
 gulp.task('watch', function () {
     livereload.listen();
     gulp.watch('app/**/*.html', ['html']);
-    gulp.watch('app/**/*.js', ['js']);
     gulp.watch('app/**/*.scss', ['sass']);
 });
 
