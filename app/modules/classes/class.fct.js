@@ -5,7 +5,7 @@
         .constant('BASE_URL', 'http://api.uetf.me')
         .factory('ClassService', classService);
 
-    function classService($http, BASE_URL, $q, StorageService) {
+    function classService($http, $rootScope, $q, BASE_URL, StorageService) {
         return {
             getClasses: getClasses
         };
@@ -19,6 +19,9 @@
                     deferred.resolve(response.data);
                 },
                 function (error) {
+                    if (error.status == 401) {
+                        $(window).trigger('logout');
+                    }
                     deferred.reject(error);
                 }
             );
