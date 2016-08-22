@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <div class="errors">
-                    <div class="error" ng-repeat="error in loginCtrl.errors">{{error}}</div>
+                    <div class="error alert alert-danger fade in" ng-repeat="error in loginCtrl.errors">{{error}}</div>
                 </div>
 
                 <form id="loginForm" ng-submit="loginCtrl.signIn()">
