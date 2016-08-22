@@ -1,12 +1,26 @@
 .sign-in-wrapper {
 	.errors {
 		.error {
-			color: red;
 			padding: 10px 20px;
 		}
 	}
 
 	.forget-password {
 		padding-left: 10px;
+	}
+
+	.modal-header {
+		border-bottom: none;
+		text-align: center;
+	}
+
+	.modal-body {
+		-webkit-box-shadow: 0 0 2px 2px #eee;
+		-moz-box-shadow: 0 0 2px 2px #eee;
+		box-shadow: 0 0 2px 2px #eee;
+		.btn:hover, .btn:focus, .btn.focus, .btn:active  {
+			outline: none;
+			outline-offset: 0;
+		}
 	}
 }
