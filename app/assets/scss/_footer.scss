@@ -2,12 +2,22 @@ html, body {
 	height: 100%;
 }
 
-body {
+#wrapper {
+	min-height: 100%;
 	position: relative;
+}
+
+#page {
+	padding-bottom: 40px;
 }
 
 #footer {
 	position: absolute;
 	width: 100%;
 	bottom: 0;
+	margin-top: 30px;
+	.container {
+		padding-top: 40px;
+		padding-bottom: 10px;
+	}
 }
