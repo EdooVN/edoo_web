@@ -10,9 +10,7 @@
         $httpProvider.interceptors.push('HTTPInterceptor');
     }
 
-    function runs($rootScope, PageValues, StorageService, AuthService) {
-        updateValues();
-
+    function runs($rootScope, PageValues, StorageService, AuthService, ClassService) {
         $rootScope.$on('$routeChangeStart', function () {
             PageValues.loading = true;
 
@@ -45,12 +43,33 @@
             updateValues();
         });
 
+        function initData() {
+            if (!AuthService.isAuthorized()) {
+                return false;
+            }
+
+            var classes = StorageService.getClasses() || false;
+            if (!classes) {
+                ClassService.getClasses().then(
+                    function (data) {
+                        var classes = data.data.classes;
+                        StorageService.setClasses(classes);
+                    }
+                );
+            }
+
+            return true;
+        }
+
         function updateValues() {
             var token = StorageService.getToken();
 
-            PageValues.isAuthenticated = Boolean(token);
+            PageValues.isAuthenticated = AuthService.isAuthorized();
             PageValues.token = token;
             PageValues.user = StorageService.getUserData();
         }
+
+        initData();
+        updateValues();
     }
 })();

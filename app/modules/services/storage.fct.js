@@ -38,9 +38,8 @@
         }
 
         function getClasses() {
-            return localStorageService.get('user_classes') || false;
+            return localStorageService.get('user_classes');
         }
-
 
         function clearAll() {
             return localStorageService.clearAll();
