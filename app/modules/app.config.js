@@ -2,12 +2,13 @@
     'use strict';
 
     angular
-        .module('app.config', [])
+        .module('app.config', ['angular-loading-bar'])
         .config(configs)
         .run(runs);
 
-    function configs($httpProvider) {
+    function configs($httpProvider, cfpLoadingBarProvider) {
         $httpProvider.interceptors.push('HTTPInterceptor');
+        cfpLoadingBarProvider.includeSpinner = false;
     }
 
     function runs($rootScope, PageValues, StorageService, AuthService, ClassService) {

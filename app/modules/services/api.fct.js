@@ -19,12 +19,10 @@
             $(window).trigger('http_start');
             $http(config).then(
                 function (response) {
-                    $(window).trigger('http_complete');
                     deferred.resolve(response);
                 },
 
                 function (error) {
-                    $(window).trigger('http_complete');
                     deferred.reject(error);
                 }
             );

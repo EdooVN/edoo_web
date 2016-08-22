@@ -23,12 +23,17 @@
                 console.log(error);
             });
 
-            ClassService.getClasses().then(
-                function (data) {
-                    mv.listClass = data.data.classes;
+            var classes = StorageService.getClasses() || false;
+            if (classes) {
+                mv.listClass = classes;
+            } else {
+                ClassService.getClasses().then(function (data) {
+                    var classes = data.data.classes;
+                    StorageService.setClasses(classes);
+                    mv.listClass = classes;
                 }, function (error) {
                     console.log(error);
-                }
-            );
+                });
+            }
         });
 })();
