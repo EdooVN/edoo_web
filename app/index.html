@@ -18,18 +18,21 @@
     <link rel="stylesheet" href="bower_components/bootswatch-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="bower_components/nprogress/nprogress.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
 
-<header id="header" ed-navbar>
-</header>
+<div id="wrapper">
+    <header id="header" ed-navbar>
+    </header>
 
-<div id="page">
-    <div ng-view></div>
+    <div id="page">
+        <div ng-view></div>
+    </div>
+
+    <footer id="footer" ed-footer></footer>
 </div>
-
-<footer id="footer" ed-footer></footer>
 
 <!-- ASSETS -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -40,6 +43,7 @@
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
 <script src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+<script src="bower_components/nprogress/nprogress.js"></script>
 <script src="assets/js/main.js"></script>
 <!-- / -->
 
