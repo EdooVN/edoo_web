@@ -1,4 +1,4 @@
-(function ($) {
+(function () {
     'use strict';
 
     angular.module('app.services')
@@ -16,12 +16,10 @@
             config = config || {};
             config.url = BASE_URL + config.url;
 
-            $(window).trigger('http_start');
             $http(config).then(
                 function (response) {
                     deferred.resolve(response);
                 },
-
                 function (error) {
                     deferred.reject(error);
                 }
@@ -30,4 +28,4 @@
             return deferred.promise;
         }
     }
-})(jQuery);
+})();
