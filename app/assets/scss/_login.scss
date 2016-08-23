@@ -17,8 +17,9 @@
 	.forget-password {
 		display: block;
 		color: $title-color;
-		font-family: OpenSans-Bold;
 		padding-top: 25px;
+		font-weight: 600;
+		font-size: 14px;
 
 		&:hover {
 			text-decoration: none;
