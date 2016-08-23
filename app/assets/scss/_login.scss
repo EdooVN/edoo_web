@@ -48,11 +48,27 @@
 		.modal-title {
 			text-transform: uppercase;
 			padding: 10px 0;
+			position: relative;
+			&:after {
+				content: '';
+				width: 50px;
+				height: 2px;
+				background-color: $primary-color;
+				position: absolute;
+				left: 50%;
+				-webkit-transform: translateX(-50%);
+				-moz-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				-o-transform: translateX(-50%);
+				transform: translateX(-50%);
+				bottom: 0;
+				display: block;
+			}
 		}
 	}
 
 	.modal-body {
-		padding: 20px 60px;
+		padding: 35px 60px 20px;
 		.checkbox-inline {
 			float: right;
 			padding-top: 12px;
