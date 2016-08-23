@@ -1,5 +1,5 @@
 <!--<div class="pre-loading" ng-show="postsCtrl.data.loading"><img src="../../assets/images/preload.gif" /></div>-->
-<div class="container">
+<div class="container post_archive">
     <div class="row">
         <div class="col-md-3">
             <ul class="list-group list-classes">
@@ -9,7 +9,7 @@
             </ul>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9 archive_content">
             <div class="listPost">
                 <div class="post" ng-repeat="post in postsCtrl.listPost">
                     <div class="header">
@@ -24,7 +24,7 @@
                     </div>
                     <div class="right">
                         <div class="content">
-                            {{post.content}}
+                            {{post.description}}
                         </div>
 
                         <div class="footer">

@@ -1,12 +1,12 @@
 <!--<div class="pre-loading" ng-show="postCtrl.data.loading"><img src="../../assets/images/preload.gif"/></div>-->
 <div class="container post-wrapper">
     <div class="row">
-        <div class="sidebar-left col-md-3">
+        <div class="sidebar-left col-md-3 ">
             <div class="top-sidebar">
                 <a href="#class/{{postCtrl.class_id}}/newPost" class="btn btn-primary btn-create-post">Tạo bài viết mới</a>
             </div>
 
-            <ul class="list-group listPosts">
+            <ul class="list-group listPosts list-classes">
                 <li class="list-group-item post" ng-repeat="post in postCtrl.listPosts" ng-class="post.id == postCtrl.post.id ? 'active' : ''">
                     <a href="#class/{{postCtrl.class_id}}/post/{{post.id}}" class="title">{{post.title}}</a>
                 </li>
