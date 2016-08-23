@@ -9,7 +9,7 @@
 
         function logout() {
             AccountService.logout().then(
-                function (data) {
+                function (response) {
                     $rootScope.$emit('logoutSuccess');
                     $location.path('/');
                 },

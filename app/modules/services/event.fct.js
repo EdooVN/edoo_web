@@ -28,6 +28,12 @@
             updateValues();
         });
 
+        $rootScope.$on('logoutSuccess', function (event, args) {
+            StorageService.clearAll();
+
+            updateValues();
+        });
+
         function initData() {
             if (!AuthService.isAuthorized()) {
                 return false;
