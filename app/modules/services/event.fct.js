@@ -8,17 +8,11 @@
     function EventService(StorageService) {
     }
 
-    function runs($rootScope, PageValues, StorageService, AuthService, ClassService) {
-        $rootScope.$on('$routeChangeStart', function () {
-            PageValues.loading = true;
-            if (!AuthService.isAuthorized()) {
-                $rootScope.$emit('unauthorized', null);
-            }
-        });
-
+    function runs($rootScope, $location, PageValues, StorageService, AuthService, ClassService) {
         $rootScope.$on('unauthorized', function (event, args) {
             StorageService.clearAll();
             updateValues();
+            return $location.path('/');
         });
 
         $rootScope.$on('loginSuccess', function (event, args) {
