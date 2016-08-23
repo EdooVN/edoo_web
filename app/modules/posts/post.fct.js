@@ -2,10 +2,9 @@
     'use strict';
 
     angular.module('app.services')
-        .constant('BASE_URL', 'http://api.uetf.me')
         .factory('PostService', postService);
 
-    function postService($http, $rootScope, $q, BASE_URL, StorageService) {
+    function postService($q, StorageService, APIService) {
         return {
             getListPost: getListPost,
             getPost: getPost,
@@ -18,18 +17,15 @@
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
-            $rootScope.$emit('http_start', null);
-            $http({
-                url: BASE_URL + '/posts/' + class_id,
+            APIService.makeRequest({
+                url: '/posts/' + class_id,
                 method: 'GET',
                 headers: {'Authorization': token}
             }).then(
                 function (response) {
-                    $rootScope.$emit('http_complete', response);
                     deferred.resolve(response.data);
                 },
                 function (error) {
-                    $rootScope.$emit('http_complete', error);
                     deferred.reject(error);
                 }
             );
@@ -41,18 +37,15 @@
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
-            $rootScope.$emit('http_start', null);
-            $http({
-                url: BASE_URL + '/post/' + post_id,
+            APIService.makeRequest({
+                url: '/post/' + post_id,
                 method: 'GET',
                 headers: {'Authorization': token}
             }).then(
                 function (response) {
-                    $rootScope.$emit('http_complete', response);
                     deferred.resolve(response.data);
                 },
                 function (error) {
-                    $rootScope.$emit('http_complete', error);
                     deferred.reject(error);
                 }
             );
@@ -64,8 +57,8 @@
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
-            $http({
-                url: BASE_URL + '/cmt',
+            APIService.makeRequest({
+                url: '/cmt',
                 method: 'POST',
                 data: data,
                 headers: {'Authorization': token}
@@ -85,8 +78,8 @@
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
-            $http({
-                url: BASE_URL + '/votepost',
+            APIService.makeRequest({
+                url: '/votepost',
                 method: 'POST',
                 data: data,
                 headers: {'Authorization': token}
@@ -106,8 +99,8 @@
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
-            $http({
-                url: BASE_URL + '/post',
+            APIService.makeRequest({
+                url: '/post',
                 method: 'POST',
                 data: data,
                 headers: {'Authorization': token}
