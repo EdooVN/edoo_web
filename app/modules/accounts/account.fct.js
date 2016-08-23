@@ -5,7 +5,7 @@
         .constant('BASE_URL', 'http://api.uetf.me')
         .factory('AccountService', accountService);
 
-    function accountService($http, $rootScope, $q, BASE_URL, StorageService) {
+    function accountService($http, $rootScope, $q, BASE_URL, StorageService, APIService) {
         return {
             login: login,
             logout: logout
@@ -40,18 +40,28 @@
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
-            $rootScope.$emit('http_start', null);
+            APIService.makeRequest({
+                url: '/logout',
+                method: 'GET',
+                headers: {'Authorization': token}
+            }).then(
+                function(data) {
+
+                },
+                function(error) {
+
+                }
+            );
+
             $http({
                 url: BASE_URL + '/logout',
                 method: 'GET',
                 headers: {'Authorization': token}
             }).then(
                 function (response) {
-                    $rootScope.$emit('http_complete', response);
                     deferred.resolve(response.data);
                 },
                 function (error) {
-                    $rootScope.$emit('http_complete', error);
                     deferred.resolve(error);
                 }
             );
