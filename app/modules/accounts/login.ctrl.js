@@ -18,8 +18,8 @@
 
             function signIn() {
                 AccountService.login(mv.email, mv.password).then(
-                    function (data) {
-                        $rootScope.$emit('loginSuccess', data.data);
+                    function (response) {
+                        $rootScope.$emit('loginSuccess', response.data);
                         $location.path('/class');
                     },
                     function (error) {
