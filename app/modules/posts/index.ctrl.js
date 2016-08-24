@@ -3,19 +3,13 @@
 
     angular.module('app.core')
 
-        .controller('ListPostsController', function ($location, $routeParams, StorageService, PostService, ClassService, PageValues) {
+        .controller('ListPostsController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues) {
             var mv = this;
-
-            var token = StorageService.getToken();
-
-            if (!token) {
-                $location.path('/');
-            }
 
             mv.data = PageValues;
 
             mv.listPost = [];
-            mv.class_id = $routeParams.id;
+            mv.class_id = $stateParams.id;
             mv.listClass = [];
             PostService.getListPost(this.class_id).then(function (data) {
                 mv.listPost = data.data.posts;
