@@ -73,8 +73,8 @@
                 controller: 'ClassIndexController',
                 controllerAs: 'classCtrl'
             })
-            .state('/class/:id', {
-                url: '/class/:id',
+            .state('posts', {
+                url: '/class/{id}',
                 templateUrl: 'templates/posts/index.html',
                 controller: 'ListPostsController',
                 controllerAs: 'postsCtrl'
