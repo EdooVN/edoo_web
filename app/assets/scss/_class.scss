@@ -56,6 +56,8 @@
 	background: #FFFFFF;
 	box-shadow: 0 0 8px 0 rgba(17,17,17,0.10);
 	border-radius: 10px;
+	padding-right: 30px;
+	padding-left: 30px;
 	.modal-title {
 		margin-top: 20px;
 		margin-bottom: 50px;
@@ -80,7 +82,9 @@
 			.name {
 				color: $primary-color;
 				font-weight: 700;
-				&:hover {
+				font-size: $font-size;
+				margin: 0;
+				a:hover {
 					text-decoration: none;
 				}
 			}
