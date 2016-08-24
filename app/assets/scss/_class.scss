@@ -80,7 +80,9 @@
 			.name {
 				color: $primary-color;
 				font-weight: 700;
-				&:hover {
+				font-size: $font-size;
+				margin: 0;
+				a:hover {
 					text-decoration: none;
 				}
 			}
