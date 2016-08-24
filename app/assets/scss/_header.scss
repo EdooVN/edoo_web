@@ -2,6 +2,7 @@
 	.navbar {
 		border-radius: 0;
 		background-color: $primary-color;
+		box-shadow: 0 0 6px 0 rgba(17,17,17,0.10);
 
 		.navbar-nav {
 			&.nav {
