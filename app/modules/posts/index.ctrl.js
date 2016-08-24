@@ -9,7 +9,7 @@
             mv.data = PageValues;
 
             mv.listPost = [];
-            mv.class_id = $stateParams.id;
+            mv.class_id = $stateParams.classId;
             mv.listClass = [];
             PostService.getListPost(this.class_id).then(function (data) {
                 mv.listPost = data.data.posts;

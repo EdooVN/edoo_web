@@ -74,10 +74,16 @@
                 controllerAs: 'classCtrl'
             })
             .state('posts', {
-                url: '/class/{id}',
+                url: '/class/{classId}',
                 templateUrl: 'templates/posts/index.html',
                 controller: 'ListPostsController',
                 controllerAs: 'postsCtrl'
+            })
+            .state('posts.detail', {
+                url: '/post/{postId}',
+                templateUrl: 'templates/posts/details.html',
+                controller: 'PostDetailsController',
+                controllerAs: 'postCtrl'
             })
 
     }
