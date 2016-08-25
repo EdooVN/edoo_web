@@ -1,0 +1,29 @@
+<div class="listPost">
+    <div class="post" ng-repeat="post in postsCtrl.listPost">
+        <div class="header">
+            <h2 class="title"><a href="#/class/{{postsCtrl.class_id}}/post/{{post.id}}">{{post.title}}</a></h2>
+        </div>
+
+        <div class="left">
+            <div class="vote">
+                <div class="count">5</div>
+                <div>votes</div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="content">
+                {{post.description}}
+            </div>
+
+            <div class="footer">
+                <div class="media-left">
+                    <img ng-src="{{post.author.avatar}}" alt="">
+                </div>
+                <div class="media-body">
+                    <div class="author">{{post.author.name}}</div>
+                </div>
+                <div class="time">{{post.created_at | date }}</div>
+            </div>
+        </div>
+    </div>
+</div>

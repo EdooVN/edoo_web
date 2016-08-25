@@ -87,9 +87,20 @@
             })
             .state('posts', {
                 url: '/class/{classId}',
-                templateUrl: 'templates/posts/index.html',
-                controller: 'ListPostsController',
-                controllerAs: 'postsCtrl'
+                views: {
+                    '': {
+                        templateUrl: 'templates/layouts/master.html'
+                    },
+                    'sidebar@posts': {
+                        templateUrl: 'templates/classes/sidebar.html'
+                    },
+                    'content@posts': {
+                        templateUrl: 'templates/posts/list-post.html',
+                        controller: 'ListPostsController',
+                        controllerAs: 'postsCtrl'
+                    }
+                }
+
             })
             .state('posts.detail', {
                 url: '/post/{postId}',
