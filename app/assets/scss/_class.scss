@@ -50,6 +50,44 @@
 			}
 		}
 	}
+
+	&.latest_comments {
+		font-size: 12px;
+		.comments {
+			img {
+				width: 30px;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				border-radius: 50%;
+				border: 1px solid $primary-color;
+				float: left;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			.author {
+				font-weight: 700;
+			}
+
+			.comment_content {
+				margin-left: 40px;
+			}
+		}
+
+		li {
+			> a {
+				margin-top: 10px;
+			}
+
+			margin-bottom: 30px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
 }
 
 .class-content {
