@@ -1,11 +1,8 @@
 <div class="container">
     <div class="wrapper row">
-        <div class="col-md-3 wrapper-sidebar">
-            <div ui-view="sidebar">
-            </div>
+        <div class="col-md-3 wrapper-sidebar" ui-view="sidebar">
         </div>
-        <div class="col-md-9 class-content">
-            <div ui-view="content"></div>
+        <div class="col-md-9 wrapper-content" ui-view="content">
         </div>
     </div>
 </div>
