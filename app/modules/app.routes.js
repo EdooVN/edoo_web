@@ -47,7 +47,9 @@
     // }
 
     function config($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/welcome');
+        $urlRouterProvider
+            .when('/', '/welcome')
+            .otherwise('/404');
 
         $stateProvider
             .state('welcome', {
@@ -70,7 +72,9 @@
             .state('class', {
                 url: '/class',
                 views: {
-                    '': {templateUrl: 'templates/classes/master.html'},
+                    '': {
+                        templateUrl: 'templates/layouts/master.html'
+                    },
                     'sidebar@class': {
                         templateUrl: 'templates/classes/partial-sidebar.html'
                     },
