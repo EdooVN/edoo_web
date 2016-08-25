@@ -100,13 +100,16 @@
                         controllerAs: 'postsCtrl'
                     }
                 }
-
             })
             .state('posts.detail', {
                 url: '/post/{postId}',
-                templateUrl: 'templates/posts/details.html',
-                controller: 'PostDetailsController',
-                controllerAs: 'postCtrl'
+                views: {
+                    'content@posts': {
+                        templateUrl: 'templates/posts/details.html',
+                        controller: 'PostDetailsController',
+                        controllerAs: 'postCtrl'
+                    }
+                }
             })
 
     }

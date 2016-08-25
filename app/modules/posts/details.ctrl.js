@@ -3,21 +3,14 @@
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($scope, localStorageService, $location, $routeParams, PostService, PageValues) {
+        .controller('PostDetailsController', function ($scope, localStorageService, $location, $stateParams, PostService, PageValues) {
             var vm = this;
-
-            var token = localStorageService.get('user_token');
-
-            if (!token) {
-                $location.path('/');
-            }
 
             vm.data = PageValues;
 
             vm.post = {};
-            vm.class_id = $routeParams.class;
-            vm.post_id = $routeParams.post;
-            vm.listPosts = [];
+            vm.class_id = $stateParams.classId;
+            vm.post_id = $stateParams.postId;
             vm.comment = comment;
             vm.vote = vote;
 
@@ -28,12 +21,6 @@
                     $location.path('/class/' + class_id + '/post/' + post.id);
                 }
                 vm.post = post;
-            }, function (error) {
-                console.log(error);
-            });
-
-            PostService.getListPost(this.class_id).then(function (data) {
-                vm.listPosts = data.data.posts;
             }, function (error) {
                 console.log(error);
             });
