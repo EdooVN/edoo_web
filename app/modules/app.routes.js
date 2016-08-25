@@ -5,47 +5,6 @@
         .module('app.routes', ['ui.router'])
         .config(config);
 
-    // function config($routeProvider) {
-    //     $routeProvider
-    //         .when('/', {
-    //             redirectTo: '/welcome'
-    //         })
-    //         .when('/welcome', {
-    //             templateUrl: 'templates/pages/welcome.html',
-    //             controller: 'WelcomeController'
-    //         })
-    //         .when('/login', {
-    //             templateUrl: 'templates/accounts/login.html',
-    //             controller: 'LoginController',
-    //             controllerAs: 'loginCtrl'
-    //         })
-    //         .when('/logout', {
-    //             templateUrl: 'templates/accounts/logout.html',
-    //             controller: 'LogoutController',
-    //             controllerAs: 'logoutCtrl'
-    //         })
-    //         .when('/class', {
-    //             templateUrl: 'templates/classes/index.html',
-    //             controller: 'ClassIndexController',
-    //             controllerAs: 'classCtrl'
-    //         })
-    //         .when('/class/:id', {
-    //             templateUrl: 'templates/posts/index.html',
-    //             controller: 'ListPostsController',
-    //             controllerAs: 'postsCtrl'
-    //         })
-    //         .when('/class/:class/post/:post', {
-    //             templateUrl: 'templates/posts/details.html',
-    //             controller: 'PostDetailsController',
-    //             controllerAs: 'postCtrl'
-    //         })
-    //         .when('/class/:class/newPost', {
-    //             templateUrl: 'templates/posts/create.html',
-    //             controller: 'CreatePostController',
-    //             controllerAs: 'createPostCtrl'
-    //         })
-    // }
-
     function config($stateProvider, $urlRouterProvider) {
         $urlRouterProvider
             .when('/', '/welcome')
@@ -100,14 +59,26 @@
                         controllerAs: 'postsCtrl'
                     }
                 }
-
             })
             .state('posts.detail', {
                 url: '/post/{postId}',
-                templateUrl: 'templates/posts/details.html',
-                controller: 'PostDetailsController',
-                controllerAs: 'postCtrl'
+                views: {
+                    'content@posts': {
+                        templateUrl: 'templates/posts/details.html',
+                        controller: 'PostDetailsController',
+                        controllerAs: 'postCtrl'
+                    }
+                }
             })
-
+            .state('posts.create', {
+                url: '/create',
+                views: {
+                    'content@posts': {
+                        templateUrl: 'templates/posts/create.html',
+                        controller: 'CreatePostController',
+                        controllerAs: 'createPostCtrl'
+                    }
+                }
+            })
     }
 })();

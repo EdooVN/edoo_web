@@ -10,7 +10,11 @@
 
             mv.listPost = [];
             mv.class_id = $stateParams.classId;
-            mv.listClass = [];
+
+            if (!mv.class_id) {
+                $location.path('/class');
+            }
+
             PostService.getListPost(this.class_id).then(function (data) {
                 mv.listPost = data.data.posts;
             }, function (error) {

@@ -7,7 +7,7 @@
             var mv = this;
 
             mv.data = PageValues;
-            mv.class_id = $stateParams.class;
+            mv.class_id = $stateParams.classId;
 
             mv.newPost = {};
             mv.newPost.content = '';
