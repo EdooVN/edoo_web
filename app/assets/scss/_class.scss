@@ -90,26 +90,59 @@
 	}
 }
 
+h2.modal-title {
+	margin-top: 0;
+	margin-bottom: 50px;
+	position: relative;
+	&:after {
+		content: '';
+		width: 50px;
+		height: 2px;
+		background-color: $primary-color;
+		position: absolute;
+		left: 0;
+		bottom: -15px;
+	}
+}
+
+.group {
+	.teacher, .number_students, .time, .number_comments, .vote {
+		display: inline-block;
+		float: left;
+		position: relative;
+		padding-left: 12px;
+		margin-right: 35px;
+		> div {
+			font-size: 12px;
+			color: #999;
+		}
+		span {
+			color: $title-color;
+		}
+
+		&:before {
+			content: '';
+			height: 100%;
+			width: 2px;
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			background-color: $primary-color;
+
+		}
+	}
+
+	.vote {
+		text-align: left;
+		font-size: 16px;
+	}
+}
+
 .class-content {
 	background: #FFFFFF;
 	box-shadow: 0 0 8px 0 rgba(17,17,17,0.10);
 	border-radius: 10px;
-	padding-right: 30px;
-	padding-left: 30px;
-	.modal-title {
-		margin-top: 20px;
-		margin-bottom: 50px;
-		position: relative;
-		&:after {
-			content: '';
-			width: 50px;
-			height: 2px;
-			background-color: $primary-color;
-			position: absolute;
-			left: 0;
-			bottom: -15px;
-		}
-	}
+	padding: 20px 30px;
 
 	.list-classes {
 		.list-group-item {
@@ -129,32 +162,6 @@
 
 			.class_content {
 				padding: 18px 0;
-			}
-
-			.teacher, .number_students, .time {
-				display: inline-block;
-				float: left;
-				position: relative;
-				padding-left: 12px;
-				margin-right: 35px;
-				> div {
-					font-size: 12px;
-					color: #999;
-				}
-				span {
-					color: $title-color;
-				}
-
-				&:before {
-					content: '';
-					height: 100%;
-					width: 2px;
-					display: inline-block;
-					position: absolute;
-					left: 0;
-					background-color: $primary-color;
-
-				}
 			}
 		}
 	}

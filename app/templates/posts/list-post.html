@@ -1,29 +1,58 @@
 <div class="listPost">
+    <h2 class="modal-title">Lớp lập trình hướng đối tượng - INT 2004</h2>
+    <div class="group">
+        <div class="teacher">
+            <div>Giảng viên:</div>
+            <span class="number ng-binding">PGS.TS.Lê Anh Cường</span>
+        </div>
+        <div class="number_students">
+            <div>Sinh viên:</div>
+            <span class="number ng-binding">50</span>
+        </div>
+        <div class="time">
+            <div>Lịch học:</div>
+            <span class="number">Thứ 2 - Tiết 2-3</span>
+        </div>
+        <div class="create_topic">
+            <a href="#">Tạo Chủ Đề Mới</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
     <div class="post" ng-repeat="post in postsCtrl.listPost">
         <div class="header">
             <h2 class="title"><a href="#/class/{{postsCtrl.class_id}}/post/{{post.id}}">{{post.title}}</a></h2>
         </div>
 
-        <div class="left">
-            <div class="vote">
-                <div class="count">5</div>
-                <div>votes</div>
-            </div>
+        <div class="content">
+            {{post.description}}
         </div>
-        <div class="right">
-            <div class="content">
-                {{post.description}}
-            </div>
 
-            <div class="footer">
-                <div class="media-left">
-                    <img ng-src="{{post.author.avatar}}" alt="">
+        <div class="group">
+            <div class="author">
+                <img ng-src="{{post.author.avatar}}" alt="">
+                <div class="author_name">
+                    <div>Người đăng</div>
+                    <span>{{post.author.name}}</span>
                 </div>
-                <div class="media-body">
-                    <div class="author">{{post.author.name}}</div>
-                </div>
-                <div class="time">{{post.created_at | date }}</div>
             </div>
+            <div class="number_comments">
+                <div>Bình luận</div>
+                <span>50 Trả lời</span>
+            </div>
+            <div class="time">
+                <div>Ngày đăng</div>
+                <span>{{post.created_at | date }}</span>
+            </div>
+            <div class="vote">
+                <div>Số lượng votes</div>
+                <span>5 Votes</span>
+            </div>
+            <div class="clearfix"></div>
         </div>
+
+        <div class="read_more">
+            <a href="#/class/{{postsCtrl.class_id}}/post/{{post.id}}">Cùng tham gia trả lời và bình luận</a>
+        </div>
+
     </div>
 </div>
