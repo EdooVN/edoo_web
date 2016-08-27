@@ -17,7 +17,7 @@
                     <ul class="dropdown-menu">
                         <li><a ui-sref="class">Tất cả các lớp</a></li>
                         <li role="separator" class="divider"></li>
-                        <li ng-repeat="class in navbarCtrl.classes"><a href="#class/{{class.id}}">{{class.name }} - {{class.code}}</a></li>
+                        <li ng-repeat="class in navbarCtrl.classes" ui-sref-active="active"><a ui-sref="posts.list({classId: class.id})">{{class.name }} - {{class.code}}</a></li>
                     </ul>
                 </li>
                 <li>
