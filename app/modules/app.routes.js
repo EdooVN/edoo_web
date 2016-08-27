@@ -45,14 +45,21 @@
                 }
             })
             .state('posts', {
-                url: '/class/{classId}',
+                url: '/class',
                 views: {
                     '': {
                         templateUrl: 'templates/layouts/master.html'
                     },
                     'sidebar@posts': {
-                        templateUrl: 'templates/classes/sidebar.html'
-                    },
+                        templateUrl: 'templates/posts/sidebar.html',
+                        controller: 'SidebarController',
+                        controllerAs: 'sidebarCtrl'
+                    }
+                }
+            })
+            .state('posts.list', {
+                url: '/{classId}',
+                views: {
                     'content@posts': {
                         templateUrl: 'templates/posts/list-post.html',
                         controller: 'ListPostsController',
@@ -60,7 +67,7 @@
                     }
                 }
             })
-            .state('posts.detail', {
+            .state('posts.list.detail', {
                 url: '/post/{postId}',
                 views: {
                     'content@posts': {

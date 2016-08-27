@@ -20,7 +20,7 @@
     </div>
     <div class="post" ng-repeat="post in postsCtrl.listPost">
         <div class="header">
-            <h2 class="title"><a ui-sref="posts.detail({postId: post.id})">{{post.title}}</a></h2>
+            <h2 class="title"><a ui-sref="posts.list.detail({postId: post.id})">{{post.title}}</a></h2>
         </div>
 
         <div class="content">
@@ -51,7 +51,7 @@
         </div>
 
         <div class="read_more">
-            <a ui-sref="posts.detail({postId: post.id})">Cùng tham gia trả lời và bình luận</a>
+            <a ui-sref="posts.list.detail({postId: post.id})">Cùng tham gia trả lời và bình luận</a>
         </div>
     </div>
 

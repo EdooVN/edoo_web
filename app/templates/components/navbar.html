@@ -15,7 +15,9 @@
                 <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lớp môn học <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-repeat="class in navbarCtrl.classes"><a href="#class/{{class.id}}">{{class.name }} - {{class.code}}</a></li>
+                        <li ui-sref-active="active"><a ui-sref="class">Tất cả các lớp</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li ng-repeat="class in navbarCtrl.classes" ui-sref-active="active"><a ui-sref="posts.list({classId: class.id})">{{class.name }} - {{class.code}}</a></li>
                     </ul>
                 </li>
                 <li>
@@ -27,14 +29,14 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#login" ng-hide="navbarCtrl.data.isAuthenticated">Đăng nhập</a></li>
+                <li><a ui-sref="login" ng-hide="navbarCtrl.data.isAuthenticated">Đăng nhập</a></li>
                 <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chào {{navbarCtrl.data.user.name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Another action</a></li>
                         <li><a href="#">Separated link</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#logout">Đăng xuất</a></li>
+                        <li><a ui-sref="logout">Đăng xuất</a></li>
                     </ul>
                 </li>
             </ul>
