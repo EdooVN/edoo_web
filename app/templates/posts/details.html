@@ -23,7 +23,7 @@
                 </div>
                 <div class="time">
                     <div>Ngày đăng:</div>
-                    <span class="number">1 Giờ trước</span>
+                    <span class="number" am-time-ago="postCtrl.post.created_at" title="{{postCtrl.post.created_at | amDateFormat:'HH:mm - MM/DD/YYYY'}}"></span>
                 </div>
                 <div class="vote">
                     <div>Độ quan tâm:</div>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="media-body">
                         <span class="title">{{comment.author.name}}</span>
-                        <div class="time">{{comment.created_at | date }}</div>
+                        <div class="time" am-time-ago="comment.created_at" title="{{comment.created_at | date }}"></div>
                     </div>
                 </div>
 

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-mobile" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -10,7 +10,7 @@
             <a class="navbar-brand" href="#/">Edoo</a>
         </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="menu-mobile">
             <ul class="nav navbar-nav">
                 <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lớp môn học <span class="caret"></span></a>
@@ -21,10 +21,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#/">Chủ Đề Mới</a>
-                </li>
-                <li>
-                    <a href="#/">Trợ Giúp</a>
+                    <a href="#">Chủ Đề Mới</a>
                 </li>
             </ul>
 
@@ -33,8 +30,9 @@
                 <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chào {{navbarCtrl.data.user.name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">Trang cá nhân</a></li>
+                        <li><a href="#">Cập nhập thông tin</a></li>
+                        <li><a href="#">Đổi mật khẩu</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a ui-sref="logout">Đăng xuất</a></li>
                     </ul>
