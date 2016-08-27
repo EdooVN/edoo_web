@@ -77,7 +77,7 @@
                     }
                 }
             })
-            .state('posts.create', {
+            .state('posts.list.create', {
                 url: '/create',
                 views: {
                     'content@posts': {
