@@ -37,7 +37,7 @@
             </div>
             <div class="number_comments">
                 <div>Bình luận</div>
-                <span>50 Trả lời</span>
+                <span>{{post.comment_count}}</span>
             </div>
             <div class="time">
                 <div>Ngày đăng</div>
@@ -45,7 +45,7 @@
             </div>
             <div class="vote">
                 <div>Số lượng votes</div>
-                <span>5 Votes</span>
+                <span>{{post.vote_count}}</span>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -53,7 +53,6 @@
         <div class="read_more">
             <a ui-sref="posts.detail({postId: post.id})">Cùng tham gia trả lời và bình luận</a>
         </div>
-
     </div>
 
     <div class="post no-post" ng-hide="postsCtrl.listPost.length">
