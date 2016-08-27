@@ -1,4 +1,7 @@
 .post-wrapper {
+	padding-top: 20px;
+	padding-right: 40px;
+	padding-bottom: 40px;
 	.listPosts {
 		.post {
 			margin-bottom: 0;
@@ -7,30 +10,30 @@
 
 
 	.comments {
-		margin-bottom: 30px;
-
 		.comment {
 			padding-bottom: 10px;
 			padding-top: 10px;
-			margin-bottom: 10px;
-			border-bottom: 1px solid #ddd;
 			min-height: 100px;
+			overflow: hidden;
 
 			.left {
-				width: 80px;
+				width: 100px;
 				float: left;
 
 			}
 
 			.right {
-				padding-left: 70px;
-
+				padding-left: 100px;
+				padding-top: 10px;
 				.header {
 					color: #888;
 
 					.media-left {
 						img {
-							width: 40px;
+							width: 30px;
+							-webkit-border-radius: 50%;
+							-moz-border-radius: 50%;
+							border-radius: 50%;
 						}
 					}
 
@@ -56,7 +59,30 @@
 	}
 
 	.form-comment {
+		padding-left: 100px;
+		textarea {
+			border: 1px solid #ddd;
+			-webkit-border-radius: 8px;
+			-moz-border-radius: 8px;
+			border-radius: 8px;
+			&:focus {
+				border-color: $primary-color;
+			}
+		}
 
+		.comment_submit {
+			padding: 10px 20px;
+			background-color: $primary-color;
+			border: none;
+			color: #fff;
+			display: block;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			&:focus, &:active {
+				outline: none;
+			}
+		}
 	}
 }
 
@@ -66,7 +92,10 @@
 	color: #18bc9c;
 
 	i {
-		font-size: 1.5em;
+		font-size: 40px;
+		&.fa-caret-down {
+			color: $text-color;
+		}
 	}
 
 	.up, .down {
@@ -188,4 +217,41 @@
 			display: inline-block;
 		}
 	}
+}
+
+.post-content {
+	.left {
+		float: left;
+		width: 100px;
+	}
+	.right {
+		margin-left: 100px;
+		padding-top: 10px;
+		.title {
+			font-size: 26px;
+			font-weight: 700;
+			margin-top: 0;
+			margin-bottom: 50px;
+			position: relative;
+			&:after {
+				content: '';
+				width: 50px;
+				height: 2px;
+				background-color: #26ae90;
+				position: absolute;
+				left: 0;
+				bottom: -15px;
+			}
+		}
+
+		.content {
+			margin-top: 50px;
+		}
+	}
+}
+
+.post-wrapper {
+	background: #fff;
+	box-shadow: 0 0 8px 0 rgba(17,17,17,0.10);
+	border-radius: 10px;
 }
