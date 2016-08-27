@@ -1,0 +1,108 @@
+@media (max-width: 767px) {
+	.post-content {
+		.left {
+			width: 70px;
+		}
+
+		.right {
+			margin-left: 70px;
+		}
+	}
+
+	.post-wrapper {
+		padding-right: 15px;
+
+		.comments .comment {
+			.left {
+				width: 70px;
+			}
+
+			.right {
+				padding-left: 70px;
+			}
+		}
+
+		.form-comment {
+			padding-left: 70px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.post-content {
+		.left {
+			width: 40px;
+		}
+
+		.right {
+			margin-left: 40px;
+		}
+	}
+
+	.post-wrapper {
+		padding-right: 15px;
+
+		.comments .comment {
+			.left {
+				width: 40px;
+			}
+
+			.right {
+				padding-left: 40px;
+				.header .time {
+					float: none;
+				}
+			}
+		}
+
+		.form-comment {
+			padding-left: 40px;
+		}
+	}
+
+	.vote i {
+		font-size: 30px;
+	}
+
+	.sidebar {
+		padding: 30px 15px;
+	}
+
+	.class-content {
+		padding: 30px 15px;
+
+		.list-classes {
+			.list-group-item {
+				padding: 30px 15px;
+			}
+		}
+	}
+
+	.group .teacher, .group .number_students, .group .time, .group .number_comments, .group .vote {
+		float: none;
+		display: block;
+		margin-right: 0;
+	}
+
+	.create_topic {
+		float: none;
+		margin-top: 20px;
+		display: inline-block;
+	}
+
+	.group {
+		.author {
+			float: none;
+			margin: 0;
+			display: block;
+		}
+	}
+
+	.listPost {
+		padding: 20px 15px;
+
+		.post {
+			padding: 20px 15px;
+		}
+	}
+}
