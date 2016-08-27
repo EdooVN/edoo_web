@@ -28,24 +28,6 @@
             updateValues();
         });
 
-        function initData() {
-            if (!AuthService.isAuthorized()) {
-                return false;
-            }
-
-            var classes = StorageService.getClasses() || false;
-            if (!classes) {
-                ClassService.getClasses().then(
-                    function (data) {
-                        var classes = data.data.classes;
-                        StorageService.setClasses(classes);
-                    }
-                );
-            }
-
-            return true;
-        }
-
         function updateValues() {
             var token = StorageService.getToken();
 
@@ -54,7 +36,6 @@
             PageValues.user = StorageService.getUserData();
         }
 
-        initData();
         updateValues();
     }
 })();

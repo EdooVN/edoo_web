@@ -15,6 +15,8 @@
                 <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lớp môn học <span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        <li><a ui-sref="class">Tất cả các lớp</a></li>
+                        <li role="separator" class="divider"></li>
                         <li ng-repeat="class in navbarCtrl.classes"><a href="#class/{{class.id}}">{{class.name }} - {{class.code}}</a></li>
                     </ul>
                 </li>
