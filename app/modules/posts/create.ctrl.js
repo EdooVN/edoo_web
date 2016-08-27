@@ -16,7 +16,8 @@
 
             mv.tinymceOptions = {
                 plugins: 'link image code',
-                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
+                entity_encoding : 'raw'
             };
 
             mv.createPost = createPost;
