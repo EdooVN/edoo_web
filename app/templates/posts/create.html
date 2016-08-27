@@ -1,5 +1,6 @@
 <div class="wrapper-new-post">
-    <form>
+    <h2 class="modal-title">Đăng chủ đề mới</h2>
+    <form class="new_post">
         <div class="form-group">
             <label for="type">Thể loại</label>
             <div id="type">
@@ -16,8 +17,8 @@
             <label for="content">Nội dung</label>
             <textarea id="content" ui-tinymce="createPostCtrl.tinymceOptions" ng-model="createPostCtrl.newPost.content"></textarea>
         </div>
-        <div class="form-group">
-            <button class="btn btn-primary" ng-click="createPostCtrl.createPost()">Đăng bài</button>
+        <div class="create_topic">
+            <a ng-click="createPostCtrl.createPost()">Tạo Chủ Đề Mới</a>
         </div>
     </form>
 
