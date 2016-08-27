@@ -13,11 +13,12 @@
             mv.newPost.content = '';
             mv.newPost.class_id = mv.class_id;
             mv.newPost.type = 'question';
+            mv.newPost.is_incognito = "0";
 
             mv.tinymceOptions = {
                 plugins: 'link image code',
                 toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
-                entity_encoding : 'raw'
+                entity_encoding: 'raw'
             };
 
             mv.createPost = createPost;
