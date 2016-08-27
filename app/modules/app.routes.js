@@ -67,7 +67,7 @@
                     }
                 }
             })
-            .state('posts.detail', {
+            .state('posts.list.detail', {
                 url: '/post/{postId}',
                 views: {
                     'content@posts': {
