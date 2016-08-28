@@ -144,6 +144,27 @@
 			font-size: $font-size;
 			margin: 0;
 			padding-bottom: 15px;
+
+			.type {
+				font-family: 'FontAwesome';
+
+				&:before {
+					padding-right: 10px;
+				}
+
+				&.question:before {
+					content: '\f29c';
+				}
+
+				&.note:before {
+					content: '\f24a';
+				}
+
+				&.poll:before {
+					content: '\f14a';
+				}
+			}
+
 			a {
 				font-size: $font-size;
 				color: $primary-color;
