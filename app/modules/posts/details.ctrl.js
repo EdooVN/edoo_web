@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($scope, localStorageService, $location, $stateParams, PostService, PageValues) {
+        .controller('PostDetailsController', function ($scope, localStorageService, $location, $stateParams, PostService, PageValues, NotificationService) {
             var vm = this;
 
             vm.data = PageValues;
@@ -22,7 +22,7 @@
                 }
                 vm.post = post;
             }, function (error) {
-                console.log(error);
+                NotificationService.add('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.', 'error');
             });
 
             function comment() {
@@ -39,7 +39,7 @@
                         vm.post.comments.push(new_comment);
                     },
                     function (error) {
-                        console.log(error);
+                        NotificationService.add('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.', 'error');
                     }
                 )
             }
@@ -55,7 +55,7 @@
                         var vote_count = data.data.vote_count;
                     },
                     function (error) {
-                        console.log(error);
+                        NotificationService.add('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.', 'error');
                     }
                 )
             }
