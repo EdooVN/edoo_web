@@ -17,17 +17,24 @@
                         <span>{{postCtrl.post.author.name}}</span>
                     </div>
                 </div>
+                <div class="author" ng-if="postCtrl.post.is_incognito">
+                    <img ng-src="{{'assets/images/incognito.png'}}" alt="">
+                    <div class="author_name">
+                        <div>Người đăng</div>
+                        <span>Ẩn danh</span>
+                    </div>
+                </div>
                 <div class="number_comments">
                     <div>Bình luận:</div>
-                    <span class="number ng-binding">50</span>
+                    <span class="number ng-binding">{{postCtrl.post.comments.length}}</span>
                 </div>
                 <div class="time">
-                    <div>Ngày đăng:</div>
+                    <div>Thời gian:</div>
                     <span class="number" am-time-ago="postCtrl.post.created_at" title="{{postCtrl.post.created_at | amDateFormat:'HH:mm - MM/DD/YYYY'}}"></span>
                 </div>
                 <div class="vote">
                     <div>Độ quan tâm:</div>
-                    <span class="number">10 votes</span>
+                    <span class="number">{{postCtrl.post.votes.length}}</span>
                 </div>
                 <div class="clearfix"></div>
             </div>

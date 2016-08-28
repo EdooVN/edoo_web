@@ -8,6 +8,7 @@
 
             mv.data = PageValues;
             mv.class_id = $stateParams.classId;
+            mv.user = StorageService.getUserData();
 
             mv.newPost = {};
             mv.newPost.content = '';

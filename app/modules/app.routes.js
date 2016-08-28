@@ -8,7 +8,7 @@
     function config($stateProvider, $urlRouterProvider) {
         $urlRouterProvider
             .when('/', '/welcome')
-            .otherwise('/404');
+            .otherwise('/');
 
         $stateProvider
             .state('welcome', {

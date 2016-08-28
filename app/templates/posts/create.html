@@ -21,7 +21,7 @@
         <div class="form-group">
             <label for="is_incognito">Đăng với tư cách</label>
             <select name="is_incognito" id="is_incognito" class="form-control" ng-model="createPostCtrl.newPost.is_incognito">
-                <option value="0">Me</option>
+                <option value="0">{{createPostCtrl.user.name}}</option>
                 <option value="1">Ẩn danh</option>
             </select>
         </div>

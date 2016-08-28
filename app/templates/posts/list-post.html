@@ -28,11 +28,18 @@
         </div>
 
         <div class="group">
-            <div class="author">
+            <div class="author" ng-if="!post.is_incognito">
                 <img ng-src="{{post.author.avatar}}" alt="">
                 <div class="author_name">
                     <div>Người đăng</div>
                     <span>{{post.author.name}}</span>
+                </div>
+            </div>
+            <div class="author" ng-if="post.is_incognito">
+                <img ng-src="{{'assets/images/incognito.png'}}" alt="">
+                <div class="author_name">
+                    <div>Người đăng</div>
+                    <span>Ẩn danh</span>
                 </div>
             </div>
             <div class="number_comments">
