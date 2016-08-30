@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('CreatePostController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues) {
+        .controller('CreatePostController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues, NotificationService) {
             var mv = this;
 
             mv.data = PageValues;
@@ -32,7 +32,9 @@
                         $location.path('/class/' + mv.class_id + '/post/' + post_id);
                     },
                     function (error) {
-
+                        var data = error.data;
+                        var message = data.message;
+                        NotificationService.error(message);
                     }
                 );
             }

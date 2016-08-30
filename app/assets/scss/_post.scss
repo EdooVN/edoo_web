@@ -163,6 +163,10 @@
 				&.poll:before {
 					content: '\f14a';
 				}
+
+				&.notification:before {
+					content: '\f0a1';
+				}
 			}
 
 			a {
