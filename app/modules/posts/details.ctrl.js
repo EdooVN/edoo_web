@@ -22,7 +22,7 @@
                 }
                 vm.post = post;
             }, function (error) {
-                NotificationService.add('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.', 'error');
+                NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.', 'error');
             });
 
             function comment() {
@@ -39,7 +39,7 @@
                         vm.post.comments.push(new_comment);
                     },
                     function (error) {
-                        NotificationService.add('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.', 'error');
+                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.', 'error');
                     }
                 )
             }
@@ -55,7 +55,7 @@
                         var vote_count = data.data.vote_count;
                     },
                     function (error) {
-                        NotificationService.add('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.', 'error');
+                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.', 'error');
                     }
                 )
             }

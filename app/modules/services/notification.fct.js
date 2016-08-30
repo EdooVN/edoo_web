@@ -6,10 +6,34 @@
 
     function NotificationService() {
         return {
-            add: add
+            error: error,
+            success: success,
+            warning: warning,
+            information: information,
+            confirm: confirm
         };
 
-        function add(content, type) {
+        function confirm(content) {
+            return _add(content, 'confirm');
+        }
+
+        function information(content) {
+            return _add(content, 'information');
+        }
+
+        function warning(content) {
+            return _add(content, 'warning');
+        }
+
+        function error(content) {
+            return _add(content, 'error');
+        }
+
+        function success(content) {
+            return _add(content, 'success');
+        }
+
+        function _add(content, type) {
             type = type || 'success';
 
             return noty({
@@ -18,10 +42,11 @@
                 type: type,
                 animation: {
                     open: 'animated bounceInRight',
-                    close: 'animated bounceOutRight',
-                    easing: 'swing',
-                    speed: 500
+                    close: 'animated bounceOutRight'
                 },
+                timeout: 5000,
+                closeWith: ['click'],
+                killer: true,
                 theme: 'relax'
             });
         }
