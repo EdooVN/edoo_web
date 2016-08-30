@@ -13,6 +13,7 @@
             vm.post_id = $stateParams.postId;
             vm.comment = comment;
             vm.vote = vote;
+            vm.remove = remove;
 
             PostService.getPost(this.post_id).then(function (data) {
                 var post = data.data;
@@ -55,12 +56,23 @@
                     function (data) {
                         vm.post.vote_count = data.data.vote_count;
                         NotificationService.success('Bạn đã vote thành công');
-
                     },
                     function (error) {
                         NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');
                     }
                 )
+            }
+
+            function remove() {
+                PostService.deletePost(vm.post_id).then(
+                    function (data) {
+                        NotificationService.success('Bài viết đã được xoá!');
+                        $location.path('/class/' + vm.class_id);
+                    },
+                    function (error) {
+                        NotificationService.error(error.data.message);
+                    }
+                );
             }
         });
 })();

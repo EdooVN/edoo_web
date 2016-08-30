@@ -10,7 +10,8 @@
             getPost: getPost,
             createPost: createPost,
             comment: comment,
-            vote: vote
+            vote: vote,
+            deletePost: deletePost
         };
 
         function getListPost(class_id) {
@@ -103,6 +104,27 @@
                 url: '/post',
                 method: 'POST',
                 data: data,
+                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function deletePost(post_id) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            APIService.makeRequest({
+                url: '/deletepost',
+                method: 'POST',
+                data: {post_id: post_id},
                 headers: {'Authorization': token}
             }).then(
                 function (response) {
