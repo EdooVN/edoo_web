@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('LoginController', function ($http, $rootScope, $location, localStorageService, AccountService) {
+        .controller('LoginController', function ($http, $rootScope, $location, localStorageService, AccountService, NotificationService) {
             var mv = this;
 
             mv.signIn = signIn;
@@ -21,10 +21,12 @@
                     function (response) {
                         $rootScope.$emit('loginSuccess', response.data);
                         $location.path('/class');
+                        NotificationService.success('Bạn đã đăng nhập thành công.');
                     },
                     function (error) {
                         var message = error.data.message;
                         mv.errors = [message];
+                        NotificationService.error('Vui lòng kiểm tra lại!');
                     }
                 );
             }

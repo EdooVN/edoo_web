@@ -21,8 +21,9 @@
                     $location.path('/class/' + class_id + '/post/' + post.id);
                 }
                 vm.post = post;
+                vm.post.vote_count = post.votes.length;
             }, function (error) {
-                NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.', 'error');
+                NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');
             });
 
             function comment() {
@@ -39,7 +40,7 @@
                         vm.post.comments.push(new_comment);
                     },
                     function (error) {
-                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.', 'error');
+                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');
                     }
                 )
             }
@@ -52,10 +53,12 @@
 
                 PostService.vote(data).then(
                     function (data) {
-                        var vote_count = data.data.vote_count;
+                        vm.post.vote_count = data.data.vote_count;
+                        NotificationService.success('Bạn đã vote thành công');
+
                     },
                     function (error) {
-                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.', 'error');
+                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');
                     }
                 )
             }
