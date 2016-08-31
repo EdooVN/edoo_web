@@ -4,10 +4,11 @@
     angular.module('app.core')
         .controller('NavbarController', NavbarController);
 
-    function NavbarController($rootScope, PageValues, ClassService, AuthService) {
+    function NavbarController($rootScope, PageValues, ClassService, AuthService, NotificationService) {
         var mv = this;
         mv.data = PageValues;
         mv.classes = [];
+        mv.temp = temp;
 
         if (AuthService.isAuthorized()) {
             _fetchClasses();
@@ -23,6 +24,10 @@
             }, function (error) {
                 console.log(error);
             });
+        }
+
+        function temp() {
+            NotificationService.information('Chức năng này đang được hoàn thiện');
         }
     }
 })();
