@@ -4,7 +4,8 @@
             <div class="vote">
                 <div class="up" ng-click="postCtrl.vote(1)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
                 <div class="count">{{postCtrl.post.vote_count}}</div>
-                <div class="down" ng-click="postCtrl.vote(-1)"><i class="fa fa-caret-down" aria-hidden="true"></i></i></div>
+                <div class="down" ng-click="postCtrl.vote(-1)"><i class="fa fa-caret-down" aria-hidden="true"></i></i>
+                </div>
             </div>
         </div>
         <div class="right">
@@ -30,7 +31,8 @@
                 </div>
                 <div class="time">
                     <div>Thời gian:</div>
-                    <span class="number" am-time-ago="postCtrl.post.created_at" title="{{postCtrl.post.created_at | amDateFormat:'HH:mm - MM/DD/YYYY'}}"></span>
+                    <span class="number" am-time-ago="postCtrl.post.created_at"
+                          title="{{postCtrl.post.created_at | amDateFormat:'HH:mm - MM/DD/YYYY'}}"></span>
                 </div>
                 <div class="vote">
                     <div>Độ quan tâm:</div>
@@ -39,7 +41,7 @@
 
                 <div class="action pull-right" ng-show="postCtrl.data.user.id == postCtrl.post.author.id">
                     <div class="btn-group">
-                 <a class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i> Sửa</a>
+                        <a class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i> Sửa</a>
                         <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                             <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
                         </a>
@@ -68,7 +70,7 @@
             <div class="right">
                 <div class="header">
                     <div class="media-left">
-                        <img ng-src="{{comment.author.avatar}}" alt="">
+                        <img ng-src="{{comment.author.avatar}}" alt=""/>
                     </div>
                     <div class="media-body">
                         <span class="title">{{comment.author.name}}</span>
@@ -76,8 +78,7 @@
                     </div>
                 </div>
 
-                <div class="content">
-                    {{comment.content}}
+                <div class="content" ng-bind-html="comment.content">
                 </div>
             </div>
         </div>
@@ -87,7 +88,7 @@
         <h4>Nhập bình luận</h4>
         <form ng-submit="postCtrl.comment()">
             <div class="form-group">
-                <textarea class="form-control" placeholder="Comment" ng-model="postCtrl.answer"></textarea>
+                <textarea ui-tinymce="postCtrl.tinymceOptions" ng-model="postCtrl.answer"></textarea>
             </div>
             <div class="form-group">
                 <button class="comment_submit" type="submit">Trả lời</button>

@@ -8,6 +8,12 @@
 
             vm.data = PageValues;
 
+            vm.tinymceOptions = {
+                plugins: 'link image code',
+                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
+                entity_encoding: 'raw'
+            };
+
             vm.post = {};
             vm.class_id = $stateParams.classId;
             vm.post_id = $stateParams.postId;
