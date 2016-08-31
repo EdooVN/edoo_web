@@ -44,6 +44,7 @@
                     function (data) {
                         vm.answer = '';
                         var new_comment = data.data;
+                        new_comment.votes = [];
                         vm.post.comments.push(new_comment);
                     },
                     function (error) {
