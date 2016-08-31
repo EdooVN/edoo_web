@@ -34,10 +34,6 @@
                     <span class="number" am-time-ago="postCtrl.post.created_at"
                           title="{{postCtrl.post.created_at | amDateFormat:'HH:mm - MM/DD/YYYY'}}"></span>
                 </div>
-                <div class="vote">
-                    <div>Độ quan tâm:</div>
-                    <span class="number">{{postCtrl.post.votes.length}}</span>
-                </div>
 
                 <div class="action pull-right" ng-show="postCtrl.data.user.id == postCtrl.post.author.id">
                     <div class="btn-group">
