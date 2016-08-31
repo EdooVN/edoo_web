@@ -18,7 +18,9 @@
             vm.class_id = $stateParams.classId;
             vm.post_id = $stateParams.postId;
             vm.comment = comment;
-            vm.vote = vote;
+            vm.votePost = votePost;
+            vm.voteComment = voteComment;
+            vm.devoteComment = devoteComment;
             vm.remove = remove;
 
             PostService.getPost(this.post_id).then(function (data) {
@@ -44,6 +46,7 @@
                     function (data) {
                         vm.answer = '';
                         var new_comment = data.data;
+                        new_comment.votes = [];
                         vm.post.comments.push(new_comment);
                     },
                     function (error) {
@@ -52,16 +55,48 @@
                 )
             }
 
-            function vote(type) {
+            function votePost(type) {
                 var data = {
                     post_id: vm.post_id,
                     content: type
                 };
 
-                PostService.vote(data).then(
+                PostService.votePost(data).then(
                     function (data) {
                         vm.post.vote_count = data.data.vote_count;
                         NotificationService.success('Bạn đã vote thành công');
+                    },
+                    function (error) {
+                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');
+                    }
+                )
+            }
+
+            function voteComment(comment_id) {
+                var data = {
+                    comment_id: '' + comment_id
+                };
+
+                PostService.voteComment(data).then(
+                    function (data) {
+                        vm.post.vote_count = data.data.vote_count;
+                        NotificationService.success('Bạn đã vote cho bình luận thành công');
+                    },
+                    function (error) {
+                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');
+                    }
+                )
+            }
+
+            function devoteComment(comment_id) {
+                var data = {
+                    comment_id: '' + comment_id
+                };
+
+                PostService.devoteComment(data).then(
+                    function (data) {
+                        vm.post.vote_count = data.data.vote_count;
+                        NotificationService.success('Bạn đã devote cho bình luận thành công');
                     },
                     function (error) {
                         NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');

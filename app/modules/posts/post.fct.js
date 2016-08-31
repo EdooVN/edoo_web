@@ -10,8 +10,10 @@
             getPost: getPost,
             createPost: createPost,
             comment: comment,
-            vote: vote,
-            deletePost: deletePost
+            votePost: votePost,
+            deletePost: deletePost,
+            voteComment: voteComment,
+            devoteComment: devoteComment
         };
 
         function getListPost(class_id) {
@@ -75,12 +77,54 @@
             return deferred.promise;
         }
 
-        function vote(data) {
+        function votePost(data) {
             var deferred = $q.defer();
             var token = StorageService.getToken();
 
             APIService.makeRequest({
                 url: '/votepost',
+                method: 'POST',
+                data: data,
+                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function voteComment(data) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            APIService.makeRequest({
+                url: '/votecmt',
+                method: 'POST',
+                data: data,
+                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function devoteComment(data) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            APIService.makeRequest({
+                url: '/devotecmt',
                 method: 'POST',
                 data: data,
                 headers: {'Authorization': token}

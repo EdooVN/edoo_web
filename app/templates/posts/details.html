@@ -2,9 +2,10 @@
     <div class="post-content">
         <div class="left">
             <div class="vote">
-                <div class="up" ng-click="postCtrl.vote(1)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+                <div class="up" ng-click="postCtrl.votePost(1)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
                 <div class="count">{{postCtrl.post.vote_count}}</div>
-                <div class="down" ng-click="postCtrl.vote(-1)"><i class="fa fa-caret-down" aria-hidden="true"></i></i>
+                <div class="down" ng-click="postCtrl.votePost(-1)"><i class="fa fa-caret-down"
+                                                                      aria-hidden="true"></i></i>
                 </div>
             </div>
         </div>
@@ -57,9 +58,13 @@
         <div class="comment" ng-repeat="comment in postCtrl.post.comments">
             <div class="left">
                 <div class="vote">
-                    <div class="up"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+                    <div class="up" ng-click="postCtrl.voteComment(comment.id)">
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
                     <div class="count">{{comment.votes.length}}</div>
-                    <div class="down"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                    <div class="down" ng-click="postCtrl.devoteComment(comment.id)">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>
 
