@@ -10,7 +10,7 @@
             getPost: getPost,
             createPost: createPost,
             comment: comment,
-            vote: vote,
+            votePost: votePost,
             deletePost: deletePost
         };
 
@@ -75,7 +75,7 @@
             return deferred.promise;
         }
 
-        function vote(data) {
+        function votePost(data) {
             var deferred = $q.defer();
             var token = StorageService.getToken();
 

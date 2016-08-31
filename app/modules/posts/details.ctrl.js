@@ -18,7 +18,7 @@
             vm.class_id = $stateParams.classId;
             vm.post_id = $stateParams.postId;
             vm.comment = comment;
-            vm.vote = vote;
+            vm.votePost = votePost;
             vm.remove = remove;
 
             PostService.getPost(this.post_id).then(function (data) {
@@ -53,13 +53,13 @@
                 )
             }
 
-            function vote(type) {
+            function votePost(type) {
                 var data = {
                     post_id: vm.post_id,
                     content: type
                 };
 
-                PostService.vote(data).then(
+                PostService.votePost(data).then(
                     function (data) {
                         vm.post.vote_count = data.data.vote_count;
                         NotificationService.success('Bạn đã vote thành công');
