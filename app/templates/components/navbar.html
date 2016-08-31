@@ -1,7 +1,8 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-mobile" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-mobile"
+                    aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -13,11 +14,13 @@
         <div class="collapse navbar-collapse" id="menu-mobile">
             <ul class="nav navbar-nav">
                 <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lớp môn học <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Lớp môn học <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li ui-sref-active="active"><a ui-sref="class">Tất cả các lớp</a></li>
                         <li role="separator" class="divider"></li>
-                        <li ng-repeat="class in navbarCtrl.classes" ui-sref-active="active"><a ui-sref="posts.list({classId: class.id})">{{class.name }} - {{class.code}}</a></li>
+                        <li ng-repeat="class in navbarCtrl.classes" ui-sref-active="active"><a
+                                ui-sref="posts.list({classId: class.id})">{{class.name }} - {{class.code}}</a></li>
                     </ul>
                 </li>
             </ul>
@@ -25,11 +28,12 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class=""><a ui-sref="login" ng-hide="navbarCtrl.data.isAuthenticated">Đăng nhập</a></li>
                 <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chào {{navbarCtrl.data.user.name}} <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Chào {{navbarCtrl.data.user.name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Trang cá nhân</a></li>
-                        <li><a href="#">Cập nhập thông tin</a></li>
-                        <li><a href="#">Đổi mật khẩu</a></li>
+                        <li><a ui-sref="profile">Trang cá nhân</a></li>
+                        <li><a ui-sref="profile.edit">Cập nhập thông tin</a></li>
+                        <li><a ui-sref="profile">Đổi mật khẩu</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a ui-sref="logout">Đăng xuất</a></li>
                     </ul>

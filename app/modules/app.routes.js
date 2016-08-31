@@ -22,6 +22,14 @@
                 controller: 'LoginController',
                 controllerAs: 'loginCtrl'
             })
+            .state('profile', {
+                url: '/profile',
+                controller: 'ProfileController'
+            })
+            .state('profile.edit', {
+                url: '/edit',
+                controller: 'UpdateProfileController'
+            })
             .state('logout', {
                 url: '/logout',
                 templateUrl: 'templates/accounts/logout.html',
