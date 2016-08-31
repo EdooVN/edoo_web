@@ -70,6 +70,12 @@
             }
 
             function remove() {
+                var r = window.confirm('Bạn có chắc chắn xoá bài viết này?\n Chọn Ok để xoá hoặc Cancel để huỷ bỏ');
+
+                if (!r) {
+                    return;
+                }
+
                 PostService.deletePost(vm.post_id).then(
                     function (data) {
                         NotificationService.success('Bài viết đã được xoá!');
