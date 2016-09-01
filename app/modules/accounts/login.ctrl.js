@@ -7,8 +7,8 @@
 
             mv.signIn = signIn;
             mv.errors = [];
-            mv.email = 'minhnt_58@vnu.edu.vn';// To test
-            mv.password = '123456';
+            mv.email = '';
+            mv.password = '';
 
             var token = localStorageService.get('user_token');
 
