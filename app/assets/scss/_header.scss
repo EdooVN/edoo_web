@@ -17,13 +17,13 @@
 		.navbar-right.nav {
 			.login {
 				a {
+					border-radius: 10px;
 					border: 1px solid #fff;
 				}
 			}
 
 			> .user {
 				> a {
-					background-color: transparent;
 					padding-top: 10px;
 					padding-bottom: 10px;
 				}
@@ -52,8 +52,22 @@
 		}
 
 		.navbar-nav {
-			> a {
-				border-radius: 5px;
+			> li {
+				> a {
+					background-color: transparent;
+
+				}
+
+				.dropdown-menu {
+					border-radius: 10px;
+
+					li {
+						a {
+							padding-top: 10px;
+							padding-bottom: 10px;
+						}
+					}
+				}
 			}
 
 			&.nav {
