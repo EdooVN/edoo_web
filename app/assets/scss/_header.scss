@@ -7,17 +7,38 @@
 		padding: 24px 0;
 
 		.navbar-brand {
-			padding-top: 14.5px;
-			padding-bottom: 14.5px;
-			height: 50px;
+			padding: 10px 20px 10px 0;
+
+			img {
+				max-height: 40px;
+			}
 		}
 
-		.navbar-right {
+		.navbar-right.nav {
+			.login {
+				a {
+					border: 1px solid #fff;
+				}
+			}
+
+			> .user {
+				> a {
+					background-color: transparent;
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+
+				.avatar {
+					height: 40px;
+					border-radius: 50%;
+					margin-right: 10px;
+				}
+			}
+
 			a {
 				padding-left: 20px;
 				padding-right: 20px;
-				border-radius: 5px;
-				border: 1px solid #fff;
+
 				&:after {
 					display: none;
 				}
@@ -31,11 +52,15 @@
 		}
 
 		.navbar-nav {
+			> a {
+				border-radius: 5px;
+			}
+
 			&.nav {
 				> li {
 					> a {
-						padding-top: 14.5px;
-						padding-bottom: 14.5px;
+						padding-top: 19.5px;
+						padding-bottom: 19.5px;
 					}
 				}
 			}
