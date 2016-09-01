@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="right">
-            <h1 class="title">{{postCtrl.post.title}}</h1>
+            <h1 class="title ng-fade">{{postCtrl.post.title}}</h1>
             <div class="group">
                 <div class="author" ng-if="!postCtrl.post.is_incognito">
                     <img ng-src="{{postCtrl.post.author.avatar}}" alt="">
@@ -49,13 +49,13 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="content" ng-bind-html="postCtrl.post.content">
+            <div class="content ng-fade" ng-bind-html="postCtrl.post.content">
             </div>
         </div>
     </div>
 
     <div class="comments">
-        <div class="comment" ng-repeat="comment in postCtrl.post.comments">
+        <div class="comment ng-fade" ng-repeat="comment in postCtrl.post.comments">
             <div class="left">
                 <div class="vote">
                     <div class="up" ng-click="postCtrl.voteComment(comment.id)">

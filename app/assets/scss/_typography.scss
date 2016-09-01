@@ -25,3 +25,11 @@ body {
 	font-family: $font-family;
 	line-height: 25px;
 }
+
+.ng-fade {
+	transition: 200ms linear all;
+
+	&.ng-enter {
+		opacity: 0;
+	}
+}

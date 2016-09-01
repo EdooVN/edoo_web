@@ -2,7 +2,7 @@
     <h2 class="modal-title">Danh Sách Lớp Môn Học</h2>
 
     <ul class="list-group list-classes">
-        <li class="list-group-item" ng-repeat="class in classCtrl.listClass">
+        <li class="list-group-item ng-fade" ng-repeat="class in classCtrl.listClass">
             <div class="group">
                 <h2 class="name"><a href="#/class/{{class.id}}">{{class.name}} - {{class.code}}</a></h2>
                 <!--<div class="class_content">Đây là dòng văn giới thiệu sơ qua về lớp lập trình hướng đối tượng - INT 2004. Dòng văn này có thể kéo dài tới 2 dòng cơ, và thậm chí còn dài hơn nữa kìa, tức là 2 dòng rưỡi.</div>-->

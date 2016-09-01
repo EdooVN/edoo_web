@@ -18,7 +18,7 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="post" ng-repeat="post in postsCtrl.class.posts">
+    <div class="post ng-fade" ng-repeat="post in postsCtrl.class.posts">
         <div class="header">
             <h2 class="title"><a ui-sref="posts.list.detail({postId: post.id})"><span class="type {{post.type}}"></span>{{post.title}}</a>
             </h2>
