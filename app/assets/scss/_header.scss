@@ -3,12 +3,39 @@
 		border-radius: 0;
 		background-color: $primary-color;
 		box-shadow: 0 0 6px 0 rgba(17,17,17,0.10);
+		margin-bottom: 0;
+		padding: 24px 0;
+
+		.navbar-brand {
+			padding-top: 14.5px;
+			padding-bottom: 14.5px;
+			height: 50px;
+		}
+
+		.navbar-right {
+			a {
+				padding-left: 20px;
+				padding-right: 20px;
+				border-radius: 5px;
+				border: 1px solid #fff;
+				&:after {
+					display: none;
+				}
+
+				&:hover {
+					&::after {
+						display: none;
+					}
+				}
+			}
+		}
 
 		.navbar-nav {
 			&.nav {
 				> li {
 					> a {
-						//padding: 10px 0;
+						padding-top: 14.5px;
+						padding-bottom: 14.5px;
 					}
 				}
 			}
