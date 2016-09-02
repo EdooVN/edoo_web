@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($scope, localStorageService, $location, $stateParams, PostService, PageValues, NotificationService) {
+        .controller('PostDetailsController', function ($scope, $state, localStorageService, $location, $stateParams, PostService, PageValues, NotificationService) {
             var vm = this;
 
             vm.data = PageValues;
@@ -27,7 +27,7 @@
                 var post = data.data;
                 var class_id = post.class_id;
                 if (class_id !== vm.class_id) {
-                    $location.path('/class/' + class_id + '/post/' + post.id);
+                    $state.go('posts.list.detail', {postId: vm.post_id, classId: vm.class_id});
                 }
                 vm.post = post;
                 vm.post.vote_count = post.votes.length;
@@ -105,7 +105,7 @@
             }
 
             function remove() {
-                var r = window.confirm('Bạn có chắc chắn xoá bài viết này?\n Chọn Ok để xoá hoặc Cancel để huỷ bỏ');
+                var r = window.confirm('Bạn có chắc chắn xoá bài viết này?\nChọn Ok để xoá hoặc Cancel để huỷ bỏ');
 
                 if (!r) {
                     return;
@@ -114,7 +114,7 @@
                 PostService.deletePost(vm.post_id).then(
                     function (data) {
                         NotificationService.success('Bài viết đã được xoá!');
-                        $location.path('/class/' + vm.class_id);
+                        $state.go('posts.list', {classId: vm.class_id});
                     },
                     function (error) {
                         NotificationService.error(error.data.message);
