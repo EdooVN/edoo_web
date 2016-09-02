@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('LoginController', function ($http, $rootScope, $location, localStorageService, PageValues, AccountService, NotificationService) {
+        .controller('LoginController', function ($http, $rootScope, $location, $state, localStorageService, PageValues, AccountService, NotificationService) {
             var mv = this;
 
             PageValues.title = 'Đăng nhập';
@@ -15,14 +15,14 @@
             var token = localStorageService.get('user_token');
 
             if (token) {
-                return $location.path('/');
+                return $state.go('welcome');
             }
 
             function signIn() {
                 AccountService.login(mv.email, mv.password).then(
                     function (response) {
                         $rootScope.$emit('loginSuccess', response.data);
-                        $location.path('/class');
+                        $state.go('class');
                         NotificationService.success('Bạn đã đăng nhập thành công.');
                     },
                     function (error) {
