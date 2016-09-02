@@ -6,6 +6,8 @@
         .controller('CreatePostController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues, NotificationService) {
             var mv = this;
 
+            PageValues.title = 'Đăng chủ đề mới';
+
             mv.data = PageValues;
             mv.class_id = $stateParams.classId;
             mv.user = StorageService.getUserData();

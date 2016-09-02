@@ -7,10 +7,10 @@
 <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
-<head>
+<head ng-controller="HeadController as headCtrl">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Edoo app</title>
+    <title>{{headCtrl.Page.title}}</title>
     <link rel="icon" href="assets/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
@@ -65,6 +65,7 @@
 <!-- / -->
 
 <!-- CONTROLLERS -->
+<script src="modules/components/head.ctrl.js"></script>
 <script src="modules/components/navbar.ctrl.js"></script>
 <script src="modules/components/footer.ctrl.js"></script>
 <script src="modules/pages/welcome.ctrl.js"></script>

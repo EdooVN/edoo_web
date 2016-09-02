@@ -2,8 +2,10 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('LoginController', function ($http, $rootScope, $location, localStorageService, AccountService, NotificationService) {
+        .controller('LoginController', function ($http, $rootScope, $location, localStorageService, PageValues, AccountService, NotificationService) {
             var mv = this;
+
+            PageValues.title = 'Đăng nhập';
 
             mv.signIn = signIn;
             mv.errors = [];

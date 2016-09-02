@@ -7,6 +7,7 @@
             loading: false,
             isAuthenticated: false,
             user: {},
-            token: ''
+            token: '',
+            title: 'Edoo App'
         });
 })();

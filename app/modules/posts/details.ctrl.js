@@ -31,6 +31,8 @@
                 }
                 vm.post = post;
                 vm.post.vote_count = post.votes.length;
+
+                PageValues.title = post.title;
             }, function (error) {
                 NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');
             });

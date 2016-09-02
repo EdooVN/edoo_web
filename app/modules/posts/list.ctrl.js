@@ -6,6 +6,8 @@
         .controller('ListPostsController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues) {
             var mv = this;
 
+            PageValues.title = 'Lớp ...';
+
             mv.data = PageValues;
 
             mv.listPost = [];
@@ -19,6 +21,8 @@
             PostService.getListPost(this.class_id).then(function (data) {
                 mv.listPost = data.data.posts;
                 mv.class = data.data;
+
+                PageValues.title = 'Lớp ' + mv.class.name;
             }, function (error) {
                 console.log(error);
             });
