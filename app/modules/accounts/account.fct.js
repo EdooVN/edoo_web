@@ -7,7 +7,8 @@
     function accountService($q, StorageService, APIService) {
         return {
             login: login,
-            logout: logout
+            logout: logout,
+            getProfile: getProfile
         };
 
         function login(email, password) {
@@ -45,6 +46,26 @@
             }).then(
                 function (data) {
                     deferred.resolve(data);
+                },
+                function (error) {
+                    deferred.resolve(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function getProfile() {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            APIService.makeRequest({
+                url: '/profile',
+                method: 'GET',
+                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
                 },
                 function (error) {
                     deferred.resolve(error);

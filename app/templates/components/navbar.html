@@ -35,8 +35,7 @@
                         <img ng-src="{{navbarCtrl.data.user.avatar}}" class="avatar">
                         {{navbarCtrl.data.user.name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a ng-click="navbarCtrl.temp()">Trang cá nhân</a></li>
-                        <li><a ng-click="navbarCtrl.temp()">Cập nhập thông tin</a></li>
+                        <li><a ui-sref="accounts.profile">Cập nhập thông tin</a></li>
                         <li><a ng-click="navbarCtrl.temp()">Đổi mật khẩu</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a ui-sref="logout">Đăng xuất</a></li>

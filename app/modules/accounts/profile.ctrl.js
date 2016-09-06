@@ -2,10 +2,21 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('ProfileController', function ($location, NotificationService) {
+        .controller('ProfileController', function (PageValues, AccountService) {
             var mv = this;
 
-            NotificationService.information('Chức năng này đang được hoàn thiện');
-            $location.path('/');
+            PageValues.title = 'Thông tin tài khoản';
+
+            mv.account = {};
+
+            AccountService.getProfile().then(
+                function (response) {
+                    mv.account = response.data;
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
         });
+
 })();

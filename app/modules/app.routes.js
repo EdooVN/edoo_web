@@ -22,14 +22,6 @@
                 controller: 'LoginController',
                 controllerAs: 'loginCtrl'
             })
-            .state('profile', {
-                url: '/profile',
-                controller: 'ProfileController'
-            })
-            .state('profile.edit', {
-                url: '/edit',
-                controller: 'UpdateProfileController'
-            })
             .state('logout', {
                 url: '/logout',
                 templateUrl: 'templates/accounts/logout.html',
@@ -94,6 +86,28 @@
                         controllerAs: 'createPostCtrl'
                     }
                 }
-            });
+            })
+            .state('accounts', {
+                views: {
+                    '': {
+                        templateUrl: 'templates/layouts/master.html'
+                    },
+                    'sidebar@accounts': {
+                        templateUrl: 'templates/accounts/sidebar.html',
+                        controller: 'SidebarAccountController',
+                        controllerAs: 'sidebarAccountCtrl'
+                    }
+                }
+            })
+            .state('accounts.profile', {
+                url: '/profile',
+                views: {
+                    'content@accounts': {
+                        templateUrl: 'templates/accounts/profile.html',
+                        controller: 'ProfileController',
+                        controllerAs: 'profileCtrl'
+                    }
+                }
+            })
     }
 })();
