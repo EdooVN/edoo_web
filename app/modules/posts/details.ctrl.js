@@ -22,6 +22,7 @@
             vm.voteComment = voteComment;
             vm.devoteComment = devoteComment;
             vm.remove = remove;
+            vm.edit = edit;
 
             PostService.getPost(this.post_id).then(function (data) {
                 var post = data.data;
@@ -122,6 +123,10 @@
                         NotificationService.error(error.data.message);
                     }
                 );
+            }
+
+            function edit() {
+                NotificationService.information('Chức năng này đang được hoàn thiện ;)');
             }
         });
 })();
