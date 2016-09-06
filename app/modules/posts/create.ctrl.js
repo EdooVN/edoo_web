@@ -11,6 +11,7 @@
             mv.data = PageValues;
             mv.class_id = $stateParams.classId;
             mv.user = StorageService.getUserData();
+            mv.canCreatableNotification = (mv.user.capability == 'teacher');
 
             mv.newPost = {};
             mv.newPost.content = '';
