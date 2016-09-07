@@ -11,7 +11,7 @@
             ClassService.getClasses().then(function (data) {
                 mv.listClass = data.data.classes;
             }, function (error) {
-                console.log(error);
+                NotificationService.error(error.data.message);
             });
         });
 })();

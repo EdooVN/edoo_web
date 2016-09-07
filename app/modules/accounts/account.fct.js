@@ -8,7 +8,8 @@
         return {
             login: login,
             logout: logout,
-            getProfile: getProfile
+            getProfile: getProfile,
+            updateProfile: updateProfile
         };
 
         function login(email, password) {
@@ -62,6 +63,27 @@
             APIService.makeRequest({
                 url: '/profile',
                 method: 'GET',
+                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.resolve(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function updateProfile(data) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            APIService.makeRequest({
+                url: '/profile',
+                method: 'POST',
+                data: data,
                 headers: {'Authorization': token}
             }).then(
                 function (response) {

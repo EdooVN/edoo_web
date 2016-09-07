@@ -1,4 +1,4 @@
-<div class="wrapper-profile">
+<div class="wrapper-profile" ng-show="profileCtrl.account">
     <h2 class="title">{{profileCtrl.account.name}}</h2>
 
     <div class="top">
@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <div class="details" ng-if="profileCtrl.account">
+                <div class="details">
                     <table class="table">
                         <tbody>
                         <tr>
@@ -67,16 +67,26 @@
     </div>
 
     <div class="bottom">
-        <div class="form-group">
-            <label for="favorite">Sở thích</label>
-            <div class="value">{{profileCtrl.account.favorite}}</div>
-            <textarea class="form-control hide" name="favorite" id="favorite" cols="30" rows="10">{{profileCtrl.account.favorite}}</textarea>
+        <div class="form-group favorite">
+            <label>Sở thích</label>
+            <span class="btn-edit" ng-click="profileCtrl.openEdit('favorite')"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            <div class="value" ng-hide="profileCtrl.form.favorite">{{profileCtrl.account.favorite}}</div>
+            <div class="edit-form" ng-show="profileCtrl.form.favorite">
+                <textarea class="form-control" rows="5" ng-model="profileCtrl.account.favorite"></textarea>
+                <button class="btn btn-primary" ng-click="profileCtrl.update('favorite')">Cập nhật</button>
+                <button class="btn btn-default" ng-click="profileCtrl.closeEdit('favorite')">Hủy</button>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="description">Giới thiệu</label>
-            <div class="value">{{profileCtrl.account.description}}</div>
-            <textarea class="form-control hide" name="favorite" id="description" cols="30" rows="10">{{profileCtrl.account.description}}</textarea>
+        <div class="form-group description">
+            <label>Giới thiệu</label>
+            <span class="btn-edit" ng-click="profileCtrl.openEdit('description')"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            <div class="value" ng-hide="profileCtrl.form.description">{{profileCtrl.account.description}}</div>
+            <div class="edit-form" ng-show="profileCtrl.form.description">
+                <textarea class="form-control" rows="5" ng-model="profileCtrl.account.description"></textarea>
+                <button class="btn btn-primary" ng-click="profileCtrl.update('description')">Cập nhật</button>
+                <button class="btn btn-default" ng-click="profileCtrl.closeEdit('description')">Hủy</button>
+            </div>
         </div>
     </div>
 </div>
