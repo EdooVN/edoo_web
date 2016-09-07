@@ -20,15 +20,7 @@
                             </td>
                         </tr>
 
-                        <tr ng-if="">
-                            <td></td>
-                            <td>
-                                <div class="value">{{profileCtrl.account.name}}</div>
-                                <label><input type="hidden" ng-model="profileCtrl.account.name"></label>
-                            </td>
-                        </tr>
-
-                        <tr ng-if="profileCtrl.account.code">
+                        <tr ng-if="profileCtrl.account.capability == 'student'">
                             <td>Mã SV</td>
                             <td>
                                 <div class="value">{{profileCtrl.account.code}}</div>
