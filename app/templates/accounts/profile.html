@@ -1,66 +1,82 @@
 <div class="wrapper-profile">
     <h2 class="title">{{profileCtrl.account.name}}</h2>
 
-    <div class="row">
-        <div class="col-md-5">
-            <div class="avatar">
-                <img ng-src="{{profileCtrl.account.avatar}}" class="img-responsive" alt="{{profileCtrl.account.name}}">
+    <div class="top">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="avatar">
+                    <img ng-src="{{profileCtrl.account.avatar}}" class="img-responsive img-rounded" alt="{{profileCtrl.account.name}}">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="details" ng-if="profileCtrl.account">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.name}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.name"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="">
+                            <td></td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.name}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.name"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.code">
+                            <td>Mã SV</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.code}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.code"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.regular_class">
+                            <td>Lớp</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.regular_class}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.regular_class"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.username">
+                            <td>Username</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.username}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.username"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.email">
+                            <td>Email</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.email}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.email"></label>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <div class="col-md-7">
-            <div class="details" ng-if="profileCtrl.account">
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>Họ và tên</td>
-                        <td>
-                            <div class="value">{{profileCtrl.account.name}}</div>
-                            <label><input type="hidden" ng-model="profileCtrl.account.name"></label>
-                        </td>
-                    </tr>
+    </div>
 
-                    <tr ng-if="">
-                        <td></td>
-                        <td>
-                            <div class="value">{{profileCtrl.account.name}}</div>
-                            <label><input type="hidden" ng-model="profileCtrl.account.name"></label>
-                        </td>
-                    </tr>
+    <div class="bottom">
+        <div class="form-group">
+            <label for="favorite">Sở thích</label>
+            <div class="value">{{profileCtrl.account.favorite}}</div>
+            <textarea class="form-control hide" name="favorite" id="favorite" cols="30" rows="10">{{profileCtrl.account.favorite}}</textarea>
+        </div>
 
-                    <tr ng-if="profileCtrl.account.code">
-                        <td>Mã SV</td>
-                        <td>
-                            <div class="value">{{profileCtrl.account.code}}</div>
-                            <label><input type="hidden" ng-model="profileCtrl.account.code"></label>
-                        </td>
-                    </tr>
-
-                    <tr ng-if="profileCtrl.account.regular_class">
-                        <td>Lớp</td>
-                        <td>
-                            <div class="value">{{profileCtrl.account.regular_class}}</div>
-                            <label><input type="hidden" ng-model="profileCtrl.account.regular_class"></label>
-                        </td>
-                    </tr>
-
-                    <tr ng-if="profileCtrl.account.username">
-                        <td>Username</td>
-                        <td>
-                            <div class="value">{{profileCtrl.account.username}}</div>
-                            <label><input type="hidden" ng-model="profileCtrl.account.username"></label>
-                        </td>
-                    </tr>
-
-                    <tr ng-if="profileCtrl.account.email">
-                        <td>Email</td>
-                        <td>
-                            <div class="value">{{profileCtrl.account.email}}</div>
-                            <label><input type="hidden" ng-model="profileCtrl.account.email"></label>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="form-group">
+            <label for="description">Giới thiệu</label>
+            <div class="value">{{profileCtrl.account.description}}</div>
+            <textarea class="form-control hide" name="favorite" id="description" cols="30" rows="10">{{profileCtrl.account.description}}</textarea>
         </div>
     </div>
 </div>

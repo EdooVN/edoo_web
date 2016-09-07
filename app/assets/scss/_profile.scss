@@ -8,15 +8,23 @@
 		margin-bottom: 30px;
 	}
 
-	.details {
-		table {
-			tr {
-				td {
-					&:first-child {
-						font-weight: bold;
+	.top {
+		margin-bottom: 30px;
+
+		.details {
+			table {
+				tr {
+					td {
+						&:first-child {
+							font-weight: bold;
+						}
 					}
 				}
 			}
 		}
+	}
+
+	.bottom {
+
 	}
 }
