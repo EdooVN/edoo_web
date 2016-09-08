@@ -3,8 +3,9 @@
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($scope, $state, localStorageService, $location, $stateParams, PostService, PageValues, NotificationService) {
+        .controller('PostDetailsController', function ($state, StorageService, $stateParams, PostService, PageValues, NotificationService) {
             var vm = this;
+            var user = StorageService.getUserData();
 
             vm.data = PageValues;
 
@@ -23,6 +24,8 @@
             vm.devoteComment = devoteComment;
             vm.remove = remove;
             vm.edit = edit;
+            vm.solve = solve;
+            vm.byPostAuthor = false;
 
             PostService.getPost(this.post_id).then(function (data) {
                 var post = data.data;
@@ -32,6 +35,10 @@
                 }
                 vm.post = post;
                 vm.post.vote_count = post.votes.length;
+
+                if (post.author) {
+                    vm.byPostAuthor = (post.author.id == user.id);
+                }
 
                 PageValues.title = post.title;
             }, function (error) {
@@ -81,8 +88,9 @@
                 };
 
                 PostService.voteComment(data).then(
-                    function (data) {
-                        vm.post.vote_count = data.data.vote_count;
+                    function (response) {
+                        var comment_id = response.data.id;
+                        // @todo need update
                         NotificationService.success('Bạn đã vote cho bình luận thành công');
                     },
                     function (error) {
@@ -97,9 +105,21 @@
                 };
 
                 PostService.devoteComment(data).then(
-                    function (data) {
-                        vm.post.vote_count = data.data.vote_count;
+                    function (response) {
+                        // @todo need update
                         NotificationService.success('Bạn đã devote cho bình luận thành công');
+                    },
+                    function (error) {
+                        NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');
+                    }
+                )
+            }
+
+            function solve(comment_id) {
+                PostService.solve(comment_id).then(
+                    function (data) {
+                        // @todo need update
+                        NotificationService.success('Bạn đã solve cho bình luận thành công');
                     },
                     function (error) {
                         NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');

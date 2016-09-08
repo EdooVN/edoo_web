@@ -5,9 +5,10 @@
         .constant('BASE_URL', 'http://api.uetf.me')
         .factory('APIService', APIService);
 
-    function APIService($http, $q, BASE_URL) {
+    function APIService($http, $q, BASE_URL, StorageService) {
         return {
-            makeRequest: makeRequest
+            makeRequest: makeRequest,
+            makeRequestAuth: makeRequestAuth
         };
 
         function makeRequest(config) {
@@ -26,6 +27,13 @@
             );
 
             return deferred.promise;
+        }
+
+        function makeRequestAuth(config) {
+            var token = StorageService.getToken();
+            config.headers = {'Authorization': token};
+
+            return makeRequest(config);
         }
     }
 })();

@@ -31,6 +31,33 @@
 				width: 100px;
 				float: left;
 
+				.solve-btn {
+					font-family: FontAwesome;
+					text-align: center;
+					font-size: 1.7em;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					display: none;
+
+					&.can_solve {
+						cursor: pointer;
+						display: block;
+					}
+
+					&.unsolve {
+						&:before {
+							content: '\f05d';
+						}
+					}
+
+					&.solve {
+						color: $primary-color;
+
+						&:before {
+							content: '\f058';
+						}
+					}
+				}
 			}
 
 			.right {

@@ -13,7 +13,8 @@
             votePost: votePost,
             deletePost: deletePost,
             voteComment: voteComment,
-            devoteComment: devoteComment
+            devoteComment: devoteComment,
+            solve: solve
         };
 
         function getListPost(class_id) {
@@ -128,6 +129,29 @@
                 method: 'POST',
                 data: data,
                 headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function solve(comment_id) {
+            var deferred = $q.defer();
+
+            var data = {
+                comment_id: comment_id + ''
+            };
+
+            APIService.makeRequestAuth({
+                url: '/solve',
+                method: 'POST',
+                data: data
             }).then(
                 function (response) {
                     deferred.resolve(response.data);
