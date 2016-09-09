@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="wrapper-breadcrumb" ng-controller="BreadcrumbsController as breadcrumbCtrl">
+        <ul class="breadcrumb">
+            <li ng-repeat="link in breadcrumbCtrl.links">
+                <a href="{{link.href}}" title="{{link.title}}">{{link.title}}</a>
+            </li>
+        </ul>
+    </div>
+
     <div class="wrapper row">
         <div class="col-md-3 wrapper-sidebar" ui-view="sidebar">
         </div>
