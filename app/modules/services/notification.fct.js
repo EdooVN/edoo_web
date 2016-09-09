@@ -44,10 +44,10 @@
                     open: 'animated bounceInRight',
                     close: 'animated bounceOutRight'
                 },
-                timeout: 5000,
+                timeout: 3000,
                 closeWith: ['click'],
                 killer: true,
-                theme: 'relax'
+                theme: 'edoo'
             });
         }
     }
