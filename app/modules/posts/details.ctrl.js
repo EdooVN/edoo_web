@@ -34,7 +34,6 @@
                     $state.go('posts.list.detail', {postId: mv.post_id, classId: mv.class_id});
                 }
                 mv.post = post;
-                mv.post.vote_count = post.votes.length;
 
                 if (post.author) {
                     mv.byPostAuthor = (post.author.id == user.id);
@@ -92,7 +91,7 @@
 
             function voteComment(comment_id) {
                 var data = {
-                    comment_id: '' + comment_id
+                    comment_id: comment_id
                 };
 
                 PostService.voteComment(data).then(
@@ -109,7 +108,7 @@
 
             function devoteComment(comment_id) {
                 var data = {
-                    comment_id: '' + comment_id
+                    comment_id: comment_id
                 };
 
                 PostService.devoteComment(data).then(

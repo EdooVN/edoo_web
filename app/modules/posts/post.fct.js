@@ -145,7 +145,7 @@
             var deferred = $q.defer();
 
             var data = {
-                comment_id: comment_id + ''
+                comment_id: comment_id
             };
 
             APIService.makeRequestAuth({
