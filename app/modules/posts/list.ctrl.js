@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('ListPostsController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues) {
+        .controller('ListPostsController', function ($state, $stateParams, StorageService, PostService, ClassService, PageValues, BreadCrumbsService) {
             var mv = this;
 
             PageValues.title = 'Lớp ...';
@@ -15,7 +15,7 @@
             mv.class = {};
 
             if (!mv.class_id) {
-                $location.path('/class');
+                $state.go('class');
             }
 
             PostService.getListPost(this.class_id).then(function (data) {
@@ -23,8 +23,15 @@
                 mv.class = data.data;
 
                 PageValues.title = 'Lớp ' + mv.class.name;
+
+                var breadcrumbs = [
+                    {href: $state.href('class'), title: 'Trang chủ'},
+                    {href: $state.href('posts.list', {classId: mv.class.class_id}), title: mv.class.name}
+                ];
+
+                BreadCrumbsService.update(breadcrumbs);
             }, function (error) {
-                console.log(error);
+                NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');
             });
         });
 })();

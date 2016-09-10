@@ -3,61 +3,69 @@
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($state, StorageService, $stateParams, PostService, PageValues, NotificationService) {
-            var vm = this;
+        .controller('PostDetailsController', function ($state, StorageService, $stateParams, PostService, PageValues, NotificationService, BreadCrumbsService) {
+            var mv = this;
             var user = StorageService.getUserData();
 
-            vm.data = PageValues;
+            mv.data = PageValues;
 
-            vm.tinymceOptions = {
+            mv.tinymceOptions = {
                 plugins: 'link image code',
                 toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
                 entity_encoding: 'raw'
             };
 
-            vm.post = {};
-            vm.class_id = $stateParams.classId;
-            vm.post_id = $stateParams.postId;
-            vm.comment = comment;
-            vm.votePost = votePost;
-            vm.voteComment = voteComment;
-            vm.devoteComment = devoteComment;
-            vm.remove = remove;
-            vm.edit = edit;
-            vm.solve = solve;
-            vm.byPostAuthor = false;
+            mv.post = {};
+            mv.class_id = $stateParams.classId;
+            mv.post_id = $stateParams.postId;
+            mv.comment = comment;
+            mv.votePost = votePost;
+            mv.voteComment = voteComment;
+            mv.devoteComment = devoteComment;
+            mv.remove = remove;
+            mv.edit = edit;
+            mv.solve = solve;
+            mv.byPostAuthor = false;
 
             PostService.getPost(this.post_id).then(function (data) {
                 var post = data.data;
                 var class_id = post.class_id;
-                if (class_id !== vm.class_id) {
-                    $state.go('posts.list.detail', {postId: vm.post_id, classId: vm.class_id});
+                if (class_id !== mv.class_id) {
+                    $state.go('posts.list.detail', {postId: mv.post_id, classId: mv.class_id});
                 }
-                vm.post = post;
-                vm.post.vote_count = post.votes.length;
+                mv.post = post;
+                mv.post.vote_count = post.votes.length;
 
                 if (post.author) {
-                    vm.byPostAuthor = (post.author.id == user.id);
+                    mv.byPostAuthor = (post.author.id == user.id);
                 }
 
                 PageValues.title = post.title;
+
+                var breadcrumbs = [
+                    {href: $state.href('class'), title: 'Trang chủ'},
+                    {href: $state.href('posts.list', {classId: post.class_id}), title: 'ABC'},
+                    {href: $state.href('posts.list.detail', {postId: post.id}), title: post.title}
+                ];
+
+                BreadCrumbsService.update(breadcrumbs);
             }, function (error) {
                 NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');
             });
 
             function comment() {
                 var data = {
-                    post_id: vm.post_id,
-                    content: vm.answer,
+                    post_id: mv.post_id,
+                    content: mv.answer,
                     is_incognito: false
                 };
 
                 PostService.comment(data).then(
                     function (data) {
-                        vm.answer = '';
+                        mv.answer = '';
                         var new_comment = data.data;
                         new_comment.votes = [];
-                        vm.post.comments.push(new_comment);
+                        mv.post.comments.push(new_comment);
                     },
                     function (error) {
                         NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');
@@ -67,13 +75,13 @@
 
             function votePost(type) {
                 var data = {
-                    post_id: vm.post_id,
+                    post_id: mv.post_id,
                     content: type
                 };
 
                 PostService.votePost(data).then(
                     function (data) {
-                        vm.post.vote_count = data.data.vote_count;
+                        mv.post.vote_count = data.data.vote_count;
                         NotificationService.success('Bạn đã vote thành công');
                     },
                     function (error) {
@@ -134,10 +142,10 @@
                     return;
                 }
 
-                PostService.deletePost(vm.post_id).then(
+                PostService.deletePost(mv.post_id).then(
                     function (data) {
                         NotificationService.success('Bài viết đã được xoá!');
-                        $state.go('posts.list', {classId: vm.class_id});
+                        $state.go('posts.list', {classId: mv.class_id});
                     },
                     function (error) {
                         NotificationService.error(error.data.message);

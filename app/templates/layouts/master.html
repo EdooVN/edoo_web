@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="wrapper-breadcrumb" ng-controller="BreadcrumbsController as breadcrumbCtrl">
+    <div class="wrapper-breadcrumb" ng-controller="BreadcrumbsController as breadcrumbCtrl" ng-show="breadcrumbCtrl.data.breadcrumbs.length">
         <ul class="breadcrumb">
-            <li ng-repeat="link in breadcrumbCtrl.links">
+            <li ng-repeat="link in breadcrumbCtrl.data.breadcrumbs">
                 <a href="{{link.href}}" title="{{link.title}}">{{link.title}}</a>
             </li>
         </ul>
