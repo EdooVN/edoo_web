@@ -30,19 +30,9 @@
             })
             .state('class', {
                 url: '/class',
-                views: {
-                    '': {
-                        templateUrl: 'templates/layouts/master.html'
-                    },
-                    'sidebar@class': {
-                        templateUrl: 'templates/classes/sidebar.html'
-                    },
-                    'content@class': {
-                        templateUrl: 'templates/classes/list-class.html',
-                        controller: 'ClassIndexController',
-                        controllerAs: 'classCtrl'
-                    }
-                }
+                templateUrl: 'templates/classes/list-class.html',
+                controller: 'ClassIndexController',
+                controllerAs: 'classCtrl'
             })
             .state('posts', {
                 url: '/class',

@@ -6,9 +6,19 @@
 		margin-bottom: 0;
 		padding: 24px 0;
 
+		.navbar-header {
+			.navbar-toggle {
+				border-color: #fff;
+
+				.icon-bar {
+					background-color: #fff;
+				}
+			}
+		}
+
 		.navbar-brand {
-			padding: 0;
-			margin-right: 20px;
+			padding-top: 0;
+			padding-bottom: 0;
 
 			img {
 				max-height: 50px;

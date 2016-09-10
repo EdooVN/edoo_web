@@ -8,6 +8,8 @@
 
             PageValues.title = 'Tất cả các lớp môn học';
 
+            PageValues.breadcrumbs = [];
+
             ClassService.getClasses().then(function (data) {
                 mv.listClass = data.data.classes;
             }, function (error) {
