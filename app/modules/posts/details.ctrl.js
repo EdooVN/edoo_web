@@ -73,12 +73,7 @@
             }
 
             function votePost(type) {
-                var data = {
-                    post_id: mv.post_id,
-                    content: type
-                };
-
-                PostService.votePost(data).then(
+                PostService.votePost(mv.post_id, type).then(
                     function (data) {
                         mv.post.vote_count = data.data.vote_count;
                         NotificationService.success('Bạn đã vote thành công');

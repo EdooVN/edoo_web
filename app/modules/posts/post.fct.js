@@ -78,9 +78,14 @@
             return deferred.promise;
         }
 
-        function votePost(data) {
+        function votePost(post_id, type) {
             var deferred = $q.defer();
             var token = StorageService.getToken();
+
+            var data = {
+                post_id: post_id,
+                content: type + ''
+            };
 
             APIService.makeRequest({
                 url: '/votepost',
