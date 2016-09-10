@@ -25,8 +25,8 @@
                 PageValues.title = 'Lớp ' + mv.class.name;
 
                 var breadcrumbs = [
-                    {href: $state.href('class'), title: 'Trang chủ'},
-                    {href: $state.href('posts.list', {classId: mv.class.class_id}), title: mv.class.name}
+                    {href: $state.href('class'), title: 'Danh sách lớp'},
+                    {title: mv.class.name}
                 ];
 
                 BreadCrumbsService.update(breadcrumbs);

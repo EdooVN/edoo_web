@@ -42,9 +42,9 @@
                 PageValues.title = post.title;
 
                 var breadcrumbs = [
-                    {href: $state.href('class'), title: 'Trang chủ'},
+                    {href: $state.href('class'), title: 'Danh sách lớp'},
                     {href: $state.href('posts.list', {classId: post.class_id}), title: 'ABC'},
-                    {href: $state.href('posts.list.detail', {postId: post.id}), title: post.title}
+                    {title: post.title}
                 ];
 
                 BreadCrumbsService.update(breadcrumbs);
