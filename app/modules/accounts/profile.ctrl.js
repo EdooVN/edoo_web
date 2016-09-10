@@ -13,16 +13,16 @@
             mv.closeEdit = closeEdit;
             mv.form = {};
 
-            var breadcrumbs = [
-                {href: $state.href('class'), title: 'Trang chủ'},
-                {href: $state.href('accounts.profile'), title: 'Tài khoản'}
-            ];
-
-            BreadCrumbsService.update(breadcrumbs);
-
             AccountService.getProfile().then(
                 function (data) {
                     mv.account = data.data;
+
+                    var breadcrumbs = [
+                        {href: $state.href('class'), title: 'Trang chủ'},
+                        {href: $state.href('accounts.profile'), title: 'Tài khoản'}
+                    ];
+
+                    BreadCrumbsService.update(breadcrumbs);
                 },
                 function (error) {
                     NotificationService.error(error.data.message);

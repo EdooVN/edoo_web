@@ -99,5 +99,15 @@
                     }
                 }
             })
+            .state('accounts.changePassword', {
+                url: '/change-password',
+                views: {
+                    'content@accounts': {
+                        templateUrl: 'templates/accounts/change-password.html',
+                        controller: 'ChangePasswordController',
+                        controllerAs: 'changePassCtrl'
+                    }
+                }
+            })
     }
 })();
