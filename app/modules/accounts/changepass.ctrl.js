@@ -6,6 +6,17 @@
             var mv = this;
 
             mv.update = update;
+            mv.toggle_display = toggle_display;
+
+            mv.display = {
+                old_pass: false,
+                new_pass: false,
+                confirm_pass: false
+            };
+
+            function toggle_display(field) {
+                mv.display[field] = !mv.display[field];
+            }
 
             function update() {
                 var validate = validate_pass();
