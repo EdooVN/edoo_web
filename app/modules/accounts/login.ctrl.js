@@ -8,7 +8,6 @@
             PageValues.title = 'Đăng nhập';
 
             mv.signIn = signIn;
-            mv.errors = [];
             mv.email = '';
             mv.password = '';
 
@@ -26,9 +25,8 @@
                         NotificationService.success('Bạn đã đăng nhập thành công.');
                     },
                     function (error) {
-                        var message = error.data.message;
-                        mv.errors = [message];
-                        NotificationService.error('Vui lòng kiểm tra lại!');
+                        mv.password = '';
+                        NotificationService.error(error.data.message);
                     }
                 );
             }
