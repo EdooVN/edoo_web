@@ -26,8 +26,8 @@
                 method: 'POST',
                 data: dataPOST
             }).then(
-                function (data) {
-                    deferred.resolve(data);
+                function (response) {
+                    deferred.resolve(response.data);
                 },
                 function (error) {
                     deferred.reject(error);
@@ -39,12 +39,10 @@
 
         function logout() {
             var deferred = $q.defer();
-            var token = StorageService.getToken();
 
-            APIService.makeRequest({
+            APIService.makeRequestAuth({
                 url: '/logout',
-                method: 'GET',
-                headers: {'Authorization': token}
+                method: 'GET'
             }).then(
                 function (data) {
                     deferred.resolve(data);

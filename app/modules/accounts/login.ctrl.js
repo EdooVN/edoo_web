@@ -20,9 +20,9 @@
             function signIn() {
                 AccountService.login(mv.email, mv.password).then(
                     function (response) {
-                        $rootScope.$emit('loginSuccess', response.data);
+                        $rootScope.$emit('loginSuccess', response);
                         $state.go('class');
-                        NotificationService.success('Bạn đã đăng nhập thành công.');
+                        NotificationService.success('Xin chào ' + response.data.user.name + '!');
                     },
                     function (error) {
                         mv.password = '';
