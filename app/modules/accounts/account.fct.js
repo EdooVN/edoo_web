@@ -9,7 +9,8 @@
             login: login,
             logout: logout,
             getProfile: getProfile,
-            updateProfile: updateProfile
+            updateProfile: updateProfile,
+            changePassword: changePassword
         };
 
         function login(email, password) {
@@ -78,13 +79,34 @@
 
         function updateProfile(data) {
             var deferred = $q.defer();
-            var token = StorageService.getToken();
 
-            APIService.makeRequest({
+            APIService.makeRequestAuth({
                 url: '/profile',
                 method: 'POST',
-                data: data,
-                headers: {'Authorization': token}
+                data: data
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.resolve(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function changePassword(old_pass, new_pass, confirm_pass) {
+            var data = {
+                old_password: old_pass,
+                new_password: new_pass
+            };
+            var deferred = $q.defer();
+
+            APIService.makeRequestAuth({
+                url: '/changepass',
+                method: 'POST',
+                data: data
             }).then(
                 function (response) {
                     deferred.resolve(response.data);
