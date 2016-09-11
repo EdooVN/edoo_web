@@ -49,3 +49,17 @@ body {
 	height: 42px;
 	font-size: 16px;
 }
+
+.ed-title {
+	position: relative;
+
+	&:after {
+		content: '';
+		width: 50px;
+		height: 2px;
+		background-color: $primary-color;
+		position: absolute;
+		left: 0;
+		bottom: -15px;
+	}
+}
