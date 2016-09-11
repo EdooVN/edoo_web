@@ -8,7 +8,7 @@
     function EventService(StorageService) {
     }
 
-    function runs($rootScope, $state, PageValues, StorageService, AuthService, ClassService) {
+    function runs($rootScope, $state, PageValues, StorageService, AuthService) {
         $rootScope.$on('unauthorized', function (event, args) {
             StorageService.clearAll();
             updateValues();
