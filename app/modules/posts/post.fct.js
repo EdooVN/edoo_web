@@ -17,14 +17,13 @@
             solve: solve
         };
 
-        function getListPost(class_id) {
+        function getListPost(class_id, page) {
             var deferred = $q.defer();
-            var token = StorageService.getToken();
+            var page_number = page || 1;
 
-            APIService.makeRequest({
-                url: '/posts/' + class_id,
-                method: 'GET',
-                headers: {'Authorization': token}
+            APIService.makeRequestAuth({
+                url: '/posts/' + class_id + '/page/' + page_number,
+                method: 'GET'
             }).then(
                 function (response) {
                     deferred.resolve(response.data);
@@ -39,12 +38,10 @@
 
         function getPost(post_id) {
             var deferred = $q.defer();
-            var token = StorageService.getToken();
 
-            APIService.makeRequest({
+            APIService.makeRequestAuth({
                 url: '/post/' + post_id,
-                method: 'GET',
-                headers: {'Authorization': token}
+                method: 'GET'
             }).then(
                 function (response) {
                     deferred.resolve(response.data);

@@ -48,7 +48,7 @@
                 }
             })
             .state('posts.list', {
-                url: '/{classId}',
+                url: '/{classId}?page',
                 views: {
                     'content@posts': {
                         templateUrl: 'templates/posts/list-post.html',

@@ -63,4 +63,10 @@
     <div class="post no-post" ng-hide="postsCtrl.listPost.length">
         <h2 class="title">Chưa có thảo luận nào</h2>
     </div>
+
+    <div class="wrapper-pagination" ng-show="postsCtrl.pagination.pageCount > 1">
+        <ul class="pagination">
+            <li ui-sref-active="active" ng-repeat="page_number in [] | range:1:postsCtrl.pagination.pageCount"><a  ui-sref="posts.list({classId: postsCtrl.class_id, page: page_number})">{{page_number}}</a></li>
+        </ul>
+    </div>
 </div>
