@@ -1,0 +1,14 @@
+.wrapper-change-password {
+	.form-group {
+		input {
+			&:after {
+				content: '\f06e';
+				font-family: FontAwesome;
+			}
+		}
+
+		.show {
+
+		}
+	}
+}
