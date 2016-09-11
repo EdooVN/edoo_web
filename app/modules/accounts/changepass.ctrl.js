@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('ChangePasswordController', function ($state, PageValues, AccountService, NotificationService, StorageService) {
+        .controller('ChangePasswordController', function ($state, PageValues, AccountService, NotificationService, StorageService, BreadCrumbsService) {
             var mv = this;
 
             mv.update = update;
@@ -13,6 +13,13 @@
                 new_pass: false,
                 confirm_pass: false
             };
+
+            var breadcrumbs = [
+                {href: $state.href('class'), title: 'Trang chủ'},
+                {title: 'Đổi mật khẩu'}
+            ];
+
+            BreadCrumbsService.update(breadcrumbs);
 
             function toggle_display(field) {
                 mv.display[field] = !mv.display[field];
@@ -58,5 +65,5 @@
                 mv.new_pass = '';
                 mv.confirm_pass = '';
             }
-        });
+        })
 })();

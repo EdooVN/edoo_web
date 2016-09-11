@@ -19,7 +19,7 @@
 
                     var breadcrumbs = [
                         {href: $state.href('class'), title: 'Trang chủ'},
-                        {href: $state.href('accounts.profile'), title: 'Tài khoản'}
+                        {title: 'Tài khoản'}
                     ];
 
                     BreadCrumbsService.update(breadcrumbs);
