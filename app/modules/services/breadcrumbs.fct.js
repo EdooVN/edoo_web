@@ -4,13 +4,13 @@
     angular.module('app.services')
         .factory('BreadCrumbsService', BreadCrumbsService);
 
-    function BreadCrumbsService(PageValues) {
+    function BreadCrumbsService($rootScope) {
         return {
             update: update
         };
 
         function update(data) {
-            PageValues.breadcrumbs = data;
+            $rootScope.$emit('updateBreadcrumbs', data);
         }
     }
 })();

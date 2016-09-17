@@ -8,7 +8,6 @@
             PageValues.title = 'Đăng nhập';
 
             mv.signIn = signIn;
-            mv.errors = [];
             mv.email = '';
             mv.password = '';
 
@@ -21,14 +20,13 @@
             function signIn() {
                 AccountService.login(mv.email, mv.password).then(
                     function (response) {
-                        $rootScope.$emit('loginSuccess', response.data);
+                        $rootScope.$emit('loginSuccess', response);
                         $state.go('class');
-                        NotificationService.success('Bạn đã đăng nhập thành công.');
+                        NotificationService.success('Xin chào ' + response.data.user.name + '!');
                     },
                     function (error) {
-                        var message = error.data.message;
-                        mv.errors = [message];
-                        NotificationService.error('Vui lòng kiểm tra lại!');
+                        mv.password = '';
+                        NotificationService.error(error.data.message);
                     }
                 );
             }

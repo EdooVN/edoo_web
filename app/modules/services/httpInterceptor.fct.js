@@ -2,7 +2,6 @@
     'use strict';
 
     angular.module('app.services')
-        .constant('BASE_URL', 'http://api.uetf.me')
         .factory('HTTPInterceptor', HTTPInterceptor);
 
     function HTTPInterceptor($q, $rootScope) {

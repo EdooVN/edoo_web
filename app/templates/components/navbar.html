@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/">
+            <a class="navbar-brand" ui-sref="welcome">
                 <img ng-src="assets/images/logo.png" alt="Logo">
             </a>
         </div>
@@ -22,7 +22,7 @@
                         <li ui-sref-active="active"><a ui-sref="class">Tất cả các lớp</a></li>
                         <li role="separator" class="divider"></li>
                         <li ng-repeat="class in navbarCtrl.classes" ui-sref-active="active"><a
-                                ui-sref="posts.list({classId: class.id})">{{class.name }} - {{class.code}}</a></li>
+                                ui-sref="posts.list({classId: class.id, page: undefined})">{{class.name }} - {{class.code}}</a></li>
                     </ul>
                 </li>
             </ul>

@@ -8,11 +8,11 @@
     function EventService(StorageService) {
     }
 
-    function runs($rootScope, $location, PageValues, StorageService, AuthService, ClassService) {
+    function runs($rootScope, $state, PageValues, StorageService, AuthService) {
         $rootScope.$on('unauthorized', function (event, args) {
             StorageService.clearAll();
             updateValues();
-            return $location.path('/');
+            return $state.go('login');
         });
 
         $rootScope.$on('loginSuccess', function (event, args) {

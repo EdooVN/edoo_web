@@ -14,13 +14,18 @@
             mv.class_id = $stateParams.classId;
             mv.class = {};
 
+            mv.pagination = {pageCount: 0};
+            mv.page_number = $stateParams.page || 1;
+
             if (!mv.class_id) {
                 $state.go('class');
             }
 
-            PostService.getListPost(this.class_id).then(function (data) {
+            PostService.getListPost(this.class_id, mv.page_number).then(function (data) {
                 mv.listPost = data.data.posts;
                 mv.class = data.data;
+
+                mv.pagination = data.data.pagination;
 
                 PageValues.title = 'Lớp ' + mv.class.name;
 
