@@ -2,6 +2,10 @@ a[ng-click] {
 	cursor: pointer;
 }
 
+* {
+	word-wrap: break-word;
+}
+
 html, body {
 	height: 100%;
 }
