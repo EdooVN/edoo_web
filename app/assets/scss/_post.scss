@@ -40,8 +40,14 @@
 					display: none;
 
 					&.can_solve {
+						color: #cccccc;
 						cursor: pointer;
 						display: block;
+						transition: all 200ms ease-out;
+
+						&:hover {
+							color: #666;
+						}
 					}
 
 					&.unsolve {

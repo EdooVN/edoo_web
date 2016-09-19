@@ -53,6 +53,10 @@
             });
 
             function comment() {
+                if (!mv.answer) {
+                    return NotificationService.error('Bạn cần phải thêm nội dung vào bình luận :)');
+                }
+
                 var data = {
                     post_id: mv.post_id,
                     content: mv.answer,
