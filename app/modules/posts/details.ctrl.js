@@ -91,7 +91,7 @@
 
                 PostService.voteComment(data).then(
                     function (response) {
-                        var comment_id = response.data.id;
+                        var comment_id = response.data.comment_id;
                         for (var i=0; i<mv.post.comments.length; i++) {
                             var comment = mv.post.comments[i];
 
@@ -115,7 +115,15 @@
 
                 PostService.devoteComment(data).then(
                     function (response) {
-                        // @todo need update
+                        var comment_id = response.data.comment_id;
+                        for (var i=0; i<mv.post.comments.length; i++) {
+                            var comment = mv.post.comments[i];
+
+                            if (comment.id == comment_id) {
+                                mv.post.comments[i].vote_count = response.data.vote_count;
+                                break;
+                            }
+                        }
                         NotificationService.success('Bạn đã devote cho bình luận thành công');
                     },
                     function (error) {
