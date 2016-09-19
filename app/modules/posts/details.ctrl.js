@@ -92,7 +92,14 @@
                 PostService.voteComment(data).then(
                     function (response) {
                         var comment_id = response.data.id;
-                        // @todo need update
+                        for (var i=0; i<mv.post.comments.length; i++) {
+                            var comment = mv.post.comments[i];
+
+                            if (comment.id == comment_id) {
+                                mv.post.comments[i].vote_count = response.data.vote_count;
+                                break;
+                            }
+                        }
                         NotificationService.success('Bạn đã vote cho bình luận thành công');
                     },
                     function (error) {
