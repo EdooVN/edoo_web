@@ -50,14 +50,15 @@
 						}
 					}
 
-					&.unsolve {
+					&.unsolved {
 						&:before {
 							content: '\f05d';
 						}
 					}
 
-					&.solve {
+					&.solved {
 						color: $primary-color;
+						display: block;
 
 						&:before {
 							content: '\f058';

@@ -66,7 +66,7 @@
                         <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </div>
                 </div>
-                <div class="solve-btn" ng-class="[comment.is_solve ? 'solve' : 'unsolve', postCtrl.byPostAuthor ? 'can_solve': '']" ng-click="postCtrl.solve(comment.id)"></div>
+                <div class="solve-btn" ng-class="[comment.is_solve ? 'solved' : 'unsolved', postCtrl.byPostAuthor ? 'can_solve': '']" ng-click="postCtrl.solve(comment.id)"></div>
             </div>
 
             <div class="right">
