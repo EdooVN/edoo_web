@@ -61,7 +61,7 @@
                     <div class="up" ng-click="postCtrl.voteComment(comment.id)">
                         <i class="fa fa-caret-up" aria-hidden="true"></i>
                     </div>
-                    <div class="count">{{comment.vote_count}}</div>
+                    <div class="count">{{comment.vote_count || 0}}</div>
                     <div class="down" ng-click="postCtrl.devoteComment(comment.id)">
                         <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </div>
