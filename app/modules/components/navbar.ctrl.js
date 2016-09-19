@@ -22,7 +22,7 @@
             ClassService.getClasses().then(function (data) {
                 mv.classes = data.data.classes;
             }, function (error) {
-                NotificationService.error('Lỗi xác thực. Vui lòng đăng nhập lại!');
+                NotificationService.error('Phiên làm việc của bạn đã hết hạn. Vui lòng đăng nhập lại!');
             });
         }
 
