@@ -95,7 +95,6 @@
 
                 PostService.voteComment(data).then(
                     function (response) {
-                        var comment_id = response.data.comment_id;
                         for (var i=0; i<mv.post.comments.length; i++) {
                             var comment = mv.post.comments[i];
 
@@ -119,7 +118,6 @@
 
                 PostService.devoteComment(data).then(
                     function (response) {
-                        var comment_id = response.data.comment_id;
                         for (var i=0; i<mv.post.comments.length; i++) {
                             var comment = mv.post.comments[i];
 
@@ -139,7 +137,16 @@
             function solve(comment_id) {
                 PostService.solve(comment_id).then(
                     function (data) {
-                        // @todo need update
+                        for (var i=0; i<mv.post.comments.length; i++) {
+                            var comment = mv.post.comments[i];
+
+                            if (comment.id == comment_id) {
+                                mv.post.comments[i].is_solve = 1;
+                            } else {
+                                mv.post.comments[i].is_solve = 0;
+                            }
+                        }
+
                         NotificationService.success('Bạn đã solve cho bình luận thành công');
                     },
                     function (error) {
