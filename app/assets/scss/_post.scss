@@ -39,11 +39,10 @@
 					padding-bottom: 10px;
 					display: none;
 
-					&.can_solve {
+					&.can-solve {
 						color: #cccccc;
 						cursor: pointer;
 						display: block;
-						transition: all 200ms ease-out;
 
 						&:hover {
 							color: #666;
