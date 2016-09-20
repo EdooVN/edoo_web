@@ -91,7 +91,7 @@ gulp.task('vendor', function () {
         .pipe(gulp.dest('dist/vendor'));
 });
 
-gulp.task('replaceVendor', function() {
+gulp.task('replaceVendor', ['concat'], function() {
     var dir = 'vendor/';
 
     return gulp.src('dist/index.html')
