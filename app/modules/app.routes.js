@@ -16,6 +16,16 @@
                 templateUrl: 'templates/pages/welcome.html',
                 controller: 'WelcomeController'
             })
+            .state('about', {
+                url: '/about',
+                templateUrl: 'templates/pages/about.html',
+                controller: 'AboutPageController'
+            })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: 'templates/pages/contact.html',
+                controller: 'ContactPageController'
+            })
             .state('login', {
                 url: '/login',
                 templateUrl: 'templates/accounts/login.html',
