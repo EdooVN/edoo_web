@@ -68,7 +68,6 @@ let vendors = [
     'bower_components/moment/moment.js',
     'bower_components/moment/locale/vi.js',
     'bower_components/noty/js/noty/packaged/jquery.noty.packaged.js',
-    'assets/js/theme.noty.js',
     'bower_components/angular/angular.js',
     'bower_components/angular-sanitize/angular-sanitize.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
@@ -76,8 +75,7 @@ let vendors = [
     'bower_components/angular-loading-bar/src/loading-bar.js',
     'bower_components/angular-ui-tinymce/src/tinymce.js',
     'bower_components/angular-moment/angular-moment.js',
-    'bower_components/angular-animate/angular-animate.js',
-    'assets/js/main.js'
+    'bower_components/angular-animate/angular-animate.js'
 ];
 
 gulp.task('vendor', function () {
