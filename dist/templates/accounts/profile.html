@@ -1,0 +1,84 @@
+<div class="wrapper-profile" ng-show="profileCtrl.account">
+    <h2 class="title ed-title">Thông tin tài khoản</h2>
+
+    <div class="top">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="avatar">
+                    <img ng-src="{{profileCtrl.account.avatar}}" class="img-responsive img-rounded" alt="{{profileCtrl.account.name}}">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="details">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.name}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.name"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.capability == 'student'">
+                            <td>Mã SV</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.code}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.code"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.regular_class">
+                            <td>Lớp</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.regular_class}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.regular_class"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.username">
+                            <td>Username</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.username}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.username"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.email">
+                            <td>Email</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.email}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.email"></label>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div class="form-group favorite">
+            <label>Sở thích</label>
+            <span class="btn-edit" ng-click="profileCtrl.openEdit('favorite')"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            <div class="value" ng-hide="profileCtrl.form.favorite">{{profileCtrl.account.favorite}}</div>
+            <div class="edit-form" ng-show="profileCtrl.form.favorite">
+                <textarea class="form-control" rows="5" ng-model="profileCtrl.account.favorite"></textarea>
+                <button class="btn btn-primary" ng-click="profileCtrl.update('favorite')">Cập nhật</button>
+                <button class="btn btn-default" ng-click="profileCtrl.closeEdit('favorite')">Hủy</button>
+            </div>
+        </div>
+
+        <div class="form-group description">
+            <label>Giới thiệu</label>
+            <span class="btn-edit" ng-click="profileCtrl.openEdit('description')"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            <div class="value" ng-hide="profileCtrl.form.description">{{profileCtrl.account.description}}</div>
+            <div class="edit-form" ng-show="profileCtrl.form.description">
+                <textarea class="form-control" rows="5" ng-model="profileCtrl.account.description"></textarea>
+                <button class="btn btn-primary" ng-click="profileCtrl.update('description')">Cập nhật</button>
+                <button class="btn btn-default" ng-click="profileCtrl.closeEdit('description')">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>

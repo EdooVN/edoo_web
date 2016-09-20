@@ -1,0 +1,188 @@
+.wrapper {
+	margin-top: 20px;
+}
+
+.sidebar {
+	background: #FFFFFF;
+	box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.10);
+	border-radius: 10px;
+	padding: 30px;
+	margin-bottom: 30px;
+	.title-sidebar {
+		margin-top: 0;
+		margin-bottom: 25px;
+		position: relative;
+		color: $title-color;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 16px;
+		&:after {
+			content: '';
+			width: 30px;
+			height: 2px;
+			display: block;
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			background-color: $title-color;
+		}
+	}
+
+	.list-sidebar {
+		list-style: none;
+		margin: 0;
+		-webkit-padding-start: 0;
+
+		li {
+			&.active {
+				a {
+					color: $primary-color;
+				}
+			}
+		}
+
+		a {
+			color: $text-color;
+			margin-top: 15px;
+			display: block;
+			font-weight: 700;
+			&:hover {
+				text-decoration: none;
+				color: $primary-color;
+			}
+			&:before {
+				content: "\f0da";
+				font-family: "FontAwesome";
+				margin-right: 8px;
+				font-size: 14px;
+				color: $primary-color;
+			}
+		}
+	}
+
+	&.latest_comments {
+		font-size: 12px;
+		.comments {
+			img {
+				width: 30px;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				border-radius: 50%;
+				border: 1px solid $primary-color;
+				float: left;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			.author {
+				font-weight: 700;
+			}
+
+			.comment_content {
+				margin-left: 40px;
+			}
+		}
+
+		li {
+			> a {
+				margin-top: 10px;
+			}
+
+			margin-bottom: 30px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+h2.modal-title {
+	margin-top: 0;
+	margin-bottom: 50px;
+	position: relative;
+	&:after {
+		content: '';
+		width: 50px;
+		height: 2px;
+		background-color: $primary-color;
+		position: absolute;
+		left: 0;
+		bottom: -15px;
+	}
+}
+
+.group {
+	.teacher, .number_students, .time, .number_comments, .vote {
+		display: inline-block;
+		float: left;
+		position: relative;
+		padding-left: 12px;
+		margin-right: 35px;
+		> div {
+			font-size: 12px;
+			color: #999;
+		}
+		span {
+			color: $title-color;
+		}
+
+		&:before {
+			content: '';
+			height: 100%;
+			width: 2px;
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			background-color: $primary-color;
+
+		}
+	}
+
+	.vote {
+		text-align: left;
+		font-size: 16px;
+	}
+
+	.teacher {
+		img {
+			width: 30px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+		}
+	}
+}
+
+.class-content {
+	background: #FFFFFF;
+	box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.10);
+	border-radius: 10px;
+	padding: 20px 30px;
+
+	.list-classes {
+		.list-group-item {
+			padding: 30px;
+			border: 1px solid #DDDDDD;
+			border-radius: 10px;
+			margin-bottom: 30px;
+
+			.name {
+				color: $primary-color;
+				font-weight: 700;
+				font-size: $font-size;
+				line-height: 25px;
+				margin: 0 0 20px 0;
+				a:hover {
+					text-decoration: none;
+				}
+			}
+
+			.class_content {
+				padding: 18px 0;
+			}
+		}
+	}
+}

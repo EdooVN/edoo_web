@@ -1,0 +1,72 @@
+<div class="listPost">
+    <h2 class="modal-title">{{postsCtrl.class.name}}</h2>
+    <div class="group">
+        <div class="teacher">
+            <div>Giảng viên:</div>
+            <span class="number ng-binding">{{postsCtrl.class.teacher_name}}</span>
+        </div>
+        <div class="number_students">
+            <div>Sinh viên:</div>
+            <span class="number ng-binding">{{postsCtrl.class.student_count}}</span>
+        </div>
+        <div class="create_topic">
+            <a ui-sref="posts.list.create">Tạo Chủ Đề Mới</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="post ng-fade" ng-repeat="post in postsCtrl.class.posts" ng-class="post.is_seen ? 'seen': ''">
+        <div class="header">
+            <h2 class="title"><a ui-sref="posts.list.detail({postId: post.id})"><span class="type {{post.type}}"></span>{{post.title}}</a>
+            </h2>
+        </div>
+
+        <div class="content">
+            {{post.description}}
+        </div>
+
+        <div class="group">
+            <div class="author" ng-if="!post.is_incognito">
+                <img ng-src="{{post.author.avatar}}" alt="">
+                <div class="author_name">
+                    <div>Người đăng</div>
+                    <span>{{post.author.name}}</span>
+                </div>
+            </div>
+            <div class="author" ng-if="post.is_incognito">
+                <img ng-src="{{'assets/images/incognito.png'}}" alt="">
+                <div class="author_name">
+                    <div>Người đăng</div>
+                    <span>Ẩn danh</span>
+                </div>
+            </div>
+            <div class="number_comments">
+                <div>Bình luận</div>
+                <span>{{post.comment_count}}</span>
+            </div>
+            <div class="time">
+                <div>Ngày đăng</div>
+                <span>{{post.created_at | date }}</span>
+            </div>
+            <div class="vote">
+                <div>Số lượng votes</div>
+                <span>{{post.vote_count}}</span>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="read_more">
+            <a ui-sref="posts.list.detail({postId: post.id})" class="go-comment" ng-if="!post.is_solve">Cùng tham gia trả lời và bình luận</a>
+            <a ui-sref="posts.list.detail({postId: post.id})" class="solved" ng-if="post.is_solve">Chủ đề này đã được giải quyết</a>
+        </div>
+    </div>
+
+    <div class="post no-post" ng-hide="postsCtrl.listPost.length">
+        <h2 class="title">Chưa có thảo luận nào</h2>
+    </div>
+
+    <div class="wrapper-pagination" ng-show="postsCtrl.pagination.pageCount > 1">
+        <ul class="pagination">
+            <li ui-sref-active="active" ng-repeat="page_number in [] | range:1:postsCtrl.pagination.pageCount"><a  ui-sref="posts.list({classId: postsCtrl.class_id, page: page_number})">{{page_number}}</a></li>
+        </ul>
+    </div>
+</div>
