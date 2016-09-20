@@ -19,15 +19,15 @@
             mv.newPost.type = 'question';
             mv.newPost.is_incognito = "0";
 
-            mv.tinymceOptions = {
-                plugins: 'link image code',
-                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
-                entity_encoding: 'raw'
-            };
+            var quill = new Quill('#content', {
+                theme: 'snow'
+            });
 
             mv.createPost = createPost;
 
             function createPost() {
+                mv.newPost.content = jQuery('.ql-editor').html();
+
                 PostService.createPost(mv.newPost).then(
                     function (data) {
                         var newPost = data.data;

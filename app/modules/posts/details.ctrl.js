@@ -9,11 +9,9 @@
 
             mv.data = PageValues;
 
-            mv.tinymceOptions = {
-                plugins: 'link image code',
-                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
-                entity_encoding: 'raw'
-            };
+            var quill = new Quill('#answer', {
+                theme: 'snow'
+            });
 
             mv.post = {};
             mv.class_id = $stateParams.classId;
@@ -53,6 +51,8 @@
             });
 
             function comment() {
+                mv.answer = jQuery('#answer .ql-editor').html();
+
                 if (!mv.answer) {
                     return NotificationService.error('Bạn cần phải thêm nội dung vào bình luận :)');
                 }
@@ -69,6 +69,7 @@
                         var new_comment = data.data;
                         new_comment.votes = [];
                         mv.post.comments.push(new_comment);
+                        quill.deleteText(0, quill.getLength());
                     },
                     function (error) {
                         NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại.');
