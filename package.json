@@ -8,10 +8,18 @@
   "devDependencies": {
     "bower": "^1.7.7",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-if": "^2.0.1",
+    "gulp-jsmin": "^0.1.5",
     "gulp-livereload": "^3.8.1",
+    "gulp-minify": "0.0.14",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-usemin": "^0.3.24",
+    "gulp-useref": "^3.1.2",
     "gulp-watch": "^4.3.9",
+    "html-webpack-plugin": "^2.22.0",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
@@ -19,7 +27,9 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
-    "protractor": "^3.2.2"
+    "protractor": "^3.2.2",
+    "pump": "^1.0.1",
+    "webpack": "^1.13.2"
   },
   "scripts": {
     "postinstall": "bower install",
