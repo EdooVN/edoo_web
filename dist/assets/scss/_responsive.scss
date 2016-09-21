@@ -1,0 +1,164 @@
+@media (min-width: 768px) {
+	.full_widget_stretch .right_column {
+		width: 375px;
+	}
+
+
+}
+
+@media (min-width: 992px) {
+	.full_widget_stretch .right_column {
+		width: 485px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.full_widget_stretch .right_column {
+		width: 585px;
+	}
+}
+
+@media (max-width: 992px) {
+	.trending .section_title > div, .causes .section_title > div {
+		width: 80%;
+	}
+}
+
+@media (max-width: 767px) {
+	.trending .section_title > div, .causes .section_title > div {
+		width: 100%;
+	}
+
+	.full_widget_stretch .left_column, .full_widget_stretch .right_column {
+		width: 100%;
+	}
+
+	.full_widget_stretch .right_column {
+		margin-top: 30px;
+		padding: 0 15px;
+	}
+
+	.wrapper-slider .slider-content {
+		h2 {
+			font-size: 25px;
+			line-height: 36px;
+		}
+		.description {
+			display: none;
+		}
+	}
+
+	.post-content {
+		.left {
+			width: 70px;
+		}
+
+		.right {
+			margin-left: 70px;
+		}
+	}
+
+	.post-wrapper {
+		padding-right: 15px;
+
+		.comments .comment {
+			.left {
+				width: 70px;
+			}
+
+			.right {
+				padding-left: 70px;
+			}
+		}
+
+		.form-comment {
+			padding-left: 70px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.wrapper-slider .slider-content {
+		h2 {
+			font-size: 18px;
+			line-height: 27px;
+		}
+	}
+
+	.post-content {
+		.left {
+			width: 40px;
+		}
+
+		.right {
+			margin-left: 40px;
+		}
+	}
+
+	.post-wrapper {
+		padding-right: 15px;
+
+		.comments .comment {
+			.left {
+				width: 40px;
+			}
+
+			.right {
+				padding-left: 40px;
+				.header .time {
+					float: none;
+				}
+			}
+		}
+
+		.form-comment {
+			padding-left: 40px;
+		}
+	}
+
+	.vote i {
+		font-size: 30px;
+	}
+
+	.sidebar {
+		padding: 30px 15px;
+	}
+
+	.class-content {
+		padding: 30px 15px;
+
+		.list-classes {
+			.list-group-item {
+				padding: 30px 15px;
+			}
+		}
+	}
+
+	.group .teacher, .group .number_students, .group .time, .group .number_comments, .group .vote {
+		float: none;
+		display: block;
+		margin-right: 0;
+	}
+
+	.create_topic {
+		float: none;
+		margin-top: 20px;
+		display: inline-block;
+	}
+
+	.group {
+		.author {
+			float: none;
+			margin: 0;
+			display: block;
+		}
+	}
+
+	.listPost {
+		padding: 20px 15px;
+
+		.post {
+			padding: 20px 15px;
+		}
+	}
+}
