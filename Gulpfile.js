@@ -108,4 +108,4 @@ gulp.task('gh-pages', ['replaceVendor', 'copy', 'concat', 'vendor'], function() 
         .pipe(ghPages());
 });
 
-gulp.task('deploy', ['copy', 'concat', 'vendor', 'replaceVendor', 'gh-pages']);
+gulp.task('deploy', ['gh-pages']);
