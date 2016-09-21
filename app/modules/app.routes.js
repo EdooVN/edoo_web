@@ -16,6 +16,11 @@
                 templateUrl: 'templates/pages/welcome.html',
                 controller: 'WelcomeController'
             })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: 'templates/pages/contact.html',
+                controller: 'ContactController'
+            })
             .state('login', {
                 url: '/login',
                 templateUrl: 'templates/accounts/login.html',
@@ -109,5 +114,6 @@
                     }
                 }
             })
+
     }
 })();
