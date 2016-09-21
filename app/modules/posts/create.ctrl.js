@@ -6,7 +6,7 @@
         .controller('CreatePostController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues, NotificationService) {
             var mv = this;
 
-            PageValues.title = 'Đăng chủ đề mới';
+            PageValues.title = 'Đăng câu hỏi mới';
 
             mv.data = PageValues;
             mv.class_id = $stateParams.classId;
@@ -20,7 +20,8 @@
             mv.newPost.is_incognito = "0";
 
             var quill = new Quill('#content', {
-                theme: 'snow'
+                theme: 'snow',
+                placeholder: 'Nội dung câu hỏi...',
             });
 
             mv.createPost = createPost;

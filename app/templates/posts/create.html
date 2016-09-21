@@ -2,6 +2,16 @@
     <h2 class="modal-title">Đăng chủ đề mới</h2>
     <form class="new_post">
         <div class="form-group">
+            <label for="title">Tiêu đề</label>
+            <input type="text" id="title" ng-model="createPostCtrl.newPost.title" class="form-control" placeholder="Tiêu đề tập trung vào vấn đề cần hỏi">
+        </div>
+
+        <div class="form-group">
+            <label for="content">Nội dung</label>
+            <div id="content" ng-model="createPostCtrl.newPost.content"></div>
+        </div>
+
+        <div class="form-group">
             <label for="type">Thể loại</label>
             <div id="type">
                 <label class="radio-inline"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="question">Question</label>
@@ -9,14 +19,6 @@
                 <label class="radio-inline"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="poll">Poll</label>
                 <label class="radio-inline" ng-show="createPostCtrl.canCreatableNotification"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="notification">Notification</label>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="title">Tiêu đề</label>
-            <input type="text" id="title" ng-model="createPostCtrl.newPost.title" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="content">Nội dung</label>
-            <div id="content" ng-model="createPostCtrl.newPost.content"></div>
         </div>
 
         <div class="form-group">
