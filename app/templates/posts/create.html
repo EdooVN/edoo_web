@@ -14,10 +14,10 @@
         <div class="form-group">
             <label for="type">Thể loại</label>
             <div id="type">
-                <label class="radio-inline"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="question">Question</label>
-                <label class="radio-inline"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="note">Note</label>
-                <label class="radio-inline"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="poll">Poll</label>
-                <label class="radio-inline" ng-show="createPostCtrl.canCreatableNotification"><input ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="notification">Notification</label>
+                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="question">Question</label>
+                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="note">Note</label>
+                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="poll">Poll</label>
+                <label class="radio-inline" ng-show="createPostCtrl.canCreatableNotification"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="notification">Notification</label>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
         </div>
 
         <div class="create_topic">
-            <a ng-click="createPostCtrl.createPost()">Tạo Chủ Đề Mới</a>
+            <a ng-click="createPostCtrl.createPost()" ng-bind="createPostCtrl.button"></a>
         </div>
     </form>
 
