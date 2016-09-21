@@ -88,6 +88,7 @@ gulp.task('vendor', function () {
     }
 
     return gulp.src(vendors)
+        .pipe(jsmin())
         .pipe(gulp.dest('dist/vendor'));
 });
 
