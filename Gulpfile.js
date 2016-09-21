@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     jsmin = require('gulp-jsmin'),
     minifyCss = require('gulp-clean-css'),
     usemin = require('gulp-usemin'),
-    replace = require('gulp-replace');
+    replace = require('gulp-replace'),
+    ghPages = require('gulp-gh-pages');
 
 // Default Task
 gulp.task('default', ['watch']);
@@ -102,4 +103,9 @@ gulp.task('replaceVendor', ['concat'], function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('deploy', ['copy', 'concat', 'vendor', 'replaceVendor']);
+gulp.task('gh-pages', ['replaceVendor', 'copy', 'concat', 'vendor'], function() {
+    return gulp.src('dist/**/*')
+        .pipe(ghPages());
+});
+
+gulp.task('deploy', ['gh-pages']);
