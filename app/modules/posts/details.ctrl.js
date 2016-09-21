@@ -41,7 +41,7 @@
 
                 var breadcrumbs = [
                     {href: $state.href('class'), title: 'Danh sách lớp'},
-                    {href: $state.href('posts.list', {classId: post.class_id}), title: 'ABC'},
+                    {href: $state.href('posts.list', {classId: post.class.id}), title: post.class.name},
                     {title: post.title}
                 ];
 
