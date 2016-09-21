@@ -76,7 +76,8 @@ let vendors = [
     'bower_components/angular-loading-bar/src/loading-bar.js',
     'bower_components/angular-ui-tinymce/src/tinymce.js',
     'bower_components/angular-moment/angular-moment.js',
-    'bower_components/angular-animate/angular-animate.js'
+    'bower_components/angular-animate/angular-animate.js',
+    'assets/js/quill/quill.js'
 ];
 
 gulp.task('vendor', function () {
