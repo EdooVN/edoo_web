@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     jsmin = require('gulp-jsmin'),
     minifyCss = require('gulp-clean-css'),
     usemin = require('gulp-usemin'),
-    replace = require('gulp-replace');
+    replace = require('gulp-replace'),
+    ghPages = require('gulp-gh-pages');
 
 // Default Task
 gulp.task('default', ['watch']);
@@ -68,7 +69,6 @@ let vendors = [
     'bower_components/moment/moment.js',
     'bower_components/moment/locale/vi.js',
     'bower_components/noty/js/noty/packaged/jquery.noty.packaged.js',
-    'assets/js/theme.noty.js',
     'bower_components/angular/angular.js',
     'bower_components/angular-sanitize/angular-sanitize.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
@@ -77,7 +77,7 @@ let vendors = [
     'bower_components/angular-ui-tinymce/src/tinymce.js',
     'bower_components/angular-moment/angular-moment.js',
     'bower_components/angular-animate/angular-animate.js',
-    'assets/js/main.js'
+    'assets/js/quill/quill.js'
 ];
 
 gulp.task('vendor', function () {
@@ -88,6 +88,7 @@ gulp.task('vendor', function () {
     }
 
     return gulp.src(vendors)
+        .pipe(jsmin())
         .pipe(gulp.dest('dist/vendor'));
 });
 
@@ -104,4 +105,9 @@ gulp.task('replaceVendor', ['concat'], function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('deploy', ['copy', 'concat', 'vendor', 'replaceVendor']);
+gulp.task('gh-pages', ['replaceVendor', 'copy', 'concat', 'vendor'], function() {
+    return gulp.src('dist/**/*')
+        .pipe(ghPages());
+});
+
+gulp.task('deploy', ['gh-pages']);

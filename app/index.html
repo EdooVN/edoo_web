@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- build:css assets/css/combined.css -->
+    <link href="assets/css/quill/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
     <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css">
@@ -40,11 +41,9 @@
 <script data-deploy="vendor" src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 <script data-deploy="vendor" src="bower_components/jquery/dist/jquery.js"></script>
 <script data-deploy="vendor" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script data-deploy="vendor" src="bower_components/tinymce-dist/tinymce.jquery.js"></script>
 <script data-deploy="vendor" src="bower_components/moment/moment.js"></script>
 <script data-deploy="vendor" src="bower_components/moment/locale/vi.js"></script>
 <script data-deploy="vendor" src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.js"></script>
-<script data-deploy="vendor" src="assets/js/theme.noty.js"></script>
 <script data-deploy="vendor" src="bower_components/angular/angular.js"></script>
 <script data-deploy="vendor" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script data-deploy="vendor" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -53,10 +52,13 @@
 <script data-deploy="vendor" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
 <script data-deploy="vendor" src="bower_components/angular-moment/angular-moment.js"></script>
 <script data-deploy="vendor" src="bower_components/angular-animate/angular-animate.js"></script>
-<script data-deploy="vendor" src="assets/js/main.js"></script>
+<script data-deploy="vendor" src="assets/js/quill/quill.js"></script>
 <!-- / -->
 
 <!-- build:js assets/js/app.bundle.js -->
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.noty.js"></script>
 
 <!-- MODULES -->
 <script src="modules/app.config.js"></script>
@@ -74,6 +76,8 @@
 <script src="modules/components/navbar.ctrl.js"></script>
 <script src="modules/components/footer.ctrl.js"></script>
 <script src="modules/pages/welcome.ctrl.js"></script>
+<script src="modules/pages/contact.ctrl.js"></script>
+<script src="modules/pages/about.ctrl.js"></script>
 <script src="modules/accounts/login.ctrl.js"></script>
 <script src="modules/accounts/profile.ctrl.js"></script>
 <script src="modules/accounts/changepass.ctrl.js"></script>
@@ -106,5 +110,7 @@
 <!-- / -->
 <!-- endbuild -->
 
+<script src="https://cdn.quilljs.com/1.0.4/quill.js"></script>
+<!-- Test -->
 </body>
 </html>

@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('ListPostsController', function ($state, $stateParams, StorageService, PostService, ClassService, PageValues, BreadCrumbsService) {
+        .controller('ListPostsController', function ($state, $stateParams, StorageService, PostService, ClassService, PageValues, BreadCrumbsService, NotificationService) {
             var mv = this;
 
             PageValues.title = 'Lớp ...';

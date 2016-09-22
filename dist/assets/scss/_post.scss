@@ -106,14 +106,8 @@
 
 	.form-comment {
 		padding-left: 100px;
-		textarea {
-			border: 1px solid #ddd;
-			-webkit-border-radius: 8px;
-			-moz-border-radius: 8px;
-			border-radius: 8px;
-			&:focus {
-				border-color: $primary-color;
-			}
+		#answer {
+			min-height: 100px;
 		}
 
 		.comment_submit {
@@ -310,6 +304,11 @@
 		background: #F5F5F5;
 		border-radius: 10px;
 		padding: 20px 30px;
+
+		#content {
+			background-color: #fff;
+			min-height: 200px;
+		}
 
 		.create_topic {
 			float: none;

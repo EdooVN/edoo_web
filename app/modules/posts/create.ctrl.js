@@ -6,7 +6,8 @@
         .controller('CreatePostController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues, NotificationService) {
             var mv = this;
 
-            PageValues.title = 'Đăng chủ đề mới';
+            PageValues.title = 'Đăng bài mới';
+            mv.button = 'Đăng câu hỏi';
 
             mv.data = PageValues;
             mv.class_id = $stateParams.classId;
@@ -19,15 +20,36 @@
             mv.newPost.type = 'question';
             mv.newPost.is_incognito = "0";
 
-            mv.tinymceOptions = {
-                plugins: 'link image code',
-                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
-                entity_encoding: 'raw'
-            };
+            var quill = new Quill('#content', {
+                theme: 'snow',
+                placeholder: 'Nội dung câu hỏi...',
+            });
 
             mv.createPost = createPost;
+            mv.changePostType = changePostType;
+
+            function changePostType() {
+                switch (mv.newPost.type) {
+                    case 'note':
+                        mv.button = 'Đăng ghi chú';
+                        break;
+
+                    case 'poll':
+                        mv.button = 'Đăng bài thăm dò ý kiến';
+                        break;
+
+                    case 'notification':
+                        mv.button = 'Đăng thông báo';
+                        break;
+
+                    default:
+                        mv.button = 'Đăng câu hỏi';
+                }
+            }
 
             function createPost() {
+                mv.newPost.content = jQuery('.ql-editor').html();
+
                 PostService.createPost(mv.newPost).then(
                     function (data) {
                         var newPost = data.data;
