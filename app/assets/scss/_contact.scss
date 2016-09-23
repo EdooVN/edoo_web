@@ -1,3 +1,78 @@
 .wrapper-contact {
-	
+    text-align: center;
+    .contact-heading {
+        padding: 50px 0;
+        h2 {
+            font-weight: 600;
+        }
+        .under-heading {
+
+        }
+    }
+    .description {
+        margin-bottom: 50px;
+    }
+    .wrapper-info {
+        .address {
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 50px;
+            i {
+                margin-bottom: 15px;
+                font-size: 22px;
+            }
+            p {
+                margin-bottom: 5px;
+            }
+        }
+        .contact-detail {
+            label{
+                font-weight: 500;
+            }
+            a{
+                font-weight: bold;
+            }
+        }
+        .social-links{
+            margin-top: 30px;
+            a{
+                margin: 0 10px;
+                font-size: 18px;
+                i{
+                    color: #666666;
+                }
+                &:hover{
+                    i{
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+    .wrapper-form{
+        .text-input{
+            margin-bottom: 30px;
+            background: #f7f7f7;
+            &:focus{
+                border: 1px solid $primary-color;
+                outline: none;
+                box-shadow: none;
+                background: #f9f9f9 !important;
+            }
+        }
+        textarea{
+            min-height: 150px;
+        }
+        .submit-button{
+            padding: 10px;
+            width: 100%;
+            background: $primary-color;
+            color: #ffffff;
+            font-weight: bold;
+            &:hover{
+                background: #229A7F;
+            }
+        }
+    }
 }

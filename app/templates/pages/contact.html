@@ -1,3 +1,57 @@
 <div class="wrapper-contact">
+    <div class="container">
 
+        <div class="row">
+            <div class="wrapper-info col-md-6 col-sm-6 col-xs-12">
+                <div class="contact-heading">
+                    <h2>Nhóm phát triển FIRES</h2>
+                    <img src="../../assets/images/under-heading.png" alt="" class="under-heading">
+                </div>
+                <div class="description">
+                    <p>FRIES luôn nhiệt huyết và mong muốn tạo ra sản phẩm tuyệt vời nhất. Chúng tôi rất vui lòng khi được bạn ghé thăm.</p>
+                </div>
+                <div class="address">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <p>144 Xuân Thủy, Đại Học Công Nghệ </p>
+                    <p>Đại Học Quốc Gia Hà Nội</p>
+                </div>
+                <div class="contact-detail phone">
+                    <!--<i class="fa fa-phone" aria-hidden="true"></i>-->
+                    <label>Phone.</label>
+                    <a href="tel:+84123698745">(+84) 123 69 8745</a>
+                </div>
+                <div class="contact-detail email">
+                    <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
+                    <label>Email.</label>
+                    <a href="mailto:fries.uet@gmail.com">fries.uet@gmail.com</a>
+                </div>
+                <div class="contact-detail social-links">
+                    <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" class="google-plus"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="wrapper-form col-md-6 col-sm-6 col-xs-12" ng-app="ContactForm" ng-controller="ContactCtrl">
+                <div class="contact-heading">
+                    <h2>Gửi lời nhắn</h2>
+                    <!--<img src="../../assets/images/under-heading.png" alt="" class="under-heading">-->
+                </div>
+                <div class="description">
+                    <p>Nếu bạn có bất kỳ thắc mắc nào hay bạn cần sự hỗ trợ, đừng ngần ngại liên hệ với chúng tôi!</p>
+                </div>
+                <form ng-submit="submitContactForm()">
+                    <div class="subject form-group">
+                        <input type="text" placeholder="Tiêu đề*" class="form-control text-input">
+                    </div>
+                    <div class="message form-group">
+                        <textarea placeholder="Lời nhắn*" class="form-control text-input"></textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" class="btn submit-button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
