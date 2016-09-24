@@ -24,7 +24,8 @@
             .state('contact', {
                 url: '/contact',
                 templateUrl: 'templates/pages/contact.html',
-                controller: 'ContactPageController'
+                controller: 'ContactPageController',
+                controllerAs: 'ContactPageCtrl'
             })
             .state('login', {
                 url: '/login',

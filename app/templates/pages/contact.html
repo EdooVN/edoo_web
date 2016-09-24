@@ -32,7 +32,7 @@
                     <a href="#" class="google-plus"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <div class="wrapper-form col-md-6 col-sm-6 col-xs-12" ng-app="ContactForm" ng-controller="ContactCtrl">
+            <div class="wrapper-form col-md-6 col-sm-6 col-xs-12">
                 <div class="contact-heading">
                     <h2>Gửi lời nhắn</h2>
                     <!--<img src="../../assets/images/under-heading.png" alt="" class="under-heading">-->
@@ -40,7 +40,7 @@
                 <div class="description">
                     <p>Nếu bạn có bất kỳ thắc mắc nào hay bạn cần sự hỗ trợ, đừng ngần ngại liên hệ với chúng tôi!</p>
                 </div>
-                <form ng-submit="submitContactForm()">
+                <form ng-submit="ContactPageCtrl.submitContactForm()">
                     <div class="subject form-group">
                         <input type="text" placeholder="Tiêu đề*" class="form-control text-input">
                     </div>
