@@ -1,4 +1,5 @@
 .wrapper-contact {
+    padding-top: 15px;
     text-align: center;
     .contact-heading {
         padding: 50px 0;
@@ -6,11 +7,14 @@
             font-weight: 600;
         }
         .under-heading {
-
+            margin-top: 30px;
         }
     }
     .description {
         margin-bottom: 50px;
+        p{
+            margin: 0;
+        }
     }
     .wrapper-info {
         .address {
@@ -53,12 +57,10 @@
     .wrapper-form{
         .text-input{
             margin-bottom: 30px;
-            background: #f7f7f7;
             &:focus{
                 border: 1px solid $primary-color;
                 outline: none;
                 box-shadow: none;
-                background: #f9f9f9 !important;
             }
         }
         textarea{
@@ -74,5 +76,8 @@
                 background: #229A7F;
             }
         }
+    }
+    .wrapper-info, .wrapper-form{
+
     }
 }
