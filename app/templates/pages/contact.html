@@ -1,61 +1,44 @@
 <div class="wrapper-contact">
     <div class="container">
-
         <div class="row">
-            <div class="wrapper-info col-md-6 col-sm-6 col-xs-12">
-                <div class="contact-heading">
-                    <h2>Nhóm phát triển FIRES</h2>
-                    <img src="../../assets/images/under-heading.png" alt="" class="under-heading">
-                </div>
-                <div class="description">
-                    <p>FRIES luôn mong muốn tạo ra sản phẩm tuyệt vời nhất.</p>
-                    <p>Cảm ơn bạn đã ghé thăm!</p>
-                </div>
-                <div class="address">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <p>144 Xuân Thủy, Đại Học Công Nghệ </p>
-                    <p>Đại Học Quốc Gia Hà Nội</p>
-                </div>
-                <div class="contact-detail phone">
-                    <!--<i class="fa fa-phone" aria-hidden="true"></i>-->
-                    <label>Phone.</label>
-                    <a href="tel:+84123698745">(+84) 123 69 8745</a>
-                </div>
-                <div class="contact-detail email">
-                    <!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-                    <label>Email.</label>
-                    <a href="mailto:fries.uet@gmail.com">fries.uet@gmail.com</a>
-                </div>
-                <div class="contact-detail social-links">
-                    <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#" class="google-plus"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                </div>
-            </div>
-            <div class="wrapper-form col-md-6 col-sm-6 col-xs-12">
+            <div class="wrapper-form col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
                 <div class="contact-heading">
                     <h2>Gửi lời nhắn</h2>
-                    <img src="../../assets/images/under-heading.png" alt="" class="under-heading">
                 </div>
                 <div class="description">
                     <p>Nếu bạn có bất kỳ thắc mắc nào hay bạn cần sự hỗ trợ, đừng ngần ngại liên hệ với chúng tôi!</p>
                 </div>
-                <form ng-submit="ContactPageCtrl.submitContactForm()">
-                    <div class="subject form-group">
-                        <input type="text" placeholder="Tiêu đề*" class="form-control text-input">
+                <form id="message-form" ng-submit="ContactPageCtrl.submitContactForm()">
+                    <div class="form-group input-field name ">
+                        <label for="name">Họ và Tên<span class="required">*</span></label>
+                        <input id="name" type="text" placeholder="E Văn Doo" class="form-control text-input" minlength="2" required>
                     </div>
-                    <div class="message form-group">
-                        <textarea placeholder="Lời nhắn*" class="form-control text-input"></textarea>
+                    <div class="form-group input-field email ">
+                        <label for="email">Email<span class="required">*</span></label>
+                        <input id="email" type="email" placeholder="edoo@fries.com" class="form-control text-input" required>
+                    </div>
+                    <div class="form-group input-field type ">
+                        <label for="type">Bạn muốn gửi lời nhắn cho chúng tôi về...?<span class="required">*</span></label>
+                        <select name="" id="type" class="form-control">
+                            <option value="1">Tài khoản</option>
+                            <option value="2">Thông báo lỗi</option>
+                            <option value="3">Góp ý về Edoo</option>
+                            <option value="4">Vấn đề khác...</option>
+                        </select>
+                    </div>
+                    <div class="form-group input-field subject ">
+                        <label for="subject">Tiêu đề<span class="required">*</span></label>
+                        <input id="subject" type="text" placeholder="Lời tôi muốn nói" class="form-control text-input" required>
+                    </div>
+                    <div class="form-group input-field message ">
+                        <label for="message">Lời nhắn<span class="required">*</span></label>
+                        <textarea id="message" placeholder="Tôi yêu Edoo..." class="form-control text-input" required></textarea>
                     </div>
                     <div class="submit">
-                        <input type="submit" class="btn submit-button">
+                        <input type="submit" class="btn submit-button" value="Gửi">
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<script>
-
-</script>
