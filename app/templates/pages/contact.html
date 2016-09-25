@@ -3,36 +3,29 @@
         <div class="row">
             <div class="wrapper-form col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
                 <div class="contact-heading">
-                    <h2>Gửi lời nhắn</h2>
+                    <h2>Hỗ trợ</h2>
                 </div>
                 <div class="description">
                     <p>Nếu bạn có bất kỳ thắc mắc nào hay bạn cần sự hỗ trợ, đừng ngần ngại liên hệ với chúng tôi!</p>
                 </div>
                 <form id="message-form" ng-submit="ContactPageCtrl.submitContactForm()">
-                    <div class="form-group input-field name ">
-                        <label for="name">Họ và Tên<span class="required">*</span></label>
-                        <input id="name" type="text" placeholder="E Văn Doo" class="form-control text-input" minlength="2" required>
-                    </div>
+
                     <div class="form-group input-field email ">
-                        <label for="email">Email<span class="required">*</span></label>
-                        <input id="email" type="email" placeholder="edoo@fries.com" class="form-control text-input" required>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="" class="form-control text-input" required>
                     </div>
                     <div class="form-group input-field type ">
-                        <label for="type">Bạn muốn gửi lời nhắn cho chúng tôi về...?<span class="required">*</span></label>
+                        <label for="type">Bạn muốn hỗ trợ về?</label>
                         <select name="" id="type" class="form-control">
                             <option value="1">Tài khoản</option>
                             <option value="2">Thông báo lỗi</option>
-                            <option value="3">Góp ý về Edoo</option>
-                            <option value="4">Vấn đề khác...</option>
+                            <option value="3">Góp ý</option>
+                            <option value="4">Vấn đề khác</option>
                         </select>
                     </div>
-                    <div class="form-group input-field subject ">
-                        <label for="subject">Tiêu đề<span class="required">*</span></label>
-                        <input id="subject" type="text" placeholder="Lời tôi muốn nói" class="form-control text-input" required>
-                    </div>
                     <div class="form-group input-field message ">
-                        <label for="message">Lời nhắn<span class="required">*</span></label>
-                        <textarea id="message" placeholder="Tôi yêu Edoo..." class="form-control text-input" required></textarea>
+                        <label for="message">Thông tin hỗ trợ</label>
+                        <textarea id="message" placeholder="" class="form-control text-input" required></textarea>
                     </div>
                     <div class="submit">
                         <input type="submit" class="btn submit-button" value="Gửi">
