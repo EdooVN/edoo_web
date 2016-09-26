@@ -21,8 +21,8 @@
                 templateUrl: 'templates/pages/about.html',
                 controller: 'AboutPageController'
             })
-            .state('contact', {
-                url: '/contact',
+            .state('support', {
+                url: '/support',
                 templateUrl: 'templates/pages/contact.html',
                 controller: 'ContactPageController',
                 controllerAs: 'ContactPageCtrl'
