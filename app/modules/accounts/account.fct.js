@@ -10,7 +10,8 @@
             logout: logout,
             getProfile: getProfile,
             updateProfile: updateProfile,
-            changePassword: changePassword
+            changePassword: changePassword,
+            resetPassword: resetPassword
         };
 
         function login(email, password) {
@@ -103,6 +104,29 @@
 
             APIService.makeRequestAuth({
                 url: '/changepass',
+                method: 'POST',
+                data: data
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.resolve(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function resetPassword(email, code) {
+            var data = {
+                email: email,
+                code: code
+            };
+            var deferred = $q.defer();
+
+            APIService.makeRequestAuth({
+                url: '/sendresetpass',
                 method: 'POST',
                 data: data
             }).then(

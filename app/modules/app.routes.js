@@ -33,6 +33,12 @@
                 controller: 'LoginController',
                 controllerAs: 'loginCtrl'
             })
+            .state('forgetPass', {
+                url: '/forget-password',
+                templateUrl: 'templates/accounts/forget-password.html',
+                controller: 'ForgetPasswordController',
+                controllerAs: 'forgetPassCtrl'
+            })
             .state('logout', {
                 url: '/logout',
                 templateUrl: 'templates/accounts/logout.html',
