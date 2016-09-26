@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('CreatePostController', function ($location, $stateParams, StorageService, PostService, ClassService, PageValues, NotificationService) {
+        .controller('CreatePostController', function ($scope, $location, $stateParams, StorageService, PostService, ClassService, PageValues, NotificationService) {
             var mv = this;
 
             PageValues.title = 'Đăng bài mới';
@@ -20,10 +20,15 @@
             mv.newPost.type = 'question';
             mv.newPost.is_incognito = "0";
 
-            var quill = new Quill('#content', {
-                theme: 'snow',
-                placeholder: 'Nội dung câu hỏi...',
-            });
+            mv.tinymceOptions = {
+                plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table contextmenu paste code'
+                ],
+                toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                content_css: '//www.tinymce.com/css/codepen.min.css'
+            };
 
             mv.createPost = createPost;
             mv.changePostType = changePostType;
@@ -48,8 +53,6 @@
             }
 
             function createPost() {
-                mv.newPost.content = jQuery('.ql-editor').html();
-
                 PostService.createPost(mv.newPost).then(
                     function (data) {
                         var newPost = data.data;

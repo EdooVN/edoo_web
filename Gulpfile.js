@@ -64,6 +64,7 @@ gulp.task('copyTemplates', function () {
 let vendors = [
     'bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js',
     'bower_components/jquery/dist/jquery.js',
+    'bower_components/tinymce-dist/tinymce.js',
     'bower_components/bootstrap/dist/js/bootstrap.js',
     'bower_components/tinymce-dist/tinymce.jquery.js',
     'bower_components/moment/moment.js',
@@ -76,8 +77,7 @@ let vendors = [
     'bower_components/angular-loading-bar/src/loading-bar.js',
     'bower_components/angular-ui-tinymce/src/tinymce.js',
     'bower_components/angular-moment/angular-moment.js',
-    'bower_components/angular-animate/angular-animate.js',
-    'assets/js/quill/quill.js'
+    'bower_components/angular-animate/angular-animate.js'
 ];
 
 gulp.task('vendor', function () {

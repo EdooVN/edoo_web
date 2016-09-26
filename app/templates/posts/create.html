@@ -7,8 +7,8 @@
         </div>
 
         <div class="form-group">
-            <label for="content">Nội dung</label>
-            <div id="content" ng-model="createPostCtrl.newPost.content"></div>
+            <label>Nội dung</label>
+            <textarea ng-model="createPostCtrl.newPost.content" ui-tinymce="createPostCtrl.tinymceOptions"></textarea>
         </div>
 
         <div class="form-group">
