@@ -14,6 +14,8 @@
                 confirm_pass: false
             };
 
+            mv.disableSubmit = false;
+
             var breadcrumbs = [
                 {href: $state.href('class'), title: 'Trang chủ'},
                 {title: 'Đổi mật khẩu'}
@@ -26,6 +28,8 @@
             }
 
             function update() {
+                mv.disableSubmit = true;
+
                 var validate = validate_pass();
                 if (!validate) {
                     return;
@@ -33,6 +37,8 @@
 
                 AccountService.changePassword(mv.old_pass, mv.new_pass, mv.confirm_pass).then(
                     function (data) {
+                        mv.disableSubmit = false;
+
                         if (data.status > 200) {
                             reset_all();
                             return NotificationService.error(data.data.message);
@@ -45,6 +51,7 @@
                         NotificationService.success('Cập nhật mật khẩu thành công!');
                     },
                     function (error) {
+                        mv.disableSubmit = false;
                         NotificationService.error(error.message);
                     }
                 )

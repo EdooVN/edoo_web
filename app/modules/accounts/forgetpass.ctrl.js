@@ -8,11 +8,16 @@
             PageValues.title = 'Khôi phục mật khẩu';
 
             mv.submit = submit;
+            mv.disableSubmit = false;
 
             function submit() {
+                mv.disableSubmit = true;
+
                 AccountService.resetPassword(mv.email, mv.code)
                     .then(
                         function (response) {
+                            mv.disableSubmit = false;
+
                             var data = response.data;
 
                             if (data.statusCode > 200) {
@@ -29,6 +34,7 @@
                             $state.go('welcome');
                         },
                         function (error) {
+                            mv.disableSubmit = false;
                             NotificationService.error(error.message);
                         }
                     )

@@ -11,6 +11,8 @@
             mv.email = '';
             mv.password = '';
 
+            mv.disableSubmit = false;
+
             var token = localStorageService.get('user_token');
 
             if (token) {
@@ -18,13 +20,17 @@
             }
 
             function signIn() {
+                mv.disableSubmit = true;
+
                 AccountService.login(mv.email, mv.password).then(
                     function (response) {
+                        mv.disableSubmit = false;
                         $rootScope.$emit('loginSuccess', response);
                         $state.go('class');
                         NotificationService.success('Xin chào ' + response.data.user.name + '!');
                     },
                     function (error) {
+                        mv.disableSubmit = false;
                         mv.password = '';
                         NotificationService.error(error.data.message);
                     }
