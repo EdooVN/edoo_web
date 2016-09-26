@@ -91,7 +91,7 @@
         <h4>Trả lời</h4>
         <form ng-submit="postCtrl.comment()">
             <div class="form-group">
-                <div id="answer"></div>
+                <textarea ng-model="postCtrl.answer" ui-tinymce="postCtrl.tinymceOptions"></textarea>
             </div>
             <div class="form-group">
                 <button class="comment_submit" type="submit">Trả lời</button>

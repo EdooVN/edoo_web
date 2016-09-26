@@ -67,3 +67,7 @@ body {
 		bottom: -15px;
 	}
 }
+
+table {
+	@extend .table;
+}
