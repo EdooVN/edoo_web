@@ -39,6 +39,12 @@
                 controller: 'ForgetPasswordController',
                 controllerAs: 'forgetPassCtrl'
             })
+            .state('newPass', {
+                url: '/reset-pass/{token}',
+                templateUrl: 'templates/accounts/new-password.html',
+                controller: 'NewPasswordController',
+                controllerAs: 'newPassCtrl'
+            })
             .state('logout', {
                 url: '/logout',
                 templateUrl: 'templates/accounts/logout.html',

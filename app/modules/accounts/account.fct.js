@@ -11,7 +11,8 @@
             getProfile: getProfile,
             updateProfile: updateProfile,
             changePassword: changePassword,
-            resetPassword: resetPassword
+            resetPassword: resetPassword,
+            newPassword: newPassword
         };
 
         function login(email, password) {
@@ -129,6 +130,29 @@
                 url: '/sendresetpass',
                 method: 'POST',
                 data: data
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.resolve(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function newPassword(token, password) {
+            var data = {
+                new_password: password
+            };
+            var deferred = $q.defer();
+
+            APIService.makeRequest({
+                url: '/resetpass',
+                method: 'POST',
+                data: data,
+                headers: {'Authorization': token}
             }).then(
                 function (response) {
                     deferred.resolve(response.data);
