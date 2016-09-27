@@ -45,6 +45,8 @@
 
                 PageValues.title = post.title;
 
+                mv.post.content = emojione.toImage(mv.post.content);
+
                 var breadcrumbs = [
                     {href: $state.href('class'), title: 'Danh sách lớp'},
                     {href: $state.href('posts.list', {classId: post.class.id}), title: post.class.name},
@@ -99,7 +101,7 @@
 
                 PostService.voteComment(data).then(
                     function (response) {
-                        for (var i=0; i<mv.post.comments.length; i++) {
+                        for (var i = 0; i < mv.post.comments.length; i++) {
                             var comment = mv.post.comments[i];
 
                             if (comment.id == comment_id) {
@@ -122,7 +124,7 @@
 
                 PostService.devoteComment(data).then(
                     function (response) {
-                        for (var i=0; i<mv.post.comments.length; i++) {
+                        for (var i = 0; i < mv.post.comments.length; i++) {
                             var comment = mv.post.comments[i];
 
                             if (comment.id == comment_id) {
@@ -141,7 +143,7 @@
             function solve(comment_id) {
                 PostService.solve(comment_id).then(
                     function (data) {
-                        for (var i=0; i<mv.post.comments.length; i++) {
+                        for (var i = 0; i < mv.post.comments.length; i++) {
                             var comment = mv.post.comments[i];
 
                             if (comment.id == comment_id) {

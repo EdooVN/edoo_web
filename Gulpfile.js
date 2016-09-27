@@ -74,7 +74,8 @@ let vendors = [
     'bower_components/angular-local-storage/dist/angular-local-storage.js',
     'bower_components/angular-loading-bar/src/loading-bar.js',
     'bower_components/angular-moment/angular-moment.js',
-    'bower_components/angular-animate/angular-animate.js'
+    'bower_components/angular-animate/angular-animate.js',
+    'bower_components/emojione/lib/js/emojione.min.js'
 ];
 
 gulp.task('vendor', function () {
@@ -85,11 +86,11 @@ gulp.task('vendor', function () {
     }
 
     return gulp.src(vendors)
-        .pipe(jsmin())
+        .pipe(gulpif('!*emojione.*', jsmin()))
         .pipe(gulp.dest('dist/vendor'));
 });
 
-gulp.task('replaceVendor', ['concat'], function() {
+gulp.task('replaceVendor', ['concat'], function () {
     var dir = 'vendor/';
 
     return gulp.src('dist/index.html')
@@ -102,7 +103,7 @@ gulp.task('replaceVendor', ['concat'], function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('gh-pages', ['replaceVendor', 'copy', 'concat', 'vendor'], function() {
+gulp.task('gh-pages', ['replaceVendor', 'copy', 'concat', 'vendor'], function () {
     return gulp.src('dist/**/*')
         .pipe(ghPages());
 });

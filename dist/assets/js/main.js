@@ -1,5 +1,5 @@
-(function ($) {
+(function ($, emojione) {
     $(document).ready(function () {
-
+        emojione.ascii = true;
     });
-})(jQuery);
+})(jQuery, emojione);
