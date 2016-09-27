@@ -36,19 +36,19 @@
                             </td>
                         </tr>
 
-                        <tr ng-if="profileCtrl.account.username">
-                            <td>Username</td>
-                            <td>
-                                <div class="value">{{profileCtrl.account.username}}</div>
-                                <label><input type="hidden" ng-model="profileCtrl.account.username"></label>
-                            </td>
-                        </tr>
-
                         <tr ng-if="profileCtrl.account.email">
                             <td>Email</td>
                             <td>
                                 <div class="value">{{profileCtrl.account.email}}</div>
                                 <label><input type="hidden" ng-model="profileCtrl.account.email"></label>
+                            </td>
+                        </tr>
+
+                        <tr ng-if="profileCtrl.account.point_count">
+                            <td>Edoo point</td>
+                            <td>
+                                <div class="value">{{profileCtrl.account.point_count}}</div>
+                                <label><input type="hidden" ng-model="profileCtrl.account.point_count"></label>
                             </td>
                         </tr>
                         </tbody>
