@@ -100,6 +100,16 @@
                     }
                 }
             })
+            .state('posts.list.edit', {
+                url: '/edit/{postId}',
+                views: {
+                    'content@posts': {
+                        templateUrl: 'templates/posts/edit.html',
+                        controller: 'EditPostController',
+                        controllerAs: 'editPostCtrl'
+                    }
+                }
+            })
             .state('accounts', {
                 views: {
                     '': {

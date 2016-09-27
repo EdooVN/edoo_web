@@ -9,6 +9,7 @@
             getListPost: getListPost,
             getPost: getPost,
             createPost: createPost,
+            updatePost: updatePost,
             comment: comment,
             votePost: votePost,
             deletePost: deletePost,
@@ -196,6 +197,25 @@
                 method: 'POST',
                 data: {post_id: post_id},
                 headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function updatePost(data) {
+            var deferred = $q.defer();
+
+            APIService.makeRequestAuth({
+                url: '/updatepost',
+                method: 'POST',
+                data: data
             }).then(
                 function (response) {
                     deferred.resolve(response.data);

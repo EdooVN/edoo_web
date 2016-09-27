@@ -38,7 +38,7 @@
 
                 <div class="action pull-right" ng-show="postCtrl.data.user.id == postCtrl.post.author.id">
                     <div class="btn-group">
-                        <a class="btn btn-primary" ng-click="postCtrl.edit()"><i class="fa fa-pencil fa-fw"></i> Sửa</a>
+                        <a class="btn btn-primary" ui-sref="posts.list.edit({postId: postCtrl.post.id})"><i class="fa fa-pencil fa-fw"></i> Sửa</a>
                         <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                             <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
                         </a>
