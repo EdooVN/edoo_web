@@ -1,4 +1,4 @@
-(function () {
+(function (moment) {
     'use strict';
 
     angular.module('app.core')
@@ -14,6 +14,7 @@
             mv.post_id = $stateParams.postId;
             mv.user = StorageService.getUserData();
             mv.isTeacher = (mv.user.capability == 'teacher');
+            mv.date_format = 'dd/MM/yyyy HH:mm:ss';
 
             mv.tinymceOptions = {
                 plugins: [
@@ -45,8 +46,11 @@
                     $state.go('posts.list.edit', {postId: mv.post_id, classId: mv.class_id});
                 }
                 mv.post = post;
-
                 mv.post.is_incognito += '';
+                var time_end = parseFloat(mv.post.time_end);
+                var time_moment = moment(time_end);
+                mv.time_end_event = time_moment.format('DD/MM/YYYY HH:mm:ss');
+                console.log(mv.time_end_event);
 
                 PageValues.title = post.title;
 
@@ -70,6 +74,12 @@
                     type: mv.post.type
                 };
 
+                if (mv.post.type == 'event') {
+                    var str = mv.time_end_event;
+                    var time = moment(str, mv.date_format);
+                    args.event_end = time.valueOf() + '';
+                }
+
                 PostService.updatePost(args).then(
                     function (data) {
                         NotificationService.success('Cập nhật bài viết thành công.');
@@ -81,4 +91,4 @@
                 );
             }
         });
-})();
+})(moment);

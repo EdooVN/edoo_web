@@ -18,7 +18,13 @@
                 <label class="radio-inline"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="note">Note</label>
                 <label class="radio-inline"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="poll">Poll</label>
                 <label class="radio-inline" ng-show="editPostCtrl.isTeacher"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="notification">Notification</label>
+                <label class="radio-inline" ng-show="editPostCtrl.isTeacher"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="event">Exercise</label>
             </div>
+        </div>
+
+        <div class="form-group" ng-show="editPostCtrl.post.type == 'event'">
+            <label for="time_end_event">Hạn nộp</label>
+            <input class="form-control" id="time_end_event" datetime-picker date-format="{{editPostCtrl.date_format}}" future-only ng-model="editPostCtrl.time_end_event"/>
         </div>
 
         <div class="form-group">
