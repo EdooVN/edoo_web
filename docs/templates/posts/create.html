@@ -1,0 +1,43 @@
+<div class="wrapper-new-post">
+    <h2 class="modal-title">Đăng chủ đề mới</h2>
+    <form class="new_post">
+        <div class="form-group">
+            <label for="title">Tiêu đề</label>
+            <input type="text" id="title" ng-model="createPostCtrl.newPost.title" class="form-control" placeholder="Tiêu đề tập trung vào vấn đề cần hỏi">
+        </div>
+
+        <div class="form-group">
+            <label>Nội dung</label>
+            <textarea ng-model="createPostCtrl.newPost.content" ui-tinymce="createPostCtrl.tinymceOptions"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="type">Thể loại</label>
+            <div id="type">
+                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="question">Question</label>
+                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="note">Note</label>
+                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="poll">Poll</label>
+                <label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="notification">Notification</label>
+                <label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="event">Exercise</label>
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="createPostCtrl.newPost.type == 'event'">
+            <label for="time_end_event">Hạn nộp</label>
+            <input class="form-control" id="time_end_event" datetime-picker date-format="{{createPostCtrl.date_format}}" future-only ng-model="createPostCtrl.time_end_event"/>
+        </div>
+
+        <div class="form-group">
+            <label for="is_incognito">Đăng với tư cách</label>
+            <select name="is_incognito" id="is_incognito" class="form-control" ng-model="createPostCtrl.newPost.is_incognito">
+                <option value="0">{{createPostCtrl.user.name}}</option>
+                <option value="1">Ẩn danh</option>
+            </select>
+        </div>
+
+        <div class="create_topic">
+            <a ng-click="createPostCtrl.createPost()" ng-bind="createPostCtrl.button"></a>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="wrapper-contact">
+    <div class="container">
+        <div class="row">
+            <div class="wrapper-form col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                <div class="contact-heading">
+                    <h2>Hỗ trợ</h2>
+                </div>
+                <div class="description">
+                    <p>Nếu bạn có bất kỳ thắc mắc nào hay bạn cần sự hỗ trợ, đừng ngần ngại liên hệ với chúng tôi!</p>
+                </div>
+                <form id="message-form" ng-submit="ContactPageCtrl.submitContactForm()">
+
+                    <div class="form-group input-field email ">
+                        <label for="email">Email của bạn</label>
+                        <input id="email" type="email" placeholder="" class="form-control text-input" ng-model="ContactPageCtrl.email">
+                    </div>
+                    <div class="form-group input-field type ">
+                        <label for="type">Bạn muốn hỗ trợ về?</label>
+                        <select id="type" class="form-control" ng-model="ContactPageCtrl.type" required>
+                            <option value="1">Tài khoản</option>
+                            <option value="2">Thông báo lỗi</option>
+                            <option value="3">Góp ý</option>
+                            <option value="4">Vấn đề khác</option>
+                        </select>
+                    </div>
+                    <div class="form-group input-field message ">
+                        <label for="message">Thông tin hỗ trợ</label>
+                        <textarea rows="5" id="message" placeholder="Thông tin hỗ trợ hoặc góp ý" class="form-control text-input" ng-model="ContactPageCtrl.content" required></textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" class="btn submit-button" value="Gửi">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

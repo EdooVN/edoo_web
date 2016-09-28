@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="wrapper-breadcrumb" ng-controller="BreadcrumbsController as breadcrumbCtrl" ng-show="breadcrumbCtrl.links.length">
+        <ul class="breadcrumb">
+            <li ng-repeat="link in breadcrumbCtrl.links">
+                <a href="{{link.href}}" title="{{link.title}}" ng-if="link.href">{{link.title}}</a>
+                <span ng-if="!link.href">{{link.title}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-3 wrapper-sidebar" ui-view="sidebar">
+            </div>
+            <div class="col-md-9 wrapper-content" ui-view="content">
+            </div>
+        </div>
+    </div>
+</div>

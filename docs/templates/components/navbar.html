@@ -1,0 +1,48 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-mobile"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="welcome">
+                <img ng-src="assets/images/logo.png" alt="Logo">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="menu-mobile">
+            <ul class="nav navbar-nav">
+                <li class="dropdown" ng-show="navbarCtrl.data.isAuthenticated">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Lớp môn học <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active"><a ui-sref="class">Tất cả các lớp</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li ng-repeat="class in navbarCtrl.classes" ui-sref-active="active"><a
+                                ui-sref="posts.list({classId: class.id, page: undefined})">{{class.name }} - {{class.code}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="login"><a ui-sref="login" ng-hide="navbarCtrl.data.isAuthenticated">Đăng nhập</a></li>
+                <li class="dropdown user" ng-show="navbarCtrl.data.isAuthenticated">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <img ng-src="{{navbarCtrl.data.user.avatar}}" class="avatar">
+                        {{navbarCtrl.data.user.name}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="accounts.profile">Cập nhập thông tin</a></li>
+                        <li><a ui-sref="accounts.changePassword">Đổi mật khẩu</a></li>
+                        <li><a ui-sref="support">Hỗ trợ</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a ui-sref="logout">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

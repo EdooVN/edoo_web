@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="wrapper row">
+        <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <div class="class-content">
+                <h2 class="modal-title">Danh Sách Lớp Môn Học</h2>
+
+                <ul class="list-group list-classes">
+                    <li class="list-group-item ng-fade" ng-repeat="class in classCtrl.listClass">
+                        <div class="group">
+                            <h2 class="name"><a href="#/class/{{class.id}}">{{class.name}} - {{class.code}}</a></h2>
+                            <div class="teacher">
+                                <div>Giảng viên:</div>
+                                <span class="number">{{class.teacher_name}}</span></div>
+                            <div class="number_students">
+                                <div>Sinh viên:</div>
+                                <span class="number">{{class.student_count}}</span></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
