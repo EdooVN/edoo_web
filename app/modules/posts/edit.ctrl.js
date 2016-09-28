@@ -13,7 +13,7 @@
             mv.class_id = $stateParams.classId;
             mv.post_id = $stateParams.postId;
             mv.user = StorageService.getUserData();
-            mv.canCreatableNotification = (mv.user.capability == 'teacher');
+            mv.isTeacher = (mv.user.capability == 'teacher');
 
             mv.tinymceOptions = {
                 plugins: [

@@ -1,4 +1,4 @@
-(function () {
+(function (moment) {
     'use strict';
 
     angular.module('app.core')
@@ -12,7 +12,8 @@
             mv.data = PageValues;
             mv.class_id = $stateParams.classId;
             mv.user = StorageService.getUserData();
-            mv.canCreatableNotification = (mv.user.capability == 'teacher');
+            mv.isTeacher = (mv.user.capability == 'teacher');
+            mv.date_format = 'dd/MM/yyyy HH:mm:ss';
 
             mv.newPost = {};
             mv.newPost.content = '';
@@ -47,12 +48,22 @@
                         mv.button = 'Đăng thông báo';
                         break;
 
+                    case 'event':
+                        mv.button = 'Đăng thu bài tập';
+                        break;
+
                     default:
                         mv.button = 'Đăng câu hỏi';
                 }
             }
 
             function createPost() {
+                if (mv.newPost.type == 'event') {
+                    var str = mv.time_end_event;
+                    var time = moment(str, mv.date_format);
+                    mv.newPost.time_end = time.valueOf();
+                }
+
                 PostService.createPost(mv.newPost).then(
                     function (data) {
                         var newPost = data.data;
@@ -67,4 +78,4 @@
                 );
             }
         });
-})();
+})(moment);

@@ -17,7 +17,7 @@
                 <label class="radio-inline"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="question">Question</label>
                 <label class="radio-inline"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="note">Note</label>
                 <label class="radio-inline"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="poll">Poll</label>
-                <label class="radio-inline" ng-show="editPostCtrl.canCreatableNotification"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="notification">Notification</label>
+                <label class="radio-inline" ng-show="editPostCtrl.isTeacher"><input ng-model="editPostCtrl.post.type" type="radio" name="type" value="notification">Notification</label>
             </div>
         </div>
 
