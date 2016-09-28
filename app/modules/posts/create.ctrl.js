@@ -61,7 +61,7 @@
                 if (mv.newPost.type == 'event') {
                     var str = mv.time_end_event;
                     var time = moment(str, mv.date_format);
-                    mv.newPost.event_end = time.valueOf();
+                    mv.newPost.event_end = time.valueOf() + '';
                 }
 
                 PostService.createPost(mv.newPost).then(
