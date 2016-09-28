@@ -47,6 +47,12 @@
 
                 mv.post.content = emojione.toImage(mv.post.content);
 
+                if (mv.post.comments && mv.post.comments.length) {
+                    for (var i = 0; i < mv.post.comments.length; i++) {
+                        mv.post.comments[i].content = emojione.toImage(mv.post.comments[i].content);
+                    }
+                }
+
                 var breadcrumbs = [
                     {href: $state.href('class'), title: 'Danh sách lớp'},
                     {href: $state.href('posts.list', {classId: post.class.id}), title: post.class.name},
