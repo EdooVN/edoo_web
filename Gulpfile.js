@@ -109,4 +109,4 @@ gulp.task('replaceVendor', ['concat'], function () {
 //         .pipe(ghPages());
 // });
 
-gulp.task('deploy', ['replaceVendor', 'copy', 'concat', 'vendor']);
+gulp.task('build', ['replaceVendor', 'copy', 'concat', 'vendor']);

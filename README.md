@@ -13,4 +13,4 @@ http://uetf.me
 `npm start`
 
 ## Deploy
-`gulp deploy`
+`gulp build`
