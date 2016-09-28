@@ -46,19 +46,19 @@ gulp.task('concat', function () {
         .pipe(useref())
         .pipe(gulpif('*.js', jsmin()))
         .pipe(gulpif('*.css', minifyCss()))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('docs'));
 });
 
 gulp.task('copy', ['copyAssets', 'copyTemplates']);
 
 gulp.task('copyAssets', function () {
     return gulp.src('app/assets/**/*')
-        .pipe(gulp.dest('dist/assets'));
+        .pipe(gulp.dest('docs/assets'));
 });
 
 gulp.task('copyTemplates', function () {
     return gulp.src('app/templates/**/*')
-        .pipe(gulp.dest('dist/templates'));
+        .pipe(gulp.dest('docs/templates'));
 });
 
 let vendors = [
@@ -88,25 +88,25 @@ gulp.task('vendor', function () {
 
     return gulp.src(vendors)
         .pipe(gulpif('!*emojione.*', jsmin()))
-        .pipe(gulp.dest('dist/vendor'));
+        .pipe(gulp.dest('docs/vendor'));
 });
 
 gulp.task('replaceVendor', ['concat'], function () {
     var dir = 'vendor/';
 
-    return gulp.src('dist/index.html')
+    return gulp.src('docs/index.html')
         .pipe(replace(/data-deploy="vendor" src=("([^"]|"")*")/g, function (str) {
             var arr = str.split('/');
 
             var file = arr[arr.length - 1];
             return "src=\"" + dir + file;
         }))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('docs'));
 });
 
-gulp.task('gh-pages', ['replaceVendor', 'copy', 'concat', 'vendor'], function () {
-    return gulp.src('dist/**/*')
-        .pipe(ghPages());
-});
+// gulp.task('gh-pages', ['replaceVendor', 'copy', 'concat', 'vendor'], function () {
+//     return gulp.src('docs/**/*')
+//         .pipe(ghPages());
+// });
 
-gulp.task('deploy', ['gh-pages']);
+gulp.task('deploy', ['replaceVendor', 'copy', 'concat', 'vendor']);
