@@ -7,7 +7,7 @@
 
             mv.class_id = $stateParams.classId;
             mv.listTopUsers = [];
-            mv.getTopUsers = getTopUsers;
+            getTopUsers();
 
             function getTopUsers() {
                 ClassService.getTopUsers(mv.class_id)
