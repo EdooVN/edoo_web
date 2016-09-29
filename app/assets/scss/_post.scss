@@ -306,6 +306,12 @@
 					}
 				}
 
+				&.deadline {
+					&:before {
+						content: "\f133";
+					}
+				}
+
 				&.solved {
 					&:before {
 						content: "\f058";
