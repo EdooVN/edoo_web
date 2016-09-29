@@ -137,7 +137,7 @@
                                     <p>Chọn file và chọn Tải lên hoặc chọn &times; để thoát.</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary ed-button" ng-click="postCtrl.uploadExercise()" ng-disabled="postCtrl.disableUpload">Tải lên</button>
+                                    <button type="button" class="btn btn-primary ed-button" ng-click="postCtrl.uploadExercise()" ng-disabled="postCtrl.disableUpload || postCtrl.post.is_send_file">Tải lên</button>
                                 </div>
                             </div>
                         </div>

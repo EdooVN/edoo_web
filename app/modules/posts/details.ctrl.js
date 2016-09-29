@@ -27,6 +27,7 @@
             mv.disableBtnUpload = false;
             mv.disableUploadExercise = false;
             mv.post.listExercise = [];
+            $scope.f = {};
 
             mv.tinymceOptions = {
                 plugins: [
