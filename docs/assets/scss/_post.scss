@@ -288,6 +288,10 @@
 				color: #999;
 				font-weight: 600;
 
+				&.deadline {
+					color: #F44336;
+				}
+
 				&:hover {
 					text-decoration: none;
 					color: $primary-color;
