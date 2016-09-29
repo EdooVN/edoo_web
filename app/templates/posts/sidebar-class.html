@@ -2,7 +2,7 @@
     <h3 class="title-sidebar">Bảng xếp hạng</h3>
     <ul class="list-sidebar">
         <li>
-            <div class="user" ng-repeat="user in sidebarClassCtrl.listTopUsers">
+            <div class="user" ng-repeat="user in sidebarClassCtrl.listTopUsers | limitTo:10">
                 <img ng-src="{{user.avatar}}"/>
                 <div class="comment_content">
                     <span class="author">{{user.name}}</span> <span class="pull-right">{{user.point_count}} EP</span>
