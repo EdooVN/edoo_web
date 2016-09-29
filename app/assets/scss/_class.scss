@@ -60,9 +60,18 @@
 		}
 	}
 
-	&.latest_comments {
+	&.top-users {
 		font-size: 12px;
-		.comments {
+
+		.list-sidebar {
+			max-height: 400px;
+			overflow-y: auto;
+			margin-bottom: 20px;
+		}
+
+		.user {
+			margin-bottom: 10px;
+
 			img {
 				width: 30px;
 				-webkit-border-radius: 50%;
@@ -72,16 +81,16 @@
 				float: left;
 			}
 
-			p {
-				margin: 0;
-			}
-
 			.author {
 				font-weight: 700;
 			}
 
 			.comment_content {
 				margin-left: 40px;
+			}
+
+			&:after {
+				@extend .clearfix;
 			}
 		}
 

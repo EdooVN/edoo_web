@@ -4,19 +4,36 @@
     angular.module('app.services')
         .factory('ClassService', classService);
 
-    function classService($q, StorageService, APIService) {
+    function classService($q, APIService) {
         return {
-            getClasses: getClasses
+            getClasses: getClasses,
+            getTopUsers: getTopUsers
         };
 
         function getClasses() {
             var deferred = $q.defer();
-            var token = StorageService.getToken();
 
-            APIService.makeRequest({
+            APIService.makeRequestAuth({
                 url: '/classes',
                 method: 'GET',
-                headers: {'Authorization': token}
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function getTopUsers(class_id) {
+            var deferred = $q.defer();
+
+            APIService.makeRequestAuth({
+                url: '/classes/' + class_id,
+                method: 'GET',
             }).then(
                 function (response) {
                     deferred.resolve(response.data);

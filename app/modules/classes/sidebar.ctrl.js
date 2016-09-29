@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.core')
-        .controller('SidebarController', function (ClassService) {
+        .controller('SidebarController', function ($stateParams, ClassService) {
             this.listClass = [];
             var mv = this;
 

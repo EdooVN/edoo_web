@@ -77,6 +77,11 @@
                         templateUrl: 'templates/posts/list-post.html',
                         controller: 'ListPostsController',
                         controllerAs: 'postsCtrl'
+                    },
+                    'sidebarClass@posts': {
+                        templateUrl: 'templates/posts/sidebar-class.html',
+                        controller: 'SidebarClassController',
+                        controllerAs: 'sidebarClassCtrl'
                     }
                 }
             })

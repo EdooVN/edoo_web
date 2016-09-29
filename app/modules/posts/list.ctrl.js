@@ -21,7 +21,7 @@
                 $state.go('class');
             }
 
-            PostService.getListPost(this.class_id, mv.page_number).then(function (data) {
+            PostService.getListPost(mv.class_id, mv.page_number).then(function (data) {
                 mv.listPost = data.data.posts;
                 mv.class = data.data;
 
