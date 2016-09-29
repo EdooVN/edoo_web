@@ -18,6 +18,16 @@
 		margin-bottom: 20px;
 	}
 
+	.exercise {
+		margin-top: 50px;
+		padding: 20px;
+		background-color: #eee;
+
+		> div {
+			text-align: center;
+		}
+	}
+
 	.comments {
 		margin-bottom: 20px;
 
