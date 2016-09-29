@@ -223,6 +223,10 @@
 		padding: 20px 30px;
 		margin-bottom: 30px;
 
+		&.event {
+			background-color: #f5f5f5;
+		}
+
 		&.seen {
 			.title {
 				a {
