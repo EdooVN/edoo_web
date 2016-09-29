@@ -6,13 +6,14 @@
             var mv = this;
 
             mv.class_id = $stateParams.classId;
+            mv.listTopUsers = [];
             mv.getTopUsers = getTopUsers;
 
             function getTopUsers() {
                 ClassService.getTopUsers(mv.class_id)
                     .then(
                         function (response) {
-                            console.log(response);
+                            mv.listTopUsers = response.data.users;
                         },
                         function (error) {
                             NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');

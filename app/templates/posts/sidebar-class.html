@@ -29,20 +29,28 @@
                         <h4 class="modal-title" id="labelTopUsers">Bảng xếp hạng</h4>
                     </div>
                     <div class="modal-body">
-                        <div ng-if="postsCtrl.listTopUsers.length">
+                        <div ng-if="sidebarClassCtrl.listTopUsers.length">
                             <table class="table table-hover table-striped">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên</th>
                                     <th>MSV</th>
-                                    <th>Lớp</th>
-                                    <th>Bài tập</th>
+                                    <th>Tên</th>
+                                    <th>Số bài viết</th>
+                                    <th>Số lượt ủng hộ</th>
+                                    <th>Số câu trả lời tốt</th>
+                                    <th>EP</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="user in postsCtrl.listTopUsers">
+                                <tr ng-repeat="user in sidebarClassCtrl.listTopUsers">
                                     <td>{{$index + 1}}</td>
+                                    <td>{{user.code}}</td>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.post_count}}</td>
+                                    <td>{{user.vote_count}}</td>
+                                    <td>{{user.solve_count}}</td>
+                                    <td>{{user.point_count}}</td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -32,7 +32,7 @@
             var deferred = $q.defer();
 
             APIService.makeRequestAuth({
-                url: '/classes/' + class_id,
+                url: '/classrank/' + class_id,
                 method: 'GET',
             }).then(
                 function (response) {
