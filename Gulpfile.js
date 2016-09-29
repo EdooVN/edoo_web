@@ -76,7 +76,9 @@ let vendors = [
     'bower_components/angular-moment/angular-moment.js',
     'bower_components/angular-animate/angular-animate.js',
     'bower_components/emojione/lib/js/emojione.min.js',
-    'bower_components/angularjs-datetime-picker/angularjs-datetime-picker.js'
+    'bower_components/angularjs-datetime-picker/angularjs-datetime-picker.js',
+    'bower_components/ng-file-upload/ng-file-upload-shim.js',
+    'bower_components/ng-file-upload/ng-file-upload.js'
 ];
 
 gulp.task('vendor', function () {
