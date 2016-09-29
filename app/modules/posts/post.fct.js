@@ -15,7 +15,9 @@
             deletePost: deletePost,
             voteComment: voteComment,
             devoteComment: devoteComment,
-            solve: solve
+            solve: solve,
+            getListExercise: getListExercise,
+            downloadAllExercise: downloadAllExercise
         };
 
         function getListPost(class_id, page) {
@@ -216,6 +218,42 @@
                 url: '/updatepost',
                 method: 'POST',
                 data: data
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function getListExercise(post_id) {
+            var deferred = $q.defer();
+
+            APIService.makeRequestAuth({
+                url: '/checkevent/' + post_id,
+                method: 'GET'
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
+
+        function downloadAllExercise(post_id) {
+            var deferred = $q.defer();
+
+            APIService.makeRequestAuth({
+                url: '/geteventfiles/' + post_id,
+                method: 'GET'
             }).then(
                 function (response) {
                     deferred.resolve(response.data);

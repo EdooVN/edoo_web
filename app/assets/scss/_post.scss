@@ -374,3 +374,10 @@
 	box-shadow: 0 0 8px 0 rgba(17, 17, 17, 0.10);
 	border-radius: 10px;
 }
+
+#modalManagerExercise {
+	.modal-body {
+		max-height: 500px;
+		overflow-y: scroll;
+	}
+}

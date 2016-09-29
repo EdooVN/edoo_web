@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($scope, $rootScope, $interval, $state, StorageService, $stateParams, PostService, PageValues, NotificationService, BreadCrumbsService, FileUpload) {
+        .controller('PostDetailsController', function ($scope, $location, $rootScope, $interval, $state, StorageService, $stateParams, PostService, PageValues, NotificationService, BreadCrumbsService, FileUpload) {
             var mv = this;
             var user = StorageService.getUserData();
 
@@ -18,12 +18,15 @@
             mv.devoteComment = devoteComment;
             mv.selectFile = selectFile;
             mv.uploadExercise = uploadExercise;
+            mv.getListExercise = getListExercise;
+            mv.downloadAllExercise = downloadAllExercise;
             mv.remove = remove;
             mv.edit = edit;
             mv.solve = solve;
             mv.byPostAuthor = false;
             mv.disableBtnUpload = false;
             mv.disableUploadExercise = false;
+            mv.post.listExercise = [];
 
             mv.tinymceOptions = {
                 plugins: [
@@ -104,8 +107,35 @@
 
                 BreadCrumbsService.update(breadcrumbs);
             }, function (error) {
-                NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');
+                NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại!');
             });
+
+            function downloadAllExercise() {
+                PostService.downloadAllExercise(mv.post.id)
+                    .then(
+                        function (response) {
+                            var url_download = response.data;
+                            if (url_download) {
+                                window.location = url_download;
+                            }
+                        },
+                        function (error) {
+                            NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng thử lại!');
+                        }
+                    )
+            }
+
+            function getListExercise() {
+                PostService.getListExercise(mv.post.id)
+                    .then(
+                        function (response) {
+                            mv.post.listExercise = response.data.attack_files;
+                        },
+                        function (error) {
+                            NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');
+                        }
+                    );
+            }
 
             function selectFile(file, errFiles) {
                 $scope.f = file;
