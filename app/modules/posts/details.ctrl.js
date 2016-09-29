@@ -151,6 +151,7 @@
                             function (response) {
                                 mv.disableBtnUpload = false;
                                 $scope.link_download = response.data.url;
+                                mv.post.is_send_file = true;
 
                                 NotificationService.success('Bài tập đã được gửi thành công!');
                             },

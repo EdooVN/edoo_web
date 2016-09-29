@@ -86,7 +86,9 @@
                                                 <td>{{item.author.code}}</td>
                                                 <td>{{item.author.regular_class}}</td>
                                                 <td>
-                                                    <a href="{{item.url}}" download="{{item.url}}">Download</a>
+                                                    <a ng-href="{{item.url}}" download="{{item.url}}">Tải về</a>
+                                                    <span>/</span>
+                                                    <a ng-href="{{item.url}}" target="_blank">Xem</a>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -103,7 +105,8 @@
                     </div>
                 </div>
                 <div class="student" ng-if="postCtrl.data.user.capability != 'teacher'">
-                    <button class="btn btn-primary ed-button" data-toggle="modal" data-target="#modalExercise" ng-disabled="postCtrl.disableUploadExercise">Nộp bài tập</button>
+                    <p ng-if="postCtrl.post.is_send_file">Bạn đã nộp bài tập.</p>
+                    <button class="btn btn-primary ed-button" data-toggle="modal" data-target="#modalExercise" ng-if="!postCtrl.post.is_send_file" ng-disabled="postCtrl.disableUploadExercise">Nộp bài tập</button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="modalExercise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -127,7 +130,7 @@
                                         </div>
 
                                         <div class="upload-results" ng-show="link_download">
-                                            Link download: <a href="{{link_download}}" download="{{link_download}}" target="_blank">{{f.name}}</a>
+                                            Link download: <a ng-href="{{link_download}}" download="{{link_download}}" target="_blank">{{f.name}}</a>
                                         </div>
                                     </div>
 
