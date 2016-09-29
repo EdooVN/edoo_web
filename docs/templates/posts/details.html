@@ -15,7 +15,7 @@
                 <div class="author" ng-if="!postCtrl.post.is_incognito">
                     <img ng-src="{{postCtrl.post.author.avatar}}" alt="">
                     <div class="author_name">
-                        <div>{{post.author.capability == 'student' ? 'Sinh viên' : 'Giảng viên'}}:</div>
+                        <div>{{postCtrl.post.author.capability == 'student' ? 'Sinh viên' : 'Giảng viên'}}:</div>
                         <span>{{postCtrl.post.author.name}}</span>
                     </div>
                 </div>
