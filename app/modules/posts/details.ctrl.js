@@ -1,9 +1,9 @@
-(function () {
+(function (emojione, moment) {
     'use strict';
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($scope, $rootScope, $timeout, $state, StorageService, $stateParams, PostService, PageValues, NotificationService, BreadCrumbsService, FileUpload) {
+        .controller('PostDetailsController', function ($scope, $rootScope, $interval, $state, StorageService, $stateParams, PostService, PageValues, NotificationService, BreadCrumbsService, FileUpload) {
             var mv = this;
             var user = StorageService.getUserData();
 
@@ -22,7 +22,8 @@
             mv.edit = edit;
             mv.solve = solve;
             mv.byPostAuthor = false;
-            mv.disableUpload = false;
+            mv.disableBtnUpload = false;
+            mv.disableUploadExercise = false;
 
             mv.tinymceOptions = {
                 plugins: [
@@ -60,6 +61,41 @@
                     }
                 }
 
+                var timestamp_end = parseFloat(mv.post.time_end);
+                var time_moment = moment(timestamp_end);
+                mv.post.time_end_event = time_moment.format('HH:mm DD/MM/YYYY');
+
+                /**
+                 * Set time remaining
+                 */
+                var now = new Date();
+                var duration = timestamp_end - now.getTime();
+                if (duration > 0) {
+                    var delay = 1000;
+                    $interval(function () {
+                        duration = moment.duration(duration - delay, 'milliseconds');
+                        var str = '';
+                        if (parseInt(duration.asDays()) > 0) {
+                            str += parseInt(duration.asDays()) + ' ngày';
+                        }
+
+                        if (parseInt(duration.hours()) > 0) {
+                            str += ' ' + parseInt(duration.hours()) + 'h';
+                        }
+                        if (parseInt(duration.minutes()) > 0) {
+                            str += ' ' + parseInt(duration.minutes()) + '\'';
+                        }
+
+                        if (parseInt(duration.seconds()) > 0) {
+                            str += ' ' + parseInt(duration.seconds()) + 's';
+                        }
+                        mv.post.time_remaining_event = str;
+                    }, delay);
+                } else {
+                    mv.post.time_remaining_event = 'Đã hết hạn nộp bài';
+                    mv.disableUploadExercise = true;
+                }
+
                 var breadcrumbs = [
                     {href: $state.href('class'), title: 'Danh sách lớp'},
                     {href: $state.href('posts.list', {classId: post.class.id}), title: post.class.name},
@@ -79,17 +115,17 @@
             function uploadExercise() {
                 var file = $scope.f;
                 if (file) {
-                    mv.disableUpload = true;
+                    mv.disableBtnUpload = true;
                     FileUpload.uploadExercise(mv.post.id, file)
                         .then(
                             function (response) {
-                                mv.disableUpload = false;
+                                mv.disableBtnUpload = false;
                                 $scope.link_download = response.data.url;
 
                                 NotificationService.success('Bài tập đã được gửi thành công!');
                             },
                             function (error) {
-                                mv.disableUpload = false;
+                                mv.disableBtnUpload = false;
                                 if (error.status == 400) {
                                     return NotificationService.error('Dung lượng của file cần nhỏ hơn 20MB. Vui lòng thử lại!');
                                 }
@@ -225,4 +261,4 @@
                 NotificationService.information('Chức năng này đang được hoàn thiện ;)');
             }
         });
-})();
+})(emojione, moment);

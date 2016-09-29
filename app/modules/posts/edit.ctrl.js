@@ -50,7 +50,6 @@
                 var time_end = parseFloat(mv.post.time_end);
                 var time_moment = moment(time_end);
                 mv.time_end_event = time_moment.format('DD/MM/YYYY HH:mm:ss');
-                console.log(mv.time_end_event);
 
                 PageValues.title = post.title;
 
