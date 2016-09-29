@@ -60,9 +60,16 @@
 		}
 	}
 
-	&.latest_comments {
+	&.top-users {
 		font-size: 12px;
-		.comments {
+
+		.list-sidebar {
+			margin-bottom: 20px;
+		}
+
+		.user {
+			margin-bottom: 10px;
+
 			img {
 				width: 30px;
 				-webkit-border-radius: 50%;
@@ -72,16 +79,18 @@
 				float: left;
 			}
 
-			p {
-				margin: 0;
-			}
-
 			.author {
 				font-weight: 700;
+				max-width: 130px;
+				display: inline-block;
 			}
 
 			.comment_content {
 				margin-left: 40px;
+			}
+
+			&:after {
+				@extend .clearfix;
 			}
 		}
 
@@ -184,5 +193,16 @@ h2.modal-title {
 				padding: 18px 0;
 			}
 		}
+	}
+}
+
+#modalTopUsers {
+	.modal-body {
+		max-height: 500px;
+		overflow-y: auto;
+	}
+
+	table {
+		text-align: left;
 	}
 }
