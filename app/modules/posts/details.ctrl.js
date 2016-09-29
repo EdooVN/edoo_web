@@ -22,6 +22,7 @@
             mv.edit = edit;
             mv.solve = solve;
             mv.byPostAuthor = false;
+            mv.disableUpload = false;
 
             mv.tinymceOptions = {
                 plugins: [
@@ -78,14 +79,22 @@
             function uploadExercise() {
                 var file = $scope.f;
                 if (file) {
+                    mv.disableUpload = true;
                     FileUpload.uploadExercise(mv.post.id, file)
                         .then(
                             function (response) {
+                                mv.disableUpload = false;
+                                $scope.link_download = response.data.url;
+
                                 NotificationService.success('Bài tập đã được gửi thành công!');
                             },
                             function (error) {
-                                if (error.status > 0)
-                                    $scope.errorMsg = error.status + ': ' + error.data;
+                                mv.disableUpload = false;
+                                if (error.status == 400) {
+                                    return NotificationService.error('Dung lượng của file cần nhỏ hơn 20MB. Vui lòng thử lại!');
+                                }
+
+                                NotificationService.error(error.data.message);
                             }
                         );
                 }

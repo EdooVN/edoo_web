@@ -79,12 +79,16 @@
                                                 <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
                                             </div>
                                         </div>
+
+                                        <div class="upload-results" ng-show="link_download">
+                                            Link download: <a href="{{link_download}}" download="{{link_download}}" target="_blank">{{f.name}}</a>
+                                        </div>
                                     </div>
 
                                     <p>Chọn file và chọn Tải lên hoặc chọn &times; để thoát.</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary ed-button" ng-click="postCtrl.uploadExercise()">Tải lên</button>
+                                    <button type="button" class="btn btn-primary ed-button" ng-click="postCtrl.uploadExercise()" ng-disabled="postCtrl.disableUpload">Tải lên</button>
                                 </div>
                             </div>
                         </div>
