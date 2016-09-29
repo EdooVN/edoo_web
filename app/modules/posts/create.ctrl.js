@@ -60,7 +60,7 @@
             function createPost() {
                 if (mv.newPost.type == 'event') {
                     var str = mv.time_end_event;
-                    var time = moment(str, mv.date_format);
+                    var time = moment(str, 'DD/MM/YYYY HH:mm:ss');
                     mv.newPost.event_end = time.valueOf() + '';
                 }
 

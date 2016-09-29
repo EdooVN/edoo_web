@@ -82,16 +82,10 @@
                             str += parseInt(duration.asDays()) + ' ngày';
                         }
 
-                        if (parseInt(duration.hours()) > 0) {
-                            str += ' ' + parseInt(duration.hours()) + 'h';
-                        }
-                        if (parseInt(duration.minutes()) > 0) {
-                            str += ' ' + parseInt(duration.minutes()) + '\'';
-                        }
+                        str += ' ' + duration.hours();
+                        str += ':' + duration.minutes();
+                        str += ':' + duration.seconds();
 
-                        if (parseInt(duration.seconds()) > 0) {
-                            str += ' ' + parseInt(duration.seconds()) + 's';
-                        }
                         mv.post.time_remaining_event = str;
                     }, delay);
                 } else {

@@ -75,7 +75,7 @@
 
                 if (mv.post.type == 'event') {
                     var str = mv.time_end_event;
-                    var time = moment(str, mv.date_format);
+                    var time = moment(str, 'DD/MM/YYYY HH:mm:ss');
                     args.event_end = time.valueOf() + '';
                 }
 
