@@ -51,6 +51,97 @@
             </div>
             <div class="content ng-fade" ng-bind-html="postCtrl.post.content">
             </div>
+
+            <div class="exercise" ng-if="postCtrl.post.type = 'event'">
+                <h3>Hạn nộp: {{postCtrl.post.time_end_event}}</h3>
+                <h3>Còn lại: {{postCtrl.post.time_remaining_event}}</h3>
+
+                <div class="teacher" ng-if="postCtrl.data.user.capability == 'teacher'">
+                    <button class="btn btn-primary ed-button" data-toggle="modal" data-target="#modalManagerExercise" ng-click="postCtrl.getListExercise()">Danh sách sinh viên</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalManagerExercise" tabindex="-1" role="dialog" aria-labelledby="labelManagerExercise">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="labelManagerExercise">Danh sách nộp bài tập</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div ng-if="postCtrl.post.listExercise.length">
+                                        <table class="table table-hover table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Tên</th>
+                                                <th>MSV</th>
+                                                <th>Lớp</th>
+                                                <th>Bài tập</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="item in postCtrl.post.listExercise">
+                                                <td>1</td>
+                                                <td>{{item.author.name}}</td>
+                                                <td>{{item.author.code}}</td>
+                                                <td>{{item.author.regular_class}}</td>
+                                                <td>
+                                                    <a href="{{item.url}}" download="{{item.url}}">Download</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div ng-if="!postCtrl.post.listExercise.length">Danh sách rỗng</div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary ed-button" ng-click="postCtrl.downloadAllExercise()" ng-disabled="!postCtrl.post.listExercise.length">Tải về tất cả lớp</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="student" ng-if="postCtrl.data.user.capability != 'teacher'">
+                    <button class="btn btn-primary ed-button" data-toggle="modal" data-target="#modalExercise" ng-disabled="postCtrl.disableUploadExercise">Nộp bài tập</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalExercise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Nộp bài tập</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="upload-component">
+                                        <button class="btn btn-primary" type="file" ngf-select="postCtrl.selectFile($file, $invalidFiles)">
+                                            Select File
+                                        </button>
+                                        <span class="filename">{{f.name}}</span>
+
+                                        <div class="upload-actions"> {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                                            <div class="upload-progress" ng-show="f.progress >= 0">
+                                                <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="upload-results" ng-show="link_download">
+                                            Link download: <a href="{{link_download}}" download="{{link_download}}" target="_blank">{{f.name}}</a>
+                                        </div>
+                                    </div>
+
+                                    <p>Chọn file và chọn Tải lên hoặc chọn &times; để thoát.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary ed-button" ng-click="postCtrl.uploadExercise()" ng-disabled="postCtrl.disableUpload">Tải lên</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
