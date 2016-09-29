@@ -28,7 +28,7 @@
             <div class="author" ng-if="!post.is_incognito">
                 <img ng-src="{{post.author.avatar}}" alt="">
                 <div class="author_name">
-                    <div>Người đăng</div>
+                    <div>{{post.author.capability == 'student' ? 'Sinh viên' : 'Giảng viên'}}:</div>
                     <span>{{post.author.name}}</span>
                 </div>
             </div>
@@ -66,7 +66,7 @@
 
     <div class="wrapper-pagination" ng-show="postsCtrl.pagination.pageCount > 1">
         <ul class="pagination">
-            <li ui-sref-active="active" ng-repeat="page_number in [] | range:1:postsCtrl.pagination.pageCount"><a  ui-sref="posts.list({classId: postsCtrl.class_id, page: page_number})">{{page_number}}</a></li>
+            <li ui-sref-active="active" ng-repeat="page_number in [] | range:1:postsCtrl.pagination.pageCount"><a ui-sref="posts.list({classId: postsCtrl.class_id, page: page_number})">{{page_number}}</a></li>
         </ul>
     </div>
 </div>
