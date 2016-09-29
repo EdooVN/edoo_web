@@ -3,7 +3,7 @@
 
     angular.module('app.core')
 
-        .controller('PostDetailsController', function ($state, StorageService, $stateParams, PostService, PageValues, NotificationService, BreadCrumbsService) {
+        .controller('PostDetailsController', function ($scope, $rootScope, $timeout, $state, StorageService, $stateParams, PostService, PageValues, NotificationService, BreadCrumbsService, FileUpload) {
             var mv = this;
             var user = StorageService.getUserData();
 
@@ -16,6 +16,8 @@
             mv.votePost = votePost;
             mv.voteComment = voteComment;
             mv.devoteComment = devoteComment;
+            mv.selectFile = selectFile;
+            mv.uploadExercise = uploadExercise;
             mv.remove = remove;
             mv.edit = edit;
             mv.solve = solve;
@@ -30,6 +32,10 @@
                 toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
                 content_css: '//www.tinymce.com/css/codepen.min.css'
             };
+
+            $rootScope.$on('progressEventUpload', function (event, args) {
+                $scope.f.progress = Math.min(100, parseInt(100.0 * args.loaded / args.total));
+            });
 
             PostService.getPost(this.post_id).then(function (data) {
                 var post = data.data;
@@ -63,6 +69,27 @@
             }, function (error) {
                 NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');
             });
+
+            function selectFile(file, errFiles) {
+                $scope.f = file;
+                $scope.errFile = errFiles && errFiles[0];
+            }
+
+            function uploadExercise() {
+                var file = $scope.f;
+                if (file) {
+                    FileUpload.uploadExercise(mv.post.id, file)
+                        .then(
+                            function (response) {
+                                NotificationService.success('Bài tập đã được gửi thành công!');
+                            },
+                            function (error) {
+                                if (error.status > 0)
+                                    $scope.errorMsg = error.status + ': ' + error.data;
+                            }
+                        );
+                }
+            }
 
             function comment() {
                 if (!mv.answer) {

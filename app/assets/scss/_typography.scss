@@ -75,3 +75,23 @@ table {
 .emojione {
 	max-height: 10px;
 }
+
+.upload-component {
+	margin-bottom: 20px;
+
+	.upload-actions {
+		margin-top: 10px;
+	}
+
+	.upload-progress {
+		background-color: #eee;
+		border: 1px solid #eee;
+
+		> div {
+			background-color: $primary-color;
+			color: #fff;
+			text-align: center;
+			min-width: 30px;
+		}
+	}
+}

@@ -5,10 +5,11 @@
         .constant('BASE_URL', 'http://api-v2.uetf.me')
         .factory('APIService', APIService);
 
-    function APIService($http, $q, BASE_URL, StorageService) {
+    function APIService($http, $q, BASE_URL, StorageService, Upload, $rootScope) {
         return {
             makeRequest: makeRequest,
-            makeRequestAuth: makeRequestAuth
+            makeRequestAuth: makeRequestAuth,
+            upload: upload
         };
 
         function makeRequest(config) {
@@ -34,6 +35,31 @@
             config.headers = {'Authorization': token};
 
             return makeRequest(config);
+        }
+
+        function upload(url, file) {
+            var deferred = $q.defer();
+            var token = StorageService.getToken();
+
+            Upload
+                .upload({
+                    url: BASE_URL + url,
+                    data: {file: file},
+                    headers: {"Authorization": token}
+                })
+                .then(
+                    function (response) {
+                        deferred.resolve(response);
+                    },
+                    function (error) {
+                        deferred.reject(error);
+                    },
+                    function (event) {
+                        $rootScope.$emit('progressEventUpload', event);
+                    }
+                );
+
+            return deferred.promise;
         }
     }
 })();

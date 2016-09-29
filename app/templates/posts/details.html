@@ -51,6 +51,46 @@
             </div>
             <div class="content ng-fade" ng-bind-html="postCtrl.post.content">
             </div>
+
+            <div class="exercise" ng-if="postCtrl.post.type = 'event'">
+                <div class="teacher" ng-if="postCtrl.data.user.capability == 'teacher'">
+                    <button class="btn btn-primary ed-button">Danh sách sinh viên</button>
+                </div>
+                <div class="teacher" ng-if="postCtrl.data.user.capability != 'teacher'">
+                    <button class="btn btn-primary ed-button" data-toggle="modal" data-target="#modalExercise">Nộp bài tập</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalExercise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Nộp bài tập</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="upload-component">
+                                        <button class="btn btn-primary" type="file" ngf-select="postCtrl.selectFile($file, $invalidFiles)">
+                                            Select File
+                                        </button>
+                                        <span class="filename">{{f.name}}</span>
+
+                                        <div class="upload-actions"> {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                                            <div class="upload-progress" ng-show="f.progress >= 0">
+                                                <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p>Chọn file và chọn Tải lên hoặc chọn &times; để thoát.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary ed-button" ng-click="postCtrl.uploadExercise()">Tải lên</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
