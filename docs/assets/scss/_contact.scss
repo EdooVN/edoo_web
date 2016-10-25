@@ -39,6 +39,9 @@
 				height: auto;
 				border-radius: 6px;
 			}
+			textarea {
+				resize: vertical;
+			}
 		}
 		.message {
 			margin-bottom: 50px;
