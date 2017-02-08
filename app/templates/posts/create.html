@@ -14,11 +14,10 @@
         <div class="form-group">
             <label for="type">Thể loại</label>
             <div id="type">
-                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="question">Question</label>
-                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="note">Note</label>
-                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="poll">Poll</label>
-                <label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="notification">Notification</label>
-                <label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="event">Exercise</label>
+                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="question">Câu hỏi</label>
+                <label class="radio-inline"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="note">Ghi chú</label>
+                <label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="notification">Thông báo</label>
+                <label class="radio-inline" ng-show="createPostCtrl.isTeacher"><input ng-change="createPostCtrl.changePostType()" ng-model="createPostCtrl.newPost.type" type="radio" name="type" value="event">Nộp bài tập</label>
             </div>
         </div>
 
