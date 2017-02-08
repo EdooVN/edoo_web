@@ -7,7 +7,7 @@
                 <ul class="list-group list-classes">
                     <li class="list-group-item ng-fade" ng-repeat="class in classCtrl.listClass">
                         <div class="group">
-                            <h2 class="name"><a href="#/class/{{class.id}}">{{class.name}} - {{class.code}}</a></h2>
+                            <h2 class="name"><a ui-sref="posts.list({classId: class.id, page: undefined})">{{class.name}} - {{class.code}}</a></h2>
                             <div class="teacher">
                                 <div>Giảng viên:</div>
                                 <span class="number">{{class.teacher_name}}</span></div>
