@@ -3,7 +3,7 @@
     <ul class="list-sidebar">
         <li>
             <div class="user" ng-repeat="user in sidebarClassCtrl.listTopUsers | limitTo:5">
-                <img ng-src="{{user.avatar || 'assets/images/student.png'}}"/>
+                <img ng-src="{{user.avatar || '/assets/images/student.png'}}"/>
                 <div class="comment_content">
                     <span class="author">{{user.name}}</span> <span class="pull-right">{{user.point_count}} EP</span>
                 </div>

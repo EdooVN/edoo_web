@@ -290,6 +290,10 @@
 
                 &.deadline {
                     color: $primary-color;
+
+                    &.expired {
+                        color: #F44336;
+                    }
                 }
 
                 &:hover {

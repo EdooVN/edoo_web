@@ -14,7 +14,8 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="post ng-fade" ng-repeat="post in postsCtrl.class.posts" ng-class="[post.is_seen ? 'seen': '', post.type]">
+    <div class="post ng-fade" ng-repeat="post in postsCtrl.class.posts"
+         ng-class="[post.is_seen ? 'seen': '', post.type]">
         <div class="header">
             <h2 class="title"><a ui-sref="posts.list.detail({postId: post.id})"><span class="type {{post.type}}"></span>{{post.title}}</a>
             </h2>
@@ -55,9 +56,13 @@
         </div>
 
         <div class="read_more">
-            <a ui-sref="posts.list.detail({postId: post.id})" class="deadline" ng-if="post.type == 'event'">Thời hạn: {{post.time_end | date:'dd/MM/yyyy HH:mm:ss'}}</a>
-            <a ui-sref="posts.list.detail({postId: post.id})" class="go-comment" ng-if="!post.is_solve && post.type != 'event'">Cùng tham gia thảo luận</a>
-            <a ui-sref="posts.list.detail({postId: post.id})" class="solved" ng-if="post.is_solve && post.type != 'event'">Chủ đề này đã được giải quyết</a>
+            <a ui-sref="posts.list.detail({postId: post.id})" class="deadline"
+               ng-class="post.event_expired ? 'expired' : ''" ng-if="post.type == 'event'">Thời hạn: {{post.time_end |
+                date:'dd/MM/yyyy HH:mm:ss'}}</a>
+            <a ui-sref="posts.list.detail({postId: post.id})" class="go-comment"
+               ng-if="!post.is_solve && post.type != 'event'">Cùng tham gia thảo luận</a>
+            <a ui-sref="posts.list.detail({postId: post.id})" class="solved"
+               ng-if="post.is_solve && post.type != 'event'">Chủ đề này đã được giải quyết</a>
         </div>
     </div>
 
@@ -67,7 +72,8 @@
 
     <div class="wrapper-pagination" ng-show="postsCtrl.pagination.pageCount > 1">
         <ul class="pagination">
-            <li ui-sref-active="active" ng-repeat="page_number in [] | range:1:postsCtrl.pagination.pageCount"><a ui-sref="posts.list({classId: postsCtrl.class_id, page: page_number})">{{page_number}}</a></li>
+            <li ui-sref-active="active" ng-repeat="page_number in [] | range:1:postsCtrl.pagination.pageCount"><a
+                    ui-sref="posts.list({classId: postsCtrl.class_id, page: page_number})">{{page_number}}</a></li>
         </ul>
     </div>
 </div>
