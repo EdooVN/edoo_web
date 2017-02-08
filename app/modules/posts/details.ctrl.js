@@ -74,7 +74,14 @@
                 if (duration > 0) {
                     var delay = 1000;
                     $interval(function () {
+                        if (duration < delay) {
+                            mv.post.time_remaining_event = 'Đã hết hạn nộp bài';
+                            mv.disableUploadExercise = true;
+                            return;
+                        }
+
                         duration = moment.duration(duration - delay, 'milliseconds');
+
                         var str = '';
                         if (parseInt(duration.asDays()) > 0) {
                             str += parseInt(duration.asDays()) + ' ngày';
