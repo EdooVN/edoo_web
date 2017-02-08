@@ -1,6 +1,6 @@
 # Edoo app
 
-http://uetf.me
+http://edoo.vn
 
 ## Install
 
