@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.services')
-        .constant('BASE_URL', 'http://api-v2.uetf.me')
+        .constant('BASE_URL', 'http://api.edoo.vn')
         .factory('APIService', APIService);
 
     function APIService($http, $q, BASE_URL, StorageService, Upload, $rootScope) {
