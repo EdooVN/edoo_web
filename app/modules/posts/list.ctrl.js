@@ -22,7 +22,8 @@
             }
 
             PostService.getListPost(mv.class_id, mv.page_number).then(function (data) {
-                mv.listPost = data.data.posts;
+                mv.listPost = _filter(data.data.posts);
+
                 mv.class = data.data;
 
                 mv.pagination = data.data.pagination;
@@ -38,5 +39,21 @@
             }, function (error) {
                 NotificationService.error('Đã có lỗi gì đó xảy ra. Vui lòng tải lại trang.');
             });
+
+            function _filter(posts) {
+                var now = new Date().getTime();
+
+                posts.map(function (post) {
+                    if (post.time_end) {
+                        if (now > post.time_end) {
+                            post.event_expired = true;
+                        }
+                    }
+
+                    return post;
+                });
+
+                return posts;
+            }
         });
 })();
