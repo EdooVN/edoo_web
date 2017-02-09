@@ -5,10 +5,12 @@
         .controller('LoginController', function ($http, $rootScope, $location, $state, localStorageService, PageValues, AccountService, NotificationService) {
             var mv = this;
 
+            var queries = $location.search();
+
             PageValues.title = 'Đăng nhập';
 
             mv.signIn = signIn;
-            mv.email = '';
+            mv.email = queries.email || '';
             mv.password = '';
 
             mv.disableSubmit = false;

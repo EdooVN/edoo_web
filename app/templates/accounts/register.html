@@ -6,12 +6,9 @@
         <div class="modal-body">
             <form id="loginForm" ng-submit="registerCtrl.register()">
                 <div class="form-group">
-                    <input type="email" class="form-control user_input" name="email" ng-model="registerCtrl.user.email"
-                           placeholder="Email">
-                </div>
-
-                <div class="form-group">
-                    <input type="number" class="form-control user_input" name="mssv" ng-model="registerCtrl.user.mssv"
+                    <input type="number" class="form-control user_input"
+                           string-to-number
+                           name="mssv" ng-model="registerCtrl.user.mssv"
                            placeholder="Mã số sinh viên">
                 </div>
 
@@ -25,6 +22,11 @@
                     <input type="password" class="form-control user_input" name="confirmPassword"
                            ng-model="registerCtrl.user.confirmPassword"
                            placeholder="Gõ lại mật khẩu">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" class="form-control user_input" name="email" ng-model="registerCtrl.user.email"
+                           placeholder="Email">
                 </div>
 
                 <div class="form-group">

@@ -7,7 +7,7 @@
 
             PageValues.title = 'Đăng ký';
 
-            let queries = $location.search();
+            var queries = $location.search();
 
             mv.register = register;
 
@@ -29,13 +29,12 @@
 
                 mv.disableSubmit = true;
 
-                let data = mv.user;
+                var data = Object.assign({avatar: '/assets/images/student.png'}, mv.user);
                 delete data.confirmPassword;
-                data.mssv = data.mssv + "";
 
                 AccountService.register(data).then(
                     function (response) {
-                        $state.go('login');
+                        $state.go('login', {email: data.email});
                         mv.disableSubmit = false;
                         NotificationService.success('Chúc mừng bạn đã đăng ký thành công! Vui lòng đăng nhập để bắt đầu sử dụng :)');
                     },
@@ -46,5 +45,18 @@
                     }
                 );
             }
+        })
+        .directive('stringToNumber', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, element, attrs, ngModel) {
+                    ngModel.$parsers.push(function (value) {
+                        return '' + value;
+                    });
+                    ngModel.$formatters.push(function (value) {
+                        return parseFloat(value);
+                    });
+                }
+            };
         });
 })();

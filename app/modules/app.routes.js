@@ -28,7 +28,7 @@
                 controllerAs: 'ContactPageCtrl'
             })
             .state('login', {
-                url: '/login',
+                url: '/login?email',
                 templateUrl: 'templates/accounts/login.html',
                 controller: 'LoginController',
                 controllerAs: 'loginCtrl'
