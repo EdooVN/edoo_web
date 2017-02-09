@@ -1,0 +1,39 @@
+<div class="container sign-in-wrapper">
+    <div class="sign-in-box">
+        <div class="modal-header">
+            <h4 class="modal-title">Register</h4>
+        </div>
+        <div class="modal-body">
+            <form id="loginForm" ng-submit="registerCtrl.register()">
+                <div class="form-group">
+                    <input type="email" class="form-control user_input" name="email" ng-model="registerCtrl.user.email"
+                           placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control user_input" name="msv" ng-model="registerCtrl.user.msv"
+                           placeholder="Mã số sinh viên">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control user_input" name="password"
+                           ng-model="registerCtrl.user.password"
+                           placeholder="Mật khẩu">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control user_input" name="confirmPassword"
+                           ng-model="registerCtrl.user.confirmPassword"
+                           placeholder="Gõ lại mật khẩu">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary login-button ed-button" type="submit"
+                            ng-disabled="registerCtrl.disableSubmit">Đăng ký
+                    </button>
+                    <a ui-sref="login" class="forget-password">Bạn đã có tài khoản?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
