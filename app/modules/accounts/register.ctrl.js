@@ -14,7 +14,7 @@
             let user = {};
             user.email = queries.email || '';
             user.avatar = queries.avatar || '';
-            user.msv = '';
+            user.mssv = '';
             user.password = '';
             user.confirmPassword = '';
             mv.user = user;
@@ -29,8 +29,13 @@
 
                 mv.disableSubmit = true;
 
-                AccountService.register(mv.user).then(
+                let data = mv.user;
+                delete data.confirmPassword;
+                data.mssv = data.mssv + "";
+
+                AccountService.register(data).then(
                     function (response) {
+                        $state.go('login');
                         mv.disableSubmit = false;
                         NotificationService.success('Chúc mừng bạn đã đăng ký thành công! Vui lòng đăng nhập để bắt đầu sử dụng :)');
                     },

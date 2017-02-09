@@ -20,7 +20,7 @@
             var deferred = $q.defer();
 
             APIService.makeRequest({
-                url: '/register',
+                url: '/updatecode',
                 method: 'POST',
                 data: data
             }).then(
