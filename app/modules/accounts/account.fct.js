@@ -7,6 +7,7 @@
     function accountService($q, StorageService, APIService) {
         return {
             login: login,
+            register: register,
             logout: logout,
             getProfile: getProfile,
             updateProfile: updateProfile,
@@ -14,6 +15,25 @@
             resetPassword: resetPassword,
             newPassword: newPassword
         };
+
+        function register(data) {
+            var deferred = $q.defer();
+
+            APIService.makeRequest({
+                url: '/register',
+                method: 'POST',
+                data: data
+            }).then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function (error) {
+                    deferred.reject(error);
+                }
+            );
+
+            return deferred.promise;
+        }
 
         function login(email, password) {
             var deferred = $q.defer();
